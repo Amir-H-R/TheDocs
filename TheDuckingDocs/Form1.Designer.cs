@@ -28,58 +28,95 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.نوبتدهیToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.لیستپزشکانToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.اخبارواطلاعیههاToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.دربارهماToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.ثبتنامToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripItemRgister = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripItemReservation = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripItemDoctors = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripItemNews = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripItemAboutUs = new System.Windows.Forms.ToolStripMenuItem();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.button1 = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip1
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.ثبتنامToolStripMenuItem,
-            this.نوبتدهیToolStripMenuItem,
-            this.لیستپزشکانToolStripMenuItem,
-            this.اخبارواطلاعیههاToolStripMenuItem,
-            this.دربارهماToolStripMenuItem});
+            this.toolStripItemRgister,
+            this.toolStripItemReservation,
+            this.toolStripItemDoctors,
+            this.toolStripItemNews,
+            this.toolStripItemAboutUs});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(1264, 24);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
-            // نوبتدهیToolStripMenuItem
+            // toolStripItemRgister
             // 
-            this.نوبتدهیToolStripMenuItem.Name = "نوبتدهیToolStripMenuItem";
-            this.نوبتدهیToolStripMenuItem.Size = new System.Drawing.Size(71, 20);
-            this.نوبتدهیToolStripMenuItem.Text = "نوبت دهی";
+            this.toolStripItemRgister.Name = "toolStripItemRgister";
+            this.toolStripItemRgister.Size = new System.Drawing.Size(55, 20);
+            this.toolStripItemRgister.Text = "ثبت نام";
             // 
-            // لیستپزشکانToolStripMenuItem
+            // toolStripItemReservation
             // 
-            this.لیستپزشکانToolStripMenuItem.Name = "لیستپزشکانToolStripMenuItem";
-            this.لیستپزشکانToolStripMenuItem.Size = new System.Drawing.Size(86, 20);
-            this.لیستپزشکانToolStripMenuItem.Text = "لیست پزشکان";
+            this.toolStripItemReservation.Name = "toolStripItemReservation";
+            this.toolStripItemReservation.Size = new System.Drawing.Size(71, 20);
+            this.toolStripItemReservation.Text = "نوبت دهی";
             // 
-            // اخبارواطلاعیههاToolStripMenuItem
+            // toolStripItemDoctors
             // 
-            this.اخبارواطلاعیههاToolStripMenuItem.Name = "اخبارواطلاعیههاToolStripMenuItem";
-            this.اخبارواطلاعیههاToolStripMenuItem.Size = new System.Drawing.Size(104, 20);
-            this.اخبارواطلاعیههاToolStripMenuItem.Text = "اخبار و اطلاعیه ها";
+            this.toolStripItemDoctors.Name = "toolStripItemDoctors";
+            this.toolStripItemDoctors.Size = new System.Drawing.Size(86, 20);
+            this.toolStripItemDoctors.Text = "لیست پزشکان";
             // 
-            // دربارهماToolStripMenuItem
+            // toolStripItemNews
             // 
-            this.دربارهماToolStripMenuItem.Name = "دربارهماToolStripMenuItem";
-            this.دربارهماToolStripMenuItem.Size = new System.Drawing.Size(60, 20);
-            this.دربارهماToolStripMenuItem.Text = "درباره ما";
+            this.toolStripItemNews.Name = "toolStripItemNews";
+            this.toolStripItemNews.Size = new System.Drawing.Size(104, 20);
+            this.toolStripItemNews.Text = "اخبار و اطلاعیه ها";
             // 
-            // ثبتنامToolStripMenuItem
+            // toolStripItemAboutUs
             // 
-            this.ثبتنامToolStripMenuItem.Name = "ثبتنامToolStripMenuItem";
-            this.ثبتنامToolStripMenuItem.Size = new System.Drawing.Size(55, 20);
-            this.ثبتنامToolStripMenuItem.Text = "ثبت نام";
+            this.toolStripItemAboutUs.Name = "toolStripItemAboutUs";
+            this.toolStripItemAboutUs.Size = new System.Drawing.Size(60, 20);
+            this.toolStripItemAboutUs.Text = "درباره ما";
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(0, 0);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(1264, 681);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 1;
+            this.pictureBox1.TabStop = false;
+            // 
+            // button1
+            // 
+            this.button1.FlatAppearance.BorderColor = System.Drawing.Color.MediumSpringGreen;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Location = new System.Drawing.Point(1136, 646);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(116, 23);
+            this.button1.TabIndex = 2;
+            this.button1.Text = "توصیه های بهداشتی";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
+            // button3
+            // 
+            this.button3.FlatAppearance.BorderColor = System.Drawing.Color.MediumSpringGreen;
+            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button3.Location = new System.Drawing.Point(12, 646);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(71, 23);
+            this.button3.TabIndex = 2;
+            this.button3.Text = "تماس با ما";
+            this.button3.UseVisualStyleBackColor = true;
             // 
             // MainForm
             // 
@@ -87,15 +124,19 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.ClientSize = new System.Drawing.Size(1264, 681);
+            this.Controls.Add(this.button3);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.menuStrip1);
+            this.Controls.Add(this.pictureBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "MainForm";
             this.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.Text = "Da";
+            this.Text = "Proj";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -104,11 +145,14 @@
         #endregion
 
         private System.Windows.Forms.MenuStrip menuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem نوبتدهیToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem لیستپزشکانToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem ثبتنامToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem اخبارواطلاعیههاToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem دربارهماToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem toolStripItemReservation;
+        private System.Windows.Forms.ToolStripMenuItem toolStripItemDoctors;
+        private System.Windows.Forms.ToolStripMenuItem toolStripItemRgister;
+        private System.Windows.Forms.ToolStripMenuItem toolStripItemNews;
+        private System.Windows.Forms.ToolStripMenuItem toolStripItemAboutUs;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button3;
     }
 }
 
