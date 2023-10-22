@@ -1,6 +1,6 @@
 ﻿namespace TheDuckingDocs
 {
-    partial class Form1
+    partial class MainForm
     {
         /// <summary>
         /// Required designer variable.
@@ -28,41 +28,87 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.نوبتدهیToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.لیستپزشکانToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.اخبارواطلاعیههاToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.دربارهماToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ثبتنامToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // pictureBox1
+            // menuStrip1
             // 
-            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pictureBox1.Image = global::TheDuckingDocs.Properties.Resources.pint;
-            this.pictureBox1.Location = new System.Drawing.Point(0, 0);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(1284, 61);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.ثبتنامToolStripMenuItem,
+            this.نوبتدهیToolStripMenuItem,
+            this.لیستپزشکانToolStripMenuItem,
+            this.اخبارواطلاعیههاToolStripMenuItem,
+            this.دربارهماToolStripMenuItem});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(1264, 24);
+            this.menuStrip1.TabIndex = 0;
+            this.menuStrip1.Text = "menuStrip1";
             // 
-            // Form1
+            // نوبتدهیToolStripMenuItem
+            // 
+            this.نوبتدهیToolStripMenuItem.Name = "نوبتدهیToolStripMenuItem";
+            this.نوبتدهیToolStripMenuItem.Size = new System.Drawing.Size(71, 20);
+            this.نوبتدهیToolStripMenuItem.Text = "نوبت دهی";
+            // 
+            // لیستپزشکانToolStripMenuItem
+            // 
+            this.لیستپزشکانToolStripMenuItem.Name = "لیستپزشکانToolStripMenuItem";
+            this.لیستپزشکانToolStripMenuItem.Size = new System.Drawing.Size(86, 20);
+            this.لیستپزشکانToolStripMenuItem.Text = "لیست پزشکان";
+            // 
+            // اخبارواطلاعیههاToolStripMenuItem
+            // 
+            this.اخبارواطلاعیههاToolStripMenuItem.Name = "اخبارواطلاعیههاToolStripMenuItem";
+            this.اخبارواطلاعیههاToolStripMenuItem.Size = new System.Drawing.Size(104, 20);
+            this.اخبارواطلاعیههاToolStripMenuItem.Text = "اخبار و اطلاعیه ها";
+            // 
+            // دربارهماToolStripMenuItem
+            // 
+            this.دربارهماToolStripMenuItem.Name = "دربارهماToolStripMenuItem";
+            this.دربارهماToolStripMenuItem.Size = new System.Drawing.Size(60, 20);
+            this.دربارهماToolStripMenuItem.Text = "درباره ما";
+            // 
+            // ثبتنامToolStripMenuItem
+            // 
+            this.ثبتنامToolStripMenuItem.Name = "ثبتنامToolStripMenuItem";
+            this.ثبتنامToolStripMenuItem.Size = new System.Drawing.Size(55, 20);
+            this.ثبتنامToolStripMenuItem.Text = "ثبت نام";
+            // 
+            // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1284, 684);
-            this.Controls.Add(this.pictureBox1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.Name = "Form1";
+            this.AutoScroll = true;
+            this.ClientSize = new System.Drawing.Size(1264, 681);
+            this.Controls.Add(this.menuStrip1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.MainMenuStrip = this.menuStrip1;
+            this.Name = "MainForm";
             this.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.Text = "Da";
-            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.Form1_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
 
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem نوبتدهیToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem لیستپزشکانToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem ثبتنامToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem اخبارواطلاعیههاToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem دربارهماToolStripMenuItem;
     }
 }
 
