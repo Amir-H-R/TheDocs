@@ -21,5 +21,10 @@ namespace TheDuckingDocs
         {
 
         }
+
+        private void toolStripItemRgister_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
