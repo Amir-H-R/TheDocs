@@ -13,7 +13,7 @@ namespace TheDuckingDocs.Migrations
         
         string IMigrationMetadata.Id
         {
-            get { return "202311111143191_Initial"; }
+            get { return "202311111215382_Initial"; }
         }
         
         string IMigrationMetadata.Source

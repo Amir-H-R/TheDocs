@@ -54,7 +54,9 @@
     <Compile Include="Entities\Address.cs" />
     <Compile Include="Entities\Appointment.cs" />
     <Compile Include="Entities\Patient.cs" />
+    <Compile Include="Entities\PeopleRoles.cs" />
     <Compile Include="Entities\Person.cs" />
+    <Compile Include="Entities\Role.cs" />
     <Compile Include="Entities\Staff.cs" />
     <Compile Include="Entities\UserCredential.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
