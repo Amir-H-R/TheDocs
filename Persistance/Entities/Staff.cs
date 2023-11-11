@@ -10,6 +10,5 @@ namespace Persistance.Entities
     {
         public int StaffId { get; set; }
         public Person StaffInfo { get; set; }
-        public Address StaffAddress { get; set; }
     }
 }

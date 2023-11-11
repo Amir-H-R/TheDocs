@@ -13,6 +13,7 @@ namespace Persistance.Entities
         public string LastName { get; set; }
         public int Age { get; set; }
         public string PhoneNumber { get; set; }
+        public Address PersonAddress { get; set; }
         public UserCredential Credential { get; set; }
     }
 }
