@@ -154,7 +154,7 @@
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "MainForm";
             this.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.Text = "Proj";
+            this.Text = "بیمارستان....";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
