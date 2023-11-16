@@ -15,7 +15,8 @@ namespace Persistance.Entities
         public string Province { get; set; }
         public string City { get; set; }
         public string ZipCode { get; set; }
-        public virtual Person Person { get; set; }
-        public int PersonId { get; set; }
+        [Required]
+        public virtual Patient Patient { get; set; }
+        public int PatientId { get; set; }
     }
 }

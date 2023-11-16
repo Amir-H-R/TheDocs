@@ -13,11 +13,9 @@ namespace Persistance.Entities
         public int PersonId { get; set; }
         public string Name { get; set; }
         public string LastName { get; set; }
+        public string IdCardNumber { get; set; }
         public int Age { get; set; }
         public string PhoneNumber { get; set; }
-        [Required]
-        public virtual Address PersonAddress { get; set; }
-        public int AddressId { get; set; }
         public virtual ICollection<Role> Roles { get; set; }
         public virtual ICollection<PeopleRoles> PeopleRoles { get; set; }
         public virtual UserCredential Credential { get; set; }

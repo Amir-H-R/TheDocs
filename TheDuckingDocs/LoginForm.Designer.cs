@@ -37,21 +37,28 @@
             // 
             // btnLogin
             // 
+            this.btnLogin.BackColor = System.Drawing.Color.White;
+            this.btnLogin.FlatAppearance.BorderColor = System.Drawing.Color.Silver;
+            this.btnLogin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnLogin.Location = new System.Drawing.Point(129, 64);
             this.btnLogin.Name = "btnLogin";
             this.btnLogin.Size = new System.Drawing.Size(75, 23);
-            this.btnLogin.TabIndex = 0;
+            this.btnLogin.TabIndex = 2;
             this.btnLogin.Text = "ورود";
-            this.btnLogin.UseVisualStyleBackColor = true;
+            this.btnLogin.UseVisualStyleBackColor = false;
             // 
             // btnRegister
             // 
+            this.btnRegister.BackColor = System.Drawing.Color.White;
+            this.btnRegister.FlatAppearance.BorderColor = System.Drawing.Color.Silver;
+            this.btnRegister.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnRegister.Location = new System.Drawing.Point(129, 93);
             this.btnRegister.Name = "btnRegister";
             this.btnRegister.Size = new System.Drawing.Size(75, 23);
             this.btnRegister.TabIndex = 3;
             this.btnRegister.Text = "ثبت نام";
-            this.btnRegister.UseVisualStyleBackColor = true;
+            this.btnRegister.UseVisualStyleBackColor = false;
+            this.btnRegister.Click += new System.EventHandler(this.btnRegister_Click);
             // 
             // txtboxUsername
             // 
@@ -59,7 +66,7 @@
             this.txtboxUsername.MaxLength = 250;
             this.txtboxUsername.Name = "txtboxUsername";
             this.txtboxUsername.Size = new System.Drawing.Size(158, 20);
-            this.txtboxUsername.TabIndex = 4;
+            this.txtboxUsername.TabIndex = 0;
             this.txtboxUsername.Text = "نام کاربری";
             // 
             // txtboxPassword
@@ -68,7 +75,7 @@
             this.txtboxPassword.MaxLength = 250;
             this.txtboxPassword.Name = "txtboxPassword";
             this.txtboxPassword.Size = new System.Drawing.Size(158, 20);
-            this.txtboxPassword.TabIndex = 5;
+            this.txtboxPassword.TabIndex = 1;
             this.txtboxPassword.Text = "کلمه عبور";
             // 
             // label1
@@ -84,6 +91,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.LightSkyBlue;
             this.ClientSize = new System.Drawing.Size(348, 128);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txtboxPassword);
@@ -95,6 +103,7 @@
             this.MinimizeBox = false;
             this.Name = "LoginForm";
             this.ShowIcon = false;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "فرم ورود";
             this.ResumeLayout(false);
             this.PerformLayout();

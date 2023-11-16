@@ -10,18 +10,16 @@ using System.Windows.Forms;
 
 namespace TheDuckingDocs
 {
-    public partial class LoginForm : Form
+    public partial class RegisterForm : Form
     {
-        public LoginForm()
+        public RegisterForm()
         {
             InitializeComponent();
         }
 
         private void btnRegister_Click(object sender, EventArgs e)
         {
-            this.Hide();
-            RegisterForm registerForm = new RegisterForm();
-            registerForm.ShowDialog();
+
         }
     }
 }
