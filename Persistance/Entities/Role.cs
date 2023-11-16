@@ -8,9 +8,9 @@ namespace Persistance.Entities
 {
     public class Role
     {
-        public int Id { get; set; }
+        public int RoleId { get; set; }
         public string Name { get; set; }
-        public ICollection<Person> People { get; set; }
-        public ICollection<PeopleRoles> PeopleRoles { get; set; }
+        public virtual ICollection<Person> People { get; set; }
+        public virtual ICollection<PeopleRoles> PeopleRoles { get; set; }
     }
 }

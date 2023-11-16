@@ -9,6 +9,6 @@ namespace Persistance.Entities
     public class Staff
     {
         public int StaffId { get; set; }
-        public Person StaffInfo { get; set; }
+        public virtual Person StaffInfo { get; set; }
     }
 }

@@ -2,6 +2,7 @@ using Persistance.Entities;
 using System;
 using System.Data.Entity;
 using System.Linq;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace TheDuckingDocs
 {
@@ -28,10 +29,14 @@ namespace TheDuckingDocs
         public virtual DbSet<Person> People { get; set; }
         public virtual DbSet<Staff> Staff { get; set; }
         public virtual DbSet<UserCredential> UserCredentials { get; set; }
+        public virtual DbSet<Role> Roles { get; set; }
+        public virtual DbSet<PeopleRoles> PeopleRoles { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
+
+            modelBuilder.Entity<Person>().Property(p => p.PersonId).HasDatabaseGeneratedOption(DatabaseGeneratedOption.None);
         }
     }
 
