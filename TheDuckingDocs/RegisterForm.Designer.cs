@@ -123,7 +123,8 @@
             this.Name = "RegisterForm";
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "RegisterForm";
+            this.Text = "فرم ثبت نام";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.RegisterForm_FormClosed);
             this.ResumeLayout(false);
             this.PerformLayout();
 

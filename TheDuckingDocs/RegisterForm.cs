@@ -21,5 +21,11 @@ namespace TheDuckingDocs
         {
 
         }
+
+        private void RegisterForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            LoginForm loginForm = new LoginForm();
+            loginForm.Show();
+        }
     }
 }
