@@ -3,10 +3,11 @@ using System;
 using System.Data.Entity;
 using System.Linq;
 using System.ComponentModel.DataAnnotations.Schema;
+using Persistance.Common;
 
 namespace TheDuckingDocs
 {
-    public class Model1 : DbContext
+    public class Model1 : DbContext,IModel1
     {
         // Your context has been configured to use a 'Model1' connection string from your application's 
         // configuration file (App.config or Web.config). By default, this connection string targets the 
