@@ -28,15 +28,12 @@ namespace TheDuckingDocs
         public virtual DbSet<Patient> Patients { get; set; }
         public virtual DbSet<Person> People { get; set; }
         public virtual DbSet<Staff> Staff { get; set; }
-        public virtual DbSet<UserCredential> UserCredentials { get; set; }
         public virtual DbSet<Role> Roles { get; set; }
         public virtual DbSet<PeopleRoles> PeopleRoles { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
-
-            modelBuilder.Entity<Person>().Property(p => p.PersonId).HasDatabaseGeneratedOption(DatabaseGeneratedOption.None);
         }
     }
 

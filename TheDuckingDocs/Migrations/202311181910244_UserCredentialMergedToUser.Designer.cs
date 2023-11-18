@@ -7,13 +7,13 @@ namespace TheDuckingDocs.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.4.4")]
-    public sealed partial class AddressToPatientEntityIdCardNumber : IMigrationMetadata
+    public sealed partial class UserCredentialMergedToUser : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(AddressToPatientEntityIdCardNumber));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(UserCredentialMergedToUser));
         
         string IMigrationMetadata.Id
         {
-            get { return "202311161800449_AddressToPatientEntity-IdCardNumber"; }
+            get { return "202311181910244_UserCredentialMergedToUser"; }
         }
         
         string IMigrationMetadata.Source
