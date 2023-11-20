@@ -18,5 +18,6 @@ namespace Persistance.Common
          DbSet<Role> Roles { get; set; }
          DbSet<PeopleRoles> PeopleRoles { get; set; }
 
+        int SaveChanges();
     }
 }
