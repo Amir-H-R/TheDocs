@@ -51,7 +51,7 @@
             this.txtboxLastName.Location = new System.Drawing.Point(12, 39);
             this.txtboxLastName.Name = "txtboxLastName";
             this.txtboxLastName.Size = new System.Drawing.Size(194, 20);
-            this.txtboxLastName.TabIndex = 0;
+            this.txtboxLastName.TabIndex = 1;
             this.txtboxLastName.Text = "نام خانوادگی";
             // 
             // txtboxPhoneNum
@@ -59,7 +59,7 @@
             this.txtboxPhoneNum.Location = new System.Drawing.Point(13, 65);
             this.txtboxPhoneNum.Name = "txtboxPhoneNum";
             this.txtboxPhoneNum.Size = new System.Drawing.Size(193, 20);
-            this.txtboxPhoneNum.TabIndex = 0;
+            this.txtboxPhoneNum.TabIndex = 2;
             this.txtboxPhoneNum.Text = "شماره همراه";
             // 
             // txtboxIdCardNum
@@ -67,7 +67,7 @@
             this.txtboxIdCardNum.Location = new System.Drawing.Point(13, 91);
             this.txtboxIdCardNum.Name = "txtboxIdCardNum";
             this.txtboxIdCardNum.Size = new System.Drawing.Size(193, 20);
-            this.txtboxIdCardNum.TabIndex = 0;
+            this.txtboxIdCardNum.TabIndex = 3;
             this.txtboxIdCardNum.Text = "کد ملی";
             // 
             // txtboxAge
@@ -75,7 +75,7 @@
             this.txtboxAge.Location = new System.Drawing.Point(12, 117);
             this.txtboxAge.Name = "txtboxAge";
             this.txtboxAge.Size = new System.Drawing.Size(194, 20);
-            this.txtboxAge.TabIndex = 0;
+            this.txtboxAge.TabIndex = 4;
             this.txtboxAge.Text = "سن";
             // 
             // txtboxUsername
@@ -83,7 +83,7 @@
             this.txtboxUsername.Location = new System.Drawing.Point(12, 166);
             this.txtboxUsername.Name = "txtboxUsername";
             this.txtboxUsername.Size = new System.Drawing.Size(194, 20);
-            this.txtboxUsername.TabIndex = 0;
+            this.txtboxUsername.TabIndex = 5;
             this.txtboxUsername.Text = "نام کاربری";
             // 
             // txtboxPassword
@@ -91,7 +91,7 @@
             this.txtboxPassword.Location = new System.Drawing.Point(12, 192);
             this.txtboxPassword.Name = "txtboxPassword";
             this.txtboxPassword.Size = new System.Drawing.Size(194, 20);
-            this.txtboxPassword.TabIndex = 0;
+            this.txtboxPassword.TabIndex = 6;
             this.txtboxPassword.Text = "رمز ورود";
             // 
             // btnRegister
@@ -99,7 +99,7 @@
             this.btnRegister.Location = new System.Drawing.Point(13, 219);
             this.btnRegister.Name = "btnRegister";
             this.btnRegister.Size = new System.Drawing.Size(75, 23);
-            this.btnRegister.TabIndex = 1;
+            this.btnRegister.TabIndex = 7;
             this.btnRegister.Text = "ثبت نام";
             this.btnRegister.UseVisualStyleBackColor = true;
             this.btnRegister.Click += new System.EventHandler(this.btnRegister_Click);

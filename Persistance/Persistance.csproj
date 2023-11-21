@@ -54,6 +54,7 @@
     <Compile Include="Common\IModel1.cs" />
     <Compile Include="Entities\Address.cs" />
     <Compile Include="Entities\Appointment.cs" />
+    <Compile Include="Entities\Dtos\UserDto.cs" />
     <Compile Include="Entities\Patient.cs" />
     <Compile Include="Entities\PeopleRoles.cs" />
     <Compile Include="Entities\Person.cs" />

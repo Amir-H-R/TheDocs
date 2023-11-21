@@ -1,4 +1,7 @@
-﻿using Persistance.Entities;
+﻿using Persistance.Common;
+using Persistance.Entities;
+using Persistance.Entities.Dtos;
+using Persistance.Services.UserServices;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -20,35 +23,33 @@ namespace TheDuckingDocs
 
         private void btnRegister_Click(object sender, EventArgs e)
         {
-            Model1 model = new Model1();
-            Role role = model.Roles.Where(p => p.Name == "User").FirstOrDefault();
-            Person person = new Person()
+            UserDto userDto = new UserDto()
             {
                 Name = txtboxName.Text,
                 LastName = txtboxLastName.Text,
                 Age = int.Parse(txtboxAge.Text),
+                IdCardNumebr = txtboxIdCardNum.Text,
                 PhoneNumber = txtboxPhoneNum.Text,
-                UserName = txtboxUsername.Text,
                 Password = txtboxPassword.Text,
-                IdCardNumber = txtboxIdCardNum.Text,
+                Username = txtboxUsername.Text,
+                Roles = new List<Role> { new Role { Name="User"} }
             };
-            ICollection<PeopleRoles> roles = new List<PeopleRoles>();
-            roles.Add(new PeopleRoles()
-            {
-                RoleId = role.RoleId,
-                Role = role,
-                PersonId = person.PersonId,
-                Person = person,
-            });
-            person.PeopleRoles = roles;
-            model.People.Add(person);
-            model.SaveChanges();
+
+            Model1 model = new Model1();
+            AddUserService addUser = new AddUserService(model);
+            ResultDto result = addUser.Execute(userDto);
+            MessageBox.Show(result.Message);
         }
 
         private void RegisterForm_FormClosed(object sender, FormClosedEventArgs e)
         {
-            LoginForm loginForm = new LoginForm();
-            loginForm.Show();
+            var loginForm = Application.OpenForms.Cast<Form>().FirstOrDefault(p => p is LoginForm);
+            if (loginForm != null)
+            {
+                loginForm.Show();
+            }
+            //LoginForm loginForm = new LoginForm();
+            //loginForm.Show();
         }
     }
 }

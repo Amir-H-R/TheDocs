@@ -1,5 +1,6 @@
 ﻿using Persistance.Common;
 using Persistance.Entities;
+using Persistance.Entities.Dtos;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,21 +18,21 @@ namespace Persistance.Services.UserServices
             _context = context;
         }
 
-        public ResultDto Execute(string name, string lastName, string phoneNumber, string idCardNumebr, int age, string username, string password, ICollection<Role> roles)
+        public ResultDto Execute(UserDto dto)
         {
             Person person = new Person()
             {
-                Name = name,
-                LastName = lastName,
-                Age = age,
-                PhoneNumber = phoneNumber,
-                IdCardNumber = idCardNumebr,
-                Password = password,
-                UserName = username
+                Name = dto.Name,
+                LastName = dto.LastName,
+                Age = dto.Age,
+                PhoneNumber = dto.PhoneNumber,
+                IdCardNumber = dto.IdCardNumebr,
+                Password = dto.Password,
+                UserName = dto.Username
             };
 
             ICollection<PeopleRoles> peopleRoles = new List<PeopleRoles>();
-            foreach (var role in roles)
+            foreach (var role in dto.Roles)
             {
                 Role theRole = _context.Roles.Where(p => p.Name == role.Name).FirstOrDefault();
                 peopleRoles.Add(new PeopleRoles
@@ -45,7 +46,7 @@ namespace Persistance.Services.UserServices
             person.PeopleRoles = peopleRoles;
             _context.People.Add(person);
             _context.SaveChanges();
-            return new ResultDto { Message = "کاربر با موفقیت اضافه شد" ,Success = true};
+            return new ResultDto { Message = "ثبت نام با موفقیت انجام شد" ,Success = true};
         }
     }
 }
