@@ -32,7 +32,6 @@
             this.txtboxLastName = new System.Windows.Forms.TextBox();
             this.txtboxPhoneNum = new System.Windows.Forms.TextBox();
             this.txtboxIdCardNum = new System.Windows.Forms.TextBox();
-            this.txtboxAge = new System.Windows.Forms.TextBox();
             this.txtboxUsername = new System.Windows.Forms.TextBox();
             this.txtboxPassword = new System.Windows.Forms.TextBox();
             this.btnRegister = new System.Windows.Forms.Button();
@@ -43,11 +42,13 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
+            this.txtboxAge = new System.Windows.Forms.NumericUpDown();
+            ((System.ComponentModel.ISupportInitialize)(this.txtboxAge)).BeginInit();
             this.SuspendLayout();
             // 
             // txtboxName
             // 
-            this.txtboxName.Location = new System.Drawing.Point(13, 29);
+            this.txtboxName.Location = new System.Drawing.Point(11, 29);
             this.txtboxName.Name = "txtboxName";
             this.txtboxName.Size = new System.Drawing.Size(193, 20);
             this.txtboxName.TabIndex = 0;
@@ -72,13 +73,6 @@
             this.txtboxIdCardNum.Name = "txtboxIdCardNum";
             this.txtboxIdCardNum.Size = new System.Drawing.Size(193, 20);
             this.txtboxIdCardNum.TabIndex = 3;
-            // 
-            // txtboxAge
-            // 
-            this.txtboxAge.Location = new System.Drawing.Point(11, 185);
-            this.txtboxAge.Name = "txtboxAge";
-            this.txtboxAge.Size = new System.Drawing.Size(194, 20);
-            this.txtboxAge.TabIndex = 4;
             // 
             // txtboxUsername
             // 
@@ -168,12 +162,20 @@
             this.label7.TabIndex = 8;
             this.label7.Text = "رمز ورود";
             // 
+            // txtboxAge
+            // 
+            this.txtboxAge.Location = new System.Drawing.Point(11, 185);
+            this.txtboxAge.Name = "txtboxAge";
+            this.txtboxAge.Size = new System.Drawing.Size(194, 20);
+            this.txtboxAge.TabIndex = 4;
+            // 
             // RegisterForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightSkyBlue;
             this.ClientSize = new System.Drawing.Size(348, 368);
+            this.Controls.Add(this.txtboxAge);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
@@ -184,7 +186,6 @@
             this.Controls.Add(this.btnRegister);
             this.Controls.Add(this.txtboxPassword);
             this.Controls.Add(this.txtboxUsername);
-            this.Controls.Add(this.txtboxAge);
             this.Controls.Add(this.txtboxIdCardNum);
             this.Controls.Add(this.txtboxPhoneNum);
             this.Controls.Add(this.txtboxLastName);
@@ -196,6 +197,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "فرم ثبت نام";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.RegisterForm_FormClosed);
+            ((System.ComponentModel.ISupportInitialize)(this.txtboxAge)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -207,7 +209,6 @@
         private System.Windows.Forms.TextBox txtboxLastName;
         private System.Windows.Forms.TextBox txtboxPhoneNum;
         private System.Windows.Forms.TextBox txtboxIdCardNum;
-        private System.Windows.Forms.TextBox txtboxAge;
         private System.Windows.Forms.TextBox txtboxUsername;
         private System.Windows.Forms.TextBox txtboxPassword;
         private System.Windows.Forms.Button btnRegister;
@@ -218,5 +219,6 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.NumericUpDown txtboxAge;
     }
 }
