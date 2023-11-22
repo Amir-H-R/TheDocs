@@ -31,22 +31,37 @@ namespace Persistance.Services.UserServices
                 UserName = dto.Username
             };
 
-            ICollection<PeopleRoles> peopleRoles = new List<PeopleRoles>();
-            foreach (var role in dto.Roles)
+            //check user existence
+            //var username = _context.People.Where(p => p.UserName == dto.Username).FirstOrDefault();
+            //var idCardNumber = _context.People.Where(p => p.IdCardNumber == dto.IdCardNumebr).FirstOrDefault();
+            //if (dto.Username == null||dto.IdCardNumebr==null||dto.PhoneNumber==null||dto.LastName==null||dto.Name==null||dto.Age==null||dto.Password==null)
+            //    return new ResultDto { Message = "لطفا همه مقادیر را وارد کنید", Success = false };
+            //if (username != null)
+            //    return new ResultDto { Message = "این نام کاربری قبلا استفاده شده است", Success = false };
+            //if (idCardNumber != null)
+            //    return new ResultDto { Message = "این کد ملی قبلا استفاده شده است", Success = false };
+            var userValidation = UserValidator.Validate(dto, _context);
+            if (userValidation.Success)
             {
-                Role theRole = _context.Roles.Where(p => p.Name == role.Name).FirstOrDefault();
-                peopleRoles.Add(new PeopleRoles
+                ICollection<PeopleRoles> peopleRoles = new List<PeopleRoles>();
+                foreach (var role in dto.Roles)
                 {
-                    Person = person,
-                    PersonId = person.PersonId,
-                    RoleId = theRole.RoleId,
-                    Role = theRole,
-                });
+                    Role theRole = _context.Roles.Where(p => p.Name == role.Name).FirstOrDefault();
+                    peopleRoles.Add(new PeopleRoles
+                    {
+                        Person = person,
+                        PersonId = person.PersonId,
+                        RoleId = theRole.RoleId,
+                        Role = theRole,
+                    });
+                }
+                person.PeopleRoles = peopleRoles;
+                _context.People.Add(person);
+                _context.SaveChanges();
+                return new ResultDto { Message = "ثبت نام با موفقیت انجام شد", Success = true };
             }
-            person.PeopleRoles = peopleRoles;
-            _context.People.Add(person);
-            _context.SaveChanges();
-            return new ResultDto { Message = "ثبت نام با موفقیت انجام شد" ,Success = true};
+            else 
+            return new ResultDto {Message="عملیات با خطا مواجه شد", Success = false };
         }
     }
 }

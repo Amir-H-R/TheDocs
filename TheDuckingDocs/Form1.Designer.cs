@@ -45,7 +45,7 @@
             // 
             // menuStrip1
             // 
-            this.menuStrip1.BackColor = System.Drawing.Color.LightSkyBlue;
+            this.menuStrip1.BackColor = System.Drawing.Color.SteelBlue;
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripItemRgister,
             this.toolStripItemReservation,
@@ -94,9 +94,10 @@
             this.button1.BackColor = System.Drawing.Color.LightSkyBlue;
             this.button1.FlatAppearance.BorderColor = System.Drawing.Color.MediumSpringGreen;
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Location = new System.Drawing.Point(1136, 646);
+            this.button1.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.button1.Location = new System.Drawing.Point(1133, 646);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(116, 23);
+            this.button1.Size = new System.Drawing.Size(119, 27);
             this.button1.TabIndex = 2;
             this.button1.Text = "توصیه های بهداشتی";
             this.button1.UseVisualStyleBackColor = false;
@@ -106,9 +107,10 @@
             this.button3.BackColor = System.Drawing.Color.LightSkyBlue;
             this.button3.FlatAppearance.BorderColor = System.Drawing.Color.MediumSpringGreen;
             this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button3.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button3.Location = new System.Drawing.Point(12, 646);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(71, 23);
+            this.button3.Size = new System.Drawing.Size(71, 27);
             this.button3.TabIndex = 2;
             this.button3.Text = "تماس با ما";
             this.button3.UseVisualStyleBackColor = false;
