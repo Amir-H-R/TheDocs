@@ -15,6 +15,7 @@ namespace Persistance.Entities.Dtos
         public int Age;
         public string Username;
         public string Password;
+        public string RePassword;
         public ICollection<Role> Roles;
     }
 }

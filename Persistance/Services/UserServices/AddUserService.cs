@@ -61,7 +61,7 @@ namespace Persistance.Services.UserServices
                 return new ResultDto { Message = "ثبت نام با موفقیت انجام شد", Success = true };
             }
             else 
-            return new ResultDto {Message="عملیات با خطا مواجه شد", Success = false };
+            return new ResultDto {Message=userValidation.Message, Success = false };
         }
     }
 }

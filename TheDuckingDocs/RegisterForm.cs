@@ -31,6 +31,7 @@ namespace TheDuckingDocs
                 IdCardNumebr = txtboxIdCardNum.Text,
                 PhoneNumber = txtboxPhoneNum.Text,
                 Password = txtboxPassword.Text,
+                RePassword = txtboxRePassword.Text,
                 Username = txtboxUsername.Text,
                 Roles = new List<Role> { new Role { Name="User"} }
             };

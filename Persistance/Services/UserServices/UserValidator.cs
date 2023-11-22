@@ -25,6 +25,8 @@ namespace Persistance.Services.UserServices
                 return new ResultDto { Message = "این کد ملی قبلا استفاده شده است", Success = false };
             if (int.TryParse(dto.IdCardNumebr, out int e) == false)
                 return new ResultDto { Message = "لطفا کد ملی خود را درست وارد نمایید", Success = false };
+            if (dto.RePassword != dto.Password)
+                return new ResultDto { Message = "پسورد با تکرار آن مطابقت ندارد", Success = false };
 
             return new ResultDto { Message = "", Success = true };
         }

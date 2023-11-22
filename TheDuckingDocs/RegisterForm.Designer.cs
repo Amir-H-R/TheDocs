@@ -43,6 +43,8 @@
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.txtboxAge = new System.Windows.Forms.NumericUpDown();
+            this.txtboxRePassword = new System.Windows.Forms.TextBox();
+            this.label8 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.txtboxAge)).BeginInit();
             this.SuspendLayout();
             // 
@@ -91,7 +93,7 @@
             // 
             // btnRegister
             // 
-            this.btnRegister.Location = new System.Drawing.Point(12, 333);
+            this.btnRegister.Location = new System.Drawing.Point(11, 376);
             this.btnRegister.Name = "btnRegister";
             this.btnRegister.Size = new System.Drawing.Size(75, 23);
             this.btnRegister.TabIndex = 7;
@@ -169,13 +171,31 @@
             this.txtboxAge.Size = new System.Drawing.Size(194, 20);
             this.txtboxAge.TabIndex = 4;
             // 
+            // txtboxRePassword
+            // 
+            this.txtboxRePassword.Location = new System.Drawing.Point(11, 345);
+            this.txtboxRePassword.Name = "txtboxRePassword";
+            this.txtboxRePassword.PasswordChar = '*';
+            this.txtboxRePassword.Size = new System.Drawing.Size(194, 20);
+            this.txtboxRePassword.TabIndex = 6;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(12, 329);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(74, 13);
+            this.label8.TabIndex = 8;
+            this.label8.Text = "تکرار رمز ورود";
+            // 
             // RegisterForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightSkyBlue;
-            this.ClientSize = new System.Drawing.Size(348, 368);
+            this.ClientSize = new System.Drawing.Size(348, 411);
             this.Controls.Add(this.txtboxAge);
+            this.Controls.Add(this.label8);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
@@ -184,6 +204,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnRegister);
+            this.Controls.Add(this.txtboxRePassword);
             this.Controls.Add(this.txtboxPassword);
             this.Controls.Add(this.txtboxUsername);
             this.Controls.Add(this.txtboxIdCardNum);
@@ -220,5 +241,7 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.NumericUpDown txtboxAge;
+        private System.Windows.Forms.TextBox txtboxRePassword;
+        private System.Windows.Forms.Label label8;
     }
 }
