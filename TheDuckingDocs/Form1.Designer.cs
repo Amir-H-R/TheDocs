@@ -38,7 +38,7 @@
             this.button1 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.btnCloseForm = new System.Windows.Forms.Button();
+            this.btnLogout = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -108,7 +108,7 @@
             this.button3.FlatAppearance.BorderColor = System.Drawing.Color.MediumSpringGreen;
             this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button3.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.Location = new System.Drawing.Point(12, 646);
+            this.button3.Location = new System.Drawing.Point(12, 613);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(71, 27);
             this.button3.TabIndex = 2;
@@ -125,19 +125,20 @@
             this.pictureBox1.TabIndex = 1;
             this.pictureBox1.TabStop = false;
             // 
-            // btnCloseForm
+            // btnLogout
             // 
-            this.btnCloseForm.BackColor = System.Drawing.Color.LightSkyBlue;
-            this.btnCloseForm.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCloseForm.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCloseForm.ForeColor = System.Drawing.Color.Red;
-            this.btnCloseForm.Location = new System.Drawing.Point(0, 0);
-            this.btnCloseForm.Name = "btnCloseForm";
-            this.btnCloseForm.Size = new System.Drawing.Size(25, 25);
-            this.btnCloseForm.TabIndex = 3;
-            this.btnCloseForm.Text = "X";
-            this.btnCloseForm.UseVisualStyleBackColor = false;
-            this.btnCloseForm.Click += new System.EventHandler(this.btnCloseForm_Click);
+            this.btnLogout.BackColor = System.Drawing.Color.Transparent;
+            this.btnLogout.FlatAppearance.BorderColor = System.Drawing.Color.Red;
+            this.btnLogout.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnLogout.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLogout.ForeColor = System.Drawing.Color.Red;
+            this.btnLogout.Location = new System.Drawing.Point(12, 646);
+            this.btnLogout.Name = "btnLogout";
+            this.btnLogout.Size = new System.Drawing.Size(91, 27);
+            this.btnLogout.TabIndex = 2;
+            this.btnLogout.Text = "خروج از حساب";
+            this.btnLogout.UseVisualStyleBackColor = false;
+            this.btnLogout.Click += new System.EventHandler(this.btnLogout_Click);
             // 
             // MainForm
             // 
@@ -146,7 +147,7 @@
             this.AutoScroll = true;
             this.ClientSize = new System.Drawing.Size(1264, 681);
             this.ControlBox = false;
-            this.Controls.Add(this.btnCloseForm);
+            this.Controls.Add(this.btnLogout);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.menuStrip1);
@@ -177,7 +178,7 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button btnCloseForm;
+        private System.Windows.Forms.Button btnLogout;
     }
 }
 

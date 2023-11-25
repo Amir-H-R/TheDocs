@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using TheDuckingDocs.Properties;
 
 namespace TheDuckingDocs
 {
@@ -27,9 +28,15 @@ namespace TheDuckingDocs
 
         }
 
-        private void btnCloseForm_Click(object sender, EventArgs e)
+        private void btnLogout_Click(object sender, EventArgs e)
         {
-            this.Close();
+            Application.Restart();
+            if (Settings.Default.Username != null)
+            {
+                Settings.Default.Username = null; 
+                Settings.Default.Password = null;
+                Settings.Default.Save();
+            }
         }
     }
 }
