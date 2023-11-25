@@ -33,7 +33,7 @@
             this.txtboxUsername = new System.Windows.Forms.TextBox();
             this.txtboxPassword = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.chckbxRememberMe = new System.Windows.Forms.CheckBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.SuspendLayout();
@@ -49,6 +49,7 @@
             this.btnLogin.TabIndex = 2;
             this.btnLogin.Text = "ورود";
             this.btnLogin.UseVisualStyleBackColor = false;
+            this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
             // 
             // btnRegister
             // 
@@ -89,15 +90,15 @@
             this.label1.TabIndex = 6;
             this.label1.Text = "حساب کاربری ندارید؟";
             // 
-            // checkBox1
+            // chckbxRememberMe
             // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(202, 122);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(94, 17);
-            this.checkBox1.TabIndex = 3;
-            this.checkBox1.Text = "مرا بخاطر بسپر";
-            this.checkBox1.UseVisualStyleBackColor = true;
+            this.chckbxRememberMe.AutoSize = true;
+            this.chckbxRememberMe.Location = new System.Drawing.Point(202, 122);
+            this.chckbxRememberMe.Name = "chckbxRememberMe";
+            this.chckbxRememberMe.Size = new System.Drawing.Size(94, 17);
+            this.chckbxRememberMe.TabIndex = 3;
+            this.chckbxRememberMe.Text = "مرا بخاطر بسپر";
+            this.chckbxRememberMe.UseVisualStyleBackColor = true;
             // 
             // label2
             // 
@@ -125,7 +126,7 @@
             this.ClientSize = new System.Drawing.Size(348, 199);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.checkBox1);
+            this.Controls.Add(this.chckbxRememberMe);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txtboxPassword);
             this.Controls.Add(this.txtboxUsername);
@@ -138,6 +139,7 @@
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "فرم ورود";
+            this.Load += new System.EventHandler(this.LoginForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -150,7 +152,7 @@
         private System.Windows.Forms.TextBox txtboxUsername;
         private System.Windows.Forms.TextBox txtboxPassword;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.CheckBox chckbxRememberMe;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
     }
