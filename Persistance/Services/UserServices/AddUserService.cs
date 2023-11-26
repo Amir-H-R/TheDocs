@@ -30,23 +30,13 @@ namespace Persistance.Services.UserServices
                 Password = dto.Password,
                 UserName = dto.Username
             };
-
-            //check user existence
-            //var username = _context.People.Where(p => p.UserName == dto.Username).FirstOrDefault();
-            //var idCardNumber = _context.People.Where(p => p.IdCardNumber == dto.IdCardNumebr).FirstOrDefault();
-            //if (dto.Username == null||dto.IdCardNumebr==null||dto.PhoneNumber==null||dto.LastName==null||dto.Name==null||dto.Age==null||dto.Password==null)
-            //    return new ResultDto { Message = "لطفا همه مقادیر را وارد کنید", Success = false };
-            //if (username != null)
-            //    return new ResultDto { Message = "این نام کاربری قبلا استفاده شده است", Success = false };
-            //if (idCardNumber != null)
-            //    return new ResultDto { Message = "این کد ملی قبلا استفاده شده است", Success = false };
             var userValidation = UserValidator.Validate(dto, _context);
             if (userValidation.Success)
             {
                 ICollection<PeopleRoles> peopleRoles = new List<PeopleRoles>();
                 foreach (var role in dto.Roles)
                 {
-                    Role theRole = _context.Roles.Where(p => p.Name == role.Name).FirstOrDefault();
+                    Role theRole = _context.Roles.Where(p => p.Name == role.Name||p.RoleId==role.RoleId).FirstOrDefault();
                     peopleRoles.Add(new PeopleRoles
                     {
                         Person = person,

@@ -1,5 +1,7 @@
 ﻿using Persistance.Common;
 using Persistance.Entities;
+using Persistance.Entities.Dtos;
+using Persistance.Services.UserServices;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -14,6 +16,7 @@ namespace TheDuckingDocs
 {
     public partial class ManagementForm : Form
     {
+        IModel1 model = new Model1();
         public ManagementForm()
         {
             InitializeComponent();
@@ -38,33 +41,32 @@ namespace TheDuckingDocs
             IModel1 model = new Model1();
             // TODO: This line of code loads data into the '_TheDuckingDocs_Model1DataSet.People' table. You can move, or remove it, as needed.
             this.peopleTableAdapter.Fill(this._TheDuckingDocs_Model1DataSet.People);
-            string[] rls;
-           
         }
 
         private void btnAddUser_Click(object sender, EventArgs e)
         {
-            Person person = new Person()
+            var selectedRole = cmboxRoles.SelectedItem;
+
+            UserDto person = new UserDto()
             {
                 Name = txtboxName.Text,
                 LastName = txtboxLastName.Text,
-                IdCardNumber = txtboxIdCardNum.Text,
+                IdCardNumebr = txtboxIdCardNum.Text,
                 Password = txtboxPassword.Text,
-                UserName = txtboxUsername.Text,
+                Username = txtboxUsername.Text,
                 PhoneNumber = txtboxPhoneNum.Text,
                 Age = (int)txtboxAge.Value,
-                            };
-            int selectedRole = (int)cmboxRoles.SelectedValue;
-            if (selectedRole == null)
-            {
-
-            }
+                Roles = new List<Role> { new Role { RoleId = (int)cmboxRoles.SelectedValue } }
+            };
+            AddUserService addUserService = new AddUserService(model);
+            ResultDto result = addUserService.Execute(person);
+            MessageBox.Show(result.Message);
         }
 
         private void dataGridView1_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
             lstboxRoles.Items.Clear();
-            IModel1 model = new Model1();
+
             Id = (int)dataGridView1.Rows[e.RowIndex].Cells[0].Value;
             txtboxName.Text = dataGridView1.Rows[e.RowIndex].Cells[1].Value as string;
             txtboxLastName.Text = dataGridView1.Rows[e.RowIndex].Cells[2].Value as string;
