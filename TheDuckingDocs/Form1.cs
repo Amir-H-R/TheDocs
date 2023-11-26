@@ -18,9 +18,15 @@ namespace TheDuckingDocs
             InitializeComponent();
         }
 
+        public bool ManagementVisibility
+        {
+            get { return toolStripItemManagement.Visible; }
+            set { toolStripItemManagement.Visible = value; }
+        }
+
         private void Form1_Load(object sender, EventArgs e)
         {
-            
+
         }
 
         private void toolStripItemRgister_Click(object sender, EventArgs e)
@@ -33,10 +39,16 @@ namespace TheDuckingDocs
             Application.Restart();
             if (Settings.Default.Username != null)
             {
-                Settings.Default.Username = null; 
+                Settings.Default.Username = null;
                 Settings.Default.Password = null;
                 Settings.Default.Save();
             }
+        }
+
+        private void toolStripItemManagement_Click(object sender, EventArgs e)
+        {
+            ManagementForm managementForm = new ManagementForm();
+            managementForm.ShowDialog();
         }
     }
 }

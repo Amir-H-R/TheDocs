@@ -96,7 +96,7 @@
             this.btnRegister.Location = new System.Drawing.Point(11, 376);
             this.btnRegister.Name = "btnRegister";
             this.btnRegister.Size = new System.Drawing.Size(75, 23);
-            this.btnRegister.TabIndex = 7;
+            this.btnRegister.TabIndex = 8;
             this.btnRegister.Text = "ثبت نام";
             this.btnRegister.UseVisualStyleBackColor = true;
             this.btnRegister.Click += new System.EventHandler(this.btnRegister_Click);
@@ -167,6 +167,11 @@
             // txtboxAge
             // 
             this.txtboxAge.Location = new System.Drawing.Point(11, 185);
+            this.txtboxAge.Maximum = new decimal(new int[] {
+            200,
+            0,
+            0,
+            0});
             this.txtboxAge.Name = "txtboxAge";
             this.txtboxAge.Size = new System.Drawing.Size(194, 20);
             this.txtboxAge.TabIndex = 4;
@@ -177,7 +182,7 @@
             this.txtboxRePassword.Name = "txtboxRePassword";
             this.txtboxRePassword.PasswordChar = '*';
             this.txtboxRePassword.Size = new System.Drawing.Size(194, 20);
-            this.txtboxRePassword.TabIndex = 6;
+            this.txtboxRePassword.TabIndex = 7;
             // 
             // label8
             // 

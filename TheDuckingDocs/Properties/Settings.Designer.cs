@@ -46,5 +46,16 @@ namespace TheDuckingDocs.Properties {
                 this["Password"] = value;
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=(LocalDb)\\MSSQLLocalDB;Initial Catalog=TheDuckingDocs.Model1;Integrat" +
+            "ed Security=True")]
+        public string TheDuckingDocs_Model1ConnectionString {
+            get {
+                return ((string)(this["TheDuckingDocs_Model1ConnectionString"]));
+            }
+        }
     }
 }
