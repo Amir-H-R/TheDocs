@@ -29,10 +29,21 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.PersonId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lastNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ageDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.phoneNumberDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.userNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.passwordDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.idCardNumberDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.peopleBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this._TheDuckingDocs_Model1DataSet = new TheDuckingDocs._TheDuckingDocs_Model1DataSet();
             this.theDuckingDocsModel1DataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.peopleBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.peopleTableAdapter = new TheDuckingDocs._TheDuckingDocs_Model1DataSetTableAdapters.PeopleTableAdapter();
             this.txtboxAge = new System.Windows.Forms.NumericUpDown();
             this.label7 = new System.Windows.Forms.Label();
@@ -51,20 +62,20 @@
             this.btnAddUser = new System.Windows.Forms.Button();
             this.btnUpdateUser = new System.Windows.Forms.Button();
             this.btnDeleteUser = new System.Windows.Forms.Button();
-            this.PersonId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.lastNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ageDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.phoneNumberDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.userNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.passwordDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.idCardNumberDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnClearFields = new System.Windows.Forms.Button();
+            this.lstboxRoles = new System.Windows.Forms.ListBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.btnDeleteRole = new System.Windows.Forms.Button();
+            this.btnAddRole = new System.Windows.Forms.Button();
+            this.cmboxRoles = new System.Windows.Forms.ComboBox();
+            this.rolesBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.rolesTableAdapter = new TheDuckingDocs._TheDuckingDocs_Model1DataSetTableAdapters.RolesTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.peopleBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this._TheDuckingDocs_Model1DataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.theDuckingDocsModel1DataSetBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.peopleBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtboxAge)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rolesBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // dataGridView1
@@ -72,6 +83,14 @@
             this.dataGridView1.AllowUserToAddRows = false;
             this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.AutoGenerateColumns = false;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.PersonId,
@@ -83,172 +102,28 @@
             this.passwordDataGridViewTextBoxColumn,
             this.idCardNumberDataGridViewTextBoxColumn});
             this.dataGridView1.DataSource = this.peopleBindingSource;
-            this.dataGridView1.Location = new System.Drawing.Point(12, 163);
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle2;
+            this.dataGridView1.Location = new System.Drawing.Point(17, 275);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.Size = new System.Drawing.Size(744, 347);
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            this.dataGridView1.Size = new System.Drawing.Size(845, 347);
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.RowHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView1_RowHeaderMouseClick);
-            // 
-            // _TheDuckingDocs_Model1DataSet
-            // 
-            this._TheDuckingDocs_Model1DataSet.DataSetName = "_TheDuckingDocs_Model1DataSet";
-            this._TheDuckingDocs_Model1DataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // theDuckingDocsModel1DataSetBindingSource
-            // 
-            this.theDuckingDocsModel1DataSetBindingSource.DataSource = this._TheDuckingDocs_Model1DataSet;
-            this.theDuckingDocsModel1DataSetBindingSource.Position = 0;
-            // 
-            // peopleBindingSource
-            // 
-            this.peopleBindingSource.DataMember = "People";
-            this.peopleBindingSource.DataSource = this._TheDuckingDocs_Model1DataSet;
-            // 
-            // peopleTableAdapter
-            // 
-            this.peopleTableAdapter.ClearBeforeFill = true;
-            // 
-            // txtboxAge
-            // 
-            this.txtboxAge.Location = new System.Drawing.Point(278, 75);
-            this.txtboxAge.Name = "txtboxAge";
-            this.txtboxAge.Size = new System.Drawing.Size(194, 20);
-            this.txtboxAge.TabIndex = 13;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(280, 110);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(47, 13);
-            this.label7.TabIndex = 16;
-            this.label7.Text = "رمز ورود";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(13, 110);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(58, 13);
-            this.label6.TabIndex = 17;
-            this.label6.Text = "نام کاربری";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(280, 59);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(23, 13);
-            this.label5.TabIndex = 18;
-            this.label5.Text = "سن";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(13, 59);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(40, 13);
-            this.label4.TabIndex = 19;
-            this.label4.Text = "کد ملی";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(542, 6);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(65, 13);
-            this.label3.TabIndex = 20;
-            this.label3.Text = "شماره همراه";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(279, 6);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(69, 13);
-            this.label2.TabIndex = 21;
-            this.label2.Text = "نام خانوادگی";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(14, 6);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(20, 13);
-            this.label1.TabIndex = 22;
-            this.label1.Text = "نام";
-            // 
-            // txtboxPassword
-            // 
-            this.txtboxPassword.Location = new System.Drawing.Point(278, 126);
-            this.txtboxPassword.Name = "txtboxPassword";
-            this.txtboxPassword.PasswordChar = '*';
-            this.txtboxPassword.Size = new System.Drawing.Size(194, 20);
-            this.txtboxPassword.TabIndex = 15;
-            // 
-            // txtboxUsername
-            // 
-            this.txtboxUsername.Location = new System.Drawing.Point(12, 126);
-            this.txtboxUsername.Name = "txtboxUsername";
-            this.txtboxUsername.Size = new System.Drawing.Size(194, 20);
-            this.txtboxUsername.TabIndex = 14;
-            // 
-            // txtboxIdCardNum
-            // 
-            this.txtboxIdCardNum.Location = new System.Drawing.Point(12, 75);
-            this.txtboxIdCardNum.Name = "txtboxIdCardNum";
-            this.txtboxIdCardNum.Size = new System.Drawing.Size(193, 20);
-            this.txtboxIdCardNum.TabIndex = 12;
-            // 
-            // txtboxPhoneNum
-            // 
-            this.txtboxPhoneNum.Location = new System.Drawing.Point(541, 22);
-            this.txtboxPhoneNum.Name = "txtboxPhoneNum";
-            this.txtboxPhoneNum.Size = new System.Drawing.Size(193, 20);
-            this.txtboxPhoneNum.TabIndex = 11;
-            // 
-            // txtboxLastName
-            // 
-            this.txtboxLastName.Location = new System.Drawing.Point(278, 22);
-            this.txtboxLastName.Name = "txtboxLastName";
-            this.txtboxLastName.Size = new System.Drawing.Size(194, 20);
-            this.txtboxLastName.TabIndex = 10;
-            // 
-            // txtboxName
-            // 
-            this.txtboxName.Location = new System.Drawing.Point(12, 22);
-            this.txtboxName.Name = "txtboxName";
-            this.txtboxName.Size = new System.Drawing.Size(193, 20);
-            this.txtboxName.TabIndex = 9;
-            // 
-            // btnAddUser
-            // 
-            this.btnAddUser.Location = new System.Drawing.Point(12, 534);
-            this.btnAddUser.Name = "btnAddUser";
-            this.btnAddUser.Size = new System.Drawing.Size(75, 23);
-            this.btnAddUser.TabIndex = 23;
-            this.btnAddUser.Text = "افزودن";
-            this.btnAddUser.UseVisualStyleBackColor = true;
-            this.btnAddUser.Click += new System.EventHandler(this.btnAddUser_Click);
-            // 
-            // btnUpdateUser
-            // 
-            this.btnUpdateUser.Location = new System.Drawing.Point(93, 534);
-            this.btnUpdateUser.Name = "btnUpdateUser";
-            this.btnUpdateUser.Size = new System.Drawing.Size(75, 23);
-            this.btnUpdateUser.TabIndex = 24;
-            this.btnUpdateUser.Text = "ویرایش";
-            this.btnUpdateUser.UseVisualStyleBackColor = true;
-            // 
-            // btnDeleteUser
-            // 
-            this.btnDeleteUser.Location = new System.Drawing.Point(175, 533);
-            this.btnDeleteUser.Name = "btnDeleteUser";
-            this.btnDeleteUser.Size = new System.Drawing.Size(75, 23);
-            this.btnDeleteUser.TabIndex = 25;
-            this.btnDeleteUser.Text = "حذف";
-            this.btnDeleteUser.UseVisualStyleBackColor = true;
             // 
             // PersonId
             // 
@@ -256,7 +131,6 @@
             this.PersonId.HeaderText = "PersonId";
             this.PersonId.Name = "PersonId";
             this.PersonId.ReadOnly = true;
-            this.PersonId.Visible = false;
             // 
             // nameDataGridViewTextBoxColumn
             // 
@@ -307,9 +181,169 @@
             this.idCardNumberDataGridViewTextBoxColumn.Name = "idCardNumberDataGridViewTextBoxColumn";
             this.idCardNumberDataGridViewTextBoxColumn.ReadOnly = true;
             // 
+            // peopleBindingSource
+            // 
+            this.peopleBindingSource.DataMember = "People";
+            this.peopleBindingSource.DataSource = this._TheDuckingDocs_Model1DataSet;
+            // 
+            // _TheDuckingDocs_Model1DataSet
+            // 
+            this._TheDuckingDocs_Model1DataSet.DataSetName = "_TheDuckingDocs_Model1DataSet";
+            this._TheDuckingDocs_Model1DataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // theDuckingDocsModel1DataSetBindingSource
+            // 
+            this.theDuckingDocsModel1DataSetBindingSource.DataSource = this._TheDuckingDocs_Model1DataSet;
+            this.theDuckingDocsModel1DataSetBindingSource.Position = 0;
+            // 
+            // peopleTableAdapter
+            // 
+            this.peopleTableAdapter.ClearBeforeFill = true;
+            // 
+            // txtboxAge
+            // 
+            this.txtboxAge.Location = new System.Drawing.Point(16, 126);
+            this.txtboxAge.Name = "txtboxAge";
+            this.txtboxAge.Size = new System.Drawing.Size(194, 20);
+            this.txtboxAge.TabIndex = 13;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(279, 161);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(47, 13);
+            this.label7.TabIndex = 16;
+            this.label7.Text = "رمز ورود";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(13, 161);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(58, 13);
+            this.label6.TabIndex = 17;
+            this.label6.Text = "نام کاربری";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(18, 110);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(23, 13);
+            this.label5.TabIndex = 18;
+            this.label5.Text = "سن";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(279, 60);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(40, 13);
+            this.label4.TabIndex = 19;
+            this.label4.Text = "کد ملی";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(13, 60);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(65, 13);
+            this.label3.TabIndex = 20;
+            this.label3.Text = "شماره همراه";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(279, 6);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(69, 13);
+            this.label2.TabIndex = 21;
+            this.label2.Text = "نام خانوادگی";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(14, 6);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(20, 13);
+            this.label1.TabIndex = 22;
+            this.label1.Text = "نام";
+            // 
+            // txtboxPassword
+            // 
+            this.txtboxPassword.Location = new System.Drawing.Point(278, 177);
+            this.txtboxPassword.Name = "txtboxPassword";
+            this.txtboxPassword.PasswordChar = '*';
+            this.txtboxPassword.Size = new System.Drawing.Size(194, 20);
+            this.txtboxPassword.TabIndex = 15;
+            // 
+            // txtboxUsername
+            // 
+            this.txtboxUsername.Location = new System.Drawing.Point(12, 177);
+            this.txtboxUsername.Name = "txtboxUsername";
+            this.txtboxUsername.Size = new System.Drawing.Size(194, 20);
+            this.txtboxUsername.TabIndex = 14;
+            // 
+            // txtboxIdCardNum
+            // 
+            this.txtboxIdCardNum.Location = new System.Drawing.Point(278, 76);
+            this.txtboxIdCardNum.Name = "txtboxIdCardNum";
+            this.txtboxIdCardNum.Size = new System.Drawing.Size(193, 20);
+            this.txtboxIdCardNum.TabIndex = 12;
+            // 
+            // txtboxPhoneNum
+            // 
+            this.txtboxPhoneNum.Location = new System.Drawing.Point(12, 76);
+            this.txtboxPhoneNum.Name = "txtboxPhoneNum";
+            this.txtboxPhoneNum.Size = new System.Drawing.Size(193, 20);
+            this.txtboxPhoneNum.TabIndex = 11;
+            // 
+            // txtboxLastName
+            // 
+            this.txtboxLastName.Location = new System.Drawing.Point(278, 22);
+            this.txtboxLastName.Name = "txtboxLastName";
+            this.txtboxLastName.Size = new System.Drawing.Size(194, 20);
+            this.txtboxLastName.TabIndex = 10;
+            // 
+            // txtboxName
+            // 
+            this.txtboxName.Location = new System.Drawing.Point(12, 22);
+            this.txtboxName.Name = "txtboxName";
+            this.txtboxName.Size = new System.Drawing.Size(193, 20);
+            this.txtboxName.TabIndex = 9;
+            // 
+            // btnAddUser
+            // 
+            this.btnAddUser.Location = new System.Drawing.Point(12, 645);
+            this.btnAddUser.Name = "btnAddUser";
+            this.btnAddUser.Size = new System.Drawing.Size(75, 23);
+            this.btnAddUser.TabIndex = 23;
+            this.btnAddUser.Text = "افزودن";
+            this.btnAddUser.UseVisualStyleBackColor = true;
+            this.btnAddUser.Click += new System.EventHandler(this.btnAddUser_Click);
+            // 
+            // btnUpdateUser
+            // 
+            this.btnUpdateUser.Location = new System.Drawing.Point(93, 645);
+            this.btnUpdateUser.Name = "btnUpdateUser";
+            this.btnUpdateUser.Size = new System.Drawing.Size(75, 23);
+            this.btnUpdateUser.TabIndex = 24;
+            this.btnUpdateUser.Text = "ویرایش";
+            this.btnUpdateUser.UseVisualStyleBackColor = true;
+            // 
+            // btnDeleteUser
+            // 
+            this.btnDeleteUser.Location = new System.Drawing.Point(175, 644);
+            this.btnDeleteUser.Name = "btnDeleteUser";
+            this.btnDeleteUser.Size = new System.Drawing.Size(75, 23);
+            this.btnDeleteUser.TabIndex = 25;
+            this.btnDeleteUser.Text = "حذف";
+            this.btnDeleteUser.UseVisualStyleBackColor = true;
+            // 
             // btnClearFields
             // 
-            this.btnClearFields.Location = new System.Drawing.Point(638, 123);
+            this.btnClearFields.Location = new System.Drawing.Point(12, 203);
             this.btnClearFields.Name = "btnClearFields";
             this.btnClearFields.Size = new System.Drawing.Size(96, 23);
             this.btnClearFields.TabIndex = 26;
@@ -317,11 +351,71 @@
             this.btnClearFields.UseVisualStyleBackColor = true;
             this.btnClearFields.Click += new System.EventHandler(this.btnClearFields_Click);
             // 
+            // lstboxRoles
+            // 
+            this.lstboxRoles.FormattingEnabled = true;
+            this.lstboxRoles.Location = new System.Drawing.Point(742, 28);
+            this.lstboxRoles.Name = "lstboxRoles";
+            this.lstboxRoles.Size = new System.Drawing.Size(120, 95);
+            this.lstboxRoles.TabIndex = 27;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(823, 9);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(39, 13);
+            this.label8.TabIndex = 21;
+            this.label8.Text = "نقش ها";
+            // 
+            // btnDeleteRole
+            // 
+            this.btnDeleteRole.Location = new System.Drawing.Point(661, 100);
+            this.btnDeleteRole.Name = "btnDeleteRole";
+            this.btnDeleteRole.Size = new System.Drawing.Size(75, 23);
+            this.btnDeleteRole.TabIndex = 28;
+            this.btnDeleteRole.Text = "حذف نقش";
+            this.btnDeleteRole.UseVisualStyleBackColor = true;
+            // 
+            // btnAddRole
+            // 
+            this.btnAddRole.Location = new System.Drawing.Point(787, 129);
+            this.btnAddRole.Name = "btnAddRole";
+            this.btnAddRole.Size = new System.Drawing.Size(75, 23);
+            this.btnAddRole.TabIndex = 29;
+            this.btnAddRole.Text = "افرودن نقش";
+            this.btnAddRole.UseVisualStyleBackColor = true;
+            // 
+            // cmboxRoles
+            // 
+            this.cmboxRoles.DataSource = this.rolesBindingSource;
+            this.cmboxRoles.DisplayMember = "Name";
+            this.cmboxRoles.FormattingEnabled = true;
+            this.cmboxRoles.Location = new System.Drawing.Point(741, 153);
+            this.cmboxRoles.Name = "cmboxRoles";
+            this.cmboxRoles.Size = new System.Drawing.Size(121, 21);
+            this.cmboxRoles.TabIndex = 30;
+            this.cmboxRoles.ValueMember = "RoleId";
+            // 
+            // rolesBindingSource
+            // 
+            this.rolesBindingSource.DataMember = "Roles";
+            this.rolesBindingSource.DataSource = this.theDuckingDocsModel1DataSetBindingSource;
+            // 
+            // rolesTableAdapter
+            // 
+            this.rolesTableAdapter.ClearBeforeFill = true;
+            // 
             // ManagementForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(768, 569);
+            this.BackColor = System.Drawing.Color.CadetBlue;
+            this.ClientSize = new System.Drawing.Size(877, 680);
+            this.Controls.Add(this.cmboxRoles);
+            this.Controls.Add(this.btnAddRole);
+            this.Controls.Add(this.btnDeleteRole);
+            this.Controls.Add(this.lstboxRoles);
             this.Controls.Add(this.btnClearFields);
             this.Controls.Add(this.btnDeleteUser);
             this.Controls.Add(this.btnUpdateUser);
@@ -332,6 +426,7 @@
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
+            this.Controls.Add(this.label8);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txtboxPassword);
@@ -341,14 +436,19 @@
             this.Controls.Add(this.txtboxLastName);
             this.Controls.Add(this.txtboxName);
             this.Controls.Add(this.dataGridView1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "ManagementForm";
-            this.Text = "ManagementForm";
+            this.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.Text = "مدریت کاربران";
             this.Load += new System.EventHandler(this.ManagementForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.peopleBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this._TheDuckingDocs_Model1DataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.theDuckingDocsModel1DataSetBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.peopleBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtboxAge)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rolesBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -378,6 +478,7 @@
         private System.Windows.Forms.Button btnAddUser;
         private System.Windows.Forms.Button btnUpdateUser;
         private System.Windows.Forms.Button btnDeleteUser;
+        private System.Windows.Forms.Button btnClearFields;
         private System.Windows.Forms.DataGridViewTextBoxColumn PersonId;
         private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn lastNameDataGridViewTextBoxColumn;
@@ -386,6 +487,12 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn userNameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn passwordDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn idCardNumberDataGridViewTextBoxColumn;
-        private System.Windows.Forms.Button btnClearFields;
+        private System.Windows.Forms.ListBox lstboxRoles;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Button btnDeleteRole;
+        private System.Windows.Forms.Button btnAddRole;
+        private System.Windows.Forms.ComboBox cmboxRoles;
+        private System.Windows.Forms.BindingSource rolesBindingSource;
+        private _TheDuckingDocs_Model1DataSetTableAdapters.RolesTableAdapter rolesTableAdapter;
     }
 }
