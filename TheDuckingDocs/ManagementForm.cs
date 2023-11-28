@@ -53,6 +53,7 @@ namespace TheDuckingDocs
                 LastName = txtboxLastName.Text,
                 IdCardNumebr = txtboxIdCardNum.Text,
                 Password = txtboxPassword.Text,
+                RePassword = txtboxPassword.Text,
                 Username = txtboxUsername.Text,
                 PhoneNumber = txtboxPhoneNum.Text,
                 Age = (int)txtboxAge.Value,
@@ -61,6 +62,8 @@ namespace TheDuckingDocs
             AddUserService addUserService = new AddUserService(model);
             ResultDto result = addUserService.Execute(person);
             MessageBox.Show(result.Message);
+            this.peopleTableAdapter.Fill(this._TheDuckingDocs_Model1DataSet.People);
+
         }
 
         private void dataGridView1_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)

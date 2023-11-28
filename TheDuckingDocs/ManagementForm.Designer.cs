@@ -33,14 +33,6 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.PersonId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.lastNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ageDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.phoneNumberDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.userNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.passwordDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.idCardNumberDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.peopleBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this._TheDuckingDocs_Model1DataSet = new TheDuckingDocs._TheDuckingDocs_Model1DataSet();
             this.theDuckingDocsModel1DataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -70,6 +62,14 @@
             this.cmboxRoles = new System.Windows.Forms.ComboBox();
             this.rolesBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.rolesTableAdapter = new TheDuckingDocs._TheDuckingDocs_Model1DataSetTableAdapters.RolesTableAdapter();
+            this.PersonId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lastNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ageDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.phoneNumberDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.userNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.passwordDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.idCardNumberDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.peopleBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this._TheDuckingDocs_Model1DataSet)).BeginInit();
@@ -83,6 +83,7 @@
             this.dataGridView1.AllowUserToAddRows = false;
             this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.AutoGenerateColumns = false;
+            this.dataGridView1.BackgroundColor = System.Drawing.Color.LightSeaGreen;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -110,7 +111,7 @@
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle2;
-            this.dataGridView1.Location = new System.Drawing.Point(17, 275);
+            this.dataGridView1.Location = new System.Drawing.Point(12, 271);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -121,65 +122,9 @@
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
-            this.dataGridView1.Size = new System.Drawing.Size(845, 347);
+            this.dataGridView1.Size = new System.Drawing.Size(745, 347);
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.RowHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView1_RowHeaderMouseClick);
-            // 
-            // PersonId
-            // 
-            this.PersonId.DataPropertyName = "PersonId";
-            this.PersonId.HeaderText = "PersonId";
-            this.PersonId.Name = "PersonId";
-            this.PersonId.ReadOnly = true;
-            // 
-            // nameDataGridViewTextBoxColumn
-            // 
-            this.nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
-            this.nameDataGridViewTextBoxColumn.HeaderText = "Name";
-            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
-            this.nameDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // lastNameDataGridViewTextBoxColumn
-            // 
-            this.lastNameDataGridViewTextBoxColumn.DataPropertyName = "LastName";
-            this.lastNameDataGridViewTextBoxColumn.HeaderText = "LastName";
-            this.lastNameDataGridViewTextBoxColumn.Name = "lastNameDataGridViewTextBoxColumn";
-            this.lastNameDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // ageDataGridViewTextBoxColumn
-            // 
-            this.ageDataGridViewTextBoxColumn.DataPropertyName = "Age";
-            this.ageDataGridViewTextBoxColumn.HeaderText = "Age";
-            this.ageDataGridViewTextBoxColumn.Name = "ageDataGridViewTextBoxColumn";
-            this.ageDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // phoneNumberDataGridViewTextBoxColumn
-            // 
-            this.phoneNumberDataGridViewTextBoxColumn.DataPropertyName = "PhoneNumber";
-            this.phoneNumberDataGridViewTextBoxColumn.HeaderText = "PhoneNumber";
-            this.phoneNumberDataGridViewTextBoxColumn.Name = "phoneNumberDataGridViewTextBoxColumn";
-            this.phoneNumberDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // userNameDataGridViewTextBoxColumn
-            // 
-            this.userNameDataGridViewTextBoxColumn.DataPropertyName = "UserName";
-            this.userNameDataGridViewTextBoxColumn.HeaderText = "UserName";
-            this.userNameDataGridViewTextBoxColumn.Name = "userNameDataGridViewTextBoxColumn";
-            this.userNameDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // passwordDataGridViewTextBoxColumn
-            // 
-            this.passwordDataGridViewTextBoxColumn.DataPropertyName = "Password";
-            this.passwordDataGridViewTextBoxColumn.HeaderText = "Password";
-            this.passwordDataGridViewTextBoxColumn.Name = "passwordDataGridViewTextBoxColumn";
-            this.passwordDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // idCardNumberDataGridViewTextBoxColumn
-            // 
-            this.idCardNumberDataGridViewTextBoxColumn.DataPropertyName = "IdCardNumber";
-            this.idCardNumberDataGridViewTextBoxColumn.HeaderText = "IdCardNumber";
-            this.idCardNumberDataGridViewTextBoxColumn.Name = "idCardNumberDataGridViewTextBoxColumn";
-            this.idCardNumberDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // peopleBindingSource
             // 
@@ -274,7 +219,6 @@
             // 
             this.txtboxPassword.Location = new System.Drawing.Point(278, 177);
             this.txtboxPassword.Name = "txtboxPassword";
-            this.txtboxPassword.PasswordChar = '*';
             this.txtboxPassword.Size = new System.Drawing.Size(194, 20);
             this.txtboxPassword.TabIndex = 15;
             // 
@@ -354,7 +298,7 @@
             // lstboxRoles
             // 
             this.lstboxRoles.FormattingEnabled = true;
-            this.lstboxRoles.Location = new System.Drawing.Point(742, 28);
+            this.lstboxRoles.Location = new System.Drawing.Point(637, 28);
             this.lstboxRoles.Name = "lstboxRoles";
             this.lstboxRoles.Size = new System.Drawing.Size(120, 95);
             this.lstboxRoles.TabIndex = 27;
@@ -362,7 +306,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(823, 9);
+            this.label8.Location = new System.Drawing.Point(718, 9);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(39, 13);
             this.label8.TabIndex = 21;
@@ -370,7 +314,7 @@
             // 
             // btnDeleteRole
             // 
-            this.btnDeleteRole.Location = new System.Drawing.Point(661, 100);
+            this.btnDeleteRole.Location = new System.Drawing.Point(556, 100);
             this.btnDeleteRole.Name = "btnDeleteRole";
             this.btnDeleteRole.Size = new System.Drawing.Size(75, 23);
             this.btnDeleteRole.TabIndex = 28;
@@ -379,7 +323,7 @@
             // 
             // btnAddRole
             // 
-            this.btnAddRole.Location = new System.Drawing.Point(787, 129);
+            this.btnAddRole.Location = new System.Drawing.Point(682, 129);
             this.btnAddRole.Name = "btnAddRole";
             this.btnAddRole.Size = new System.Drawing.Size(75, 23);
             this.btnAddRole.TabIndex = 29;
@@ -391,7 +335,7 @@
             this.cmboxRoles.DataSource = this.rolesBindingSource;
             this.cmboxRoles.DisplayMember = "Name";
             this.cmboxRoles.FormattingEnabled = true;
-            this.cmboxRoles.Location = new System.Drawing.Point(741, 153);
+            this.cmboxRoles.Location = new System.Drawing.Point(636, 153);
             this.cmboxRoles.Name = "cmboxRoles";
             this.cmboxRoles.Size = new System.Drawing.Size(121, 21);
             this.cmboxRoles.TabIndex = 30;
@@ -406,12 +350,69 @@
             // 
             this.rolesTableAdapter.ClearBeforeFill = true;
             // 
+            // PersonId
+            // 
+            this.PersonId.DataPropertyName = "PersonId";
+            this.PersonId.HeaderText = "PersonId";
+            this.PersonId.Name = "PersonId";
+            this.PersonId.ReadOnly = true;
+            this.PersonId.Visible = false;
+            // 
+            // nameDataGridViewTextBoxColumn
+            // 
+            this.nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
+            this.nameDataGridViewTextBoxColumn.HeaderText = "Name";
+            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
+            this.nameDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // lastNameDataGridViewTextBoxColumn
+            // 
+            this.lastNameDataGridViewTextBoxColumn.DataPropertyName = "LastName";
+            this.lastNameDataGridViewTextBoxColumn.HeaderText = "LastName";
+            this.lastNameDataGridViewTextBoxColumn.Name = "lastNameDataGridViewTextBoxColumn";
+            this.lastNameDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // ageDataGridViewTextBoxColumn
+            // 
+            this.ageDataGridViewTextBoxColumn.DataPropertyName = "Age";
+            this.ageDataGridViewTextBoxColumn.HeaderText = "Age";
+            this.ageDataGridViewTextBoxColumn.Name = "ageDataGridViewTextBoxColumn";
+            this.ageDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // phoneNumberDataGridViewTextBoxColumn
+            // 
+            this.phoneNumberDataGridViewTextBoxColumn.DataPropertyName = "PhoneNumber";
+            this.phoneNumberDataGridViewTextBoxColumn.HeaderText = "PhoneNumber";
+            this.phoneNumberDataGridViewTextBoxColumn.Name = "phoneNumberDataGridViewTextBoxColumn";
+            this.phoneNumberDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // userNameDataGridViewTextBoxColumn
+            // 
+            this.userNameDataGridViewTextBoxColumn.DataPropertyName = "UserName";
+            this.userNameDataGridViewTextBoxColumn.HeaderText = "UserName";
+            this.userNameDataGridViewTextBoxColumn.Name = "userNameDataGridViewTextBoxColumn";
+            this.userNameDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // passwordDataGridViewTextBoxColumn
+            // 
+            this.passwordDataGridViewTextBoxColumn.DataPropertyName = "Password";
+            this.passwordDataGridViewTextBoxColumn.HeaderText = "Password";
+            this.passwordDataGridViewTextBoxColumn.Name = "passwordDataGridViewTextBoxColumn";
+            this.passwordDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // idCardNumberDataGridViewTextBoxColumn
+            // 
+            this.idCardNumberDataGridViewTextBoxColumn.DataPropertyName = "IdCardNumber";
+            this.idCardNumberDataGridViewTextBoxColumn.HeaderText = "IdCardNumber";
+            this.idCardNumberDataGridViewTextBoxColumn.Name = "idCardNumberDataGridViewTextBoxColumn";
+            this.idCardNumberDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
             // ManagementForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.CadetBlue;
-            this.ClientSize = new System.Drawing.Size(877, 680);
+            this.ClientSize = new System.Drawing.Size(766, 680);
             this.Controls.Add(this.cmboxRoles);
             this.Controls.Add(this.btnAddRole);
             this.Controls.Add(this.btnDeleteRole);
@@ -479,6 +480,13 @@
         private System.Windows.Forms.Button btnUpdateUser;
         private System.Windows.Forms.Button btnDeleteUser;
         private System.Windows.Forms.Button btnClearFields;
+        private System.Windows.Forms.ListBox lstboxRoles;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Button btnDeleteRole;
+        private System.Windows.Forms.Button btnAddRole;
+        private System.Windows.Forms.ComboBox cmboxRoles;
+        private System.Windows.Forms.BindingSource rolesBindingSource;
+        private _TheDuckingDocs_Model1DataSetTableAdapters.RolesTableAdapter rolesTableAdapter;
         private System.Windows.Forms.DataGridViewTextBoxColumn PersonId;
         private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn lastNameDataGridViewTextBoxColumn;
@@ -487,12 +495,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn userNameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn passwordDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn idCardNumberDataGridViewTextBoxColumn;
-        private System.Windows.Forms.ListBox lstboxRoles;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Button btnDeleteRole;
-        private System.Windows.Forms.Button btnAddRole;
-        private System.Windows.Forms.ComboBox cmboxRoles;
-        private System.Windows.Forms.BindingSource rolesBindingSource;
-        private _TheDuckingDocs_Model1DataSetTableAdapters.RolesTableAdapter rolesTableAdapter;
     }
 }

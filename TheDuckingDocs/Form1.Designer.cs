@@ -94,8 +94,8 @@
             // toolStripItemManagement
             // 
             this.toolStripItemManagement.Name = "toolStripItemManagement";
-            this.toolStripItemManagement.Size = new System.Drawing.Size(57, 20);
-            this.toolStripItemManagement.Text = "مدیریت";
+            this.toolStripItemManagement.Size = new System.Drawing.Size(93, 20);
+            this.toolStripItemManagement.Text = "مدیریت کاربران";
             this.toolStripItemManagement.Visible = false;
             this.toolStripItemManagement.Click += new System.EventHandler(this.toolStripItemManagement_Click);
             // 
