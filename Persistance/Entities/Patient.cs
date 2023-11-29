@@ -13,5 +13,6 @@ namespace Persistance.Entities
         public DateTime BirthDate { get; set; }
         public virtual Address PersonAddress { get; set; }
         public int AddressId {  get; set; }
+
     }
 }

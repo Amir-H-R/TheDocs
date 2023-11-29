@@ -7,7 +7,7 @@ using Persistance.Common;
 
 namespace TheDuckingDocs
 {
-    public class Model1 : DbContext,IModel1
+    public class Model1 : DbContext, IModel1
     {
         // Your context has been configured to use a 'Model1' connection string from your application's 
         // configuration file (App.config or Web.config). By default, this connection string targets the 
@@ -31,6 +31,9 @@ namespace TheDuckingDocs
         public virtual DbSet<Staff> Staff { get; set; }
         public virtual DbSet<Role> Roles { get; set; }
         public virtual DbSet<PeopleRoles> PeopleRoles { get; set; }
+        public virtual DbSet<Doctor> Doctors { get; set; }
+        public virtual DbSet<Specialization> Specializations { get; set; }
+        public virtual DbSet<DoctorSpecialization> DoctorSpecializations { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
@@ -38,7 +41,7 @@ namespace TheDuckingDocs
         }
     }
 
-    
+
 
     //public class MyEntity
     //{

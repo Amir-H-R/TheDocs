@@ -45,6 +45,7 @@ namespace TheDuckingDocs
                 if (user.PeopleRoles.FirstOrDefault().RoleId == 1)
                 {
                     mainForm1.ManagementVisibility = true;
+                    mainForm1.DocsManagementVisibility = true;
                 }
                 this.Hide();
                 mainForm1.ShowDialog();

@@ -23,6 +23,11 @@ namespace TheDuckingDocs
             get { return toolStripItemManagement.Visible; }
             set { toolStripItemManagement.Visible = value; }
         }
+        public bool DocsManagementVisibility
+        {
+            get { return toolStripItemDocsManagement.Visible; }
+            set { toolStripItemDocsManagement.Visible = value; }
+        }
 
         private void Form1_Load(object sender, EventArgs e)
         {
@@ -49,6 +54,12 @@ namespace TheDuckingDocs
         {
             ManagementForm managementForm = new ManagementForm();
             managementForm.ShowDialog();
+        }
+
+        private void toolStripItemDocsManagement_Click(object sender, EventArgs e)
+        {
+            DoctorManagementForm form = new DoctorManagementForm();
+            form.ShowDialog();
         }
     }
 }

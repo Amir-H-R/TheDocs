@@ -39,6 +39,7 @@
             this.button1 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.btnLogout = new System.Windows.Forms.Button();
+            this.toolStripItemDocsManagement = new System.Windows.Forms.ToolStripMenuItem();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -53,7 +54,8 @@
             this.toolStripItemDoctors,
             this.toolStripItemNews,
             this.toolStripItemAboutUs,
-            this.toolStripItemManagement});
+            this.toolStripItemManagement,
+            this.toolStripItemDocsManagement});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(1264, 24);
@@ -140,6 +142,14 @@
             this.btnLogout.UseVisualStyleBackColor = false;
             this.btnLogout.Click += new System.EventHandler(this.btnLogout_Click);
             // 
+            // toolStripItemDocsManagement
+            // 
+            this.toolStripItemDocsManagement.Name = "toolStripItemDocsManagement";
+            this.toolStripItemDocsManagement.Size = new System.Drawing.Size(95, 20);
+            this.toolStripItemDocsManagement.Text = "مدیریت دکتر ها";
+            this.toolStripItemDocsManagement.Visible = false;
+            this.toolStripItemDocsManagement.Click += new System.EventHandler(this.toolStripItemDocsManagement_Click);
+            // 
             // pictureBox1
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
@@ -191,6 +201,7 @@
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button btnLogout;
         private System.Windows.Forms.ToolStripMenuItem toolStripItemManagement;
+        private System.Windows.Forms.ToolStripMenuItem toolStripItemDocsManagement;
     }
 }
 

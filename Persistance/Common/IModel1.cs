@@ -17,6 +17,9 @@ namespace Persistance.Common
          DbSet<Staff> Staff { get; set; }
          DbSet<Role> Roles { get; set; }
          DbSet<PeopleRoles> PeopleRoles { get; set; }
+         DbSet<Doctor> Doctors { get; set; }
+         DbSet<Specialization> Specializations { get; set; }
+         DbSet<DoctorSpecialization> DoctorSpecializations { get; set; }
 
         int SaveChanges();
     }
