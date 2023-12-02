@@ -28,12 +28,21 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.txtboxLastName = new System.Windows.Forms.TextBox();
             this.txtboxName = new System.Windows.Forms.TextBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.peopleBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this._TheDuckingDocs_Model1DataSet = new TheDuckingDocs._TheDuckingDocs_Model1DataSet();
+            this.doctorsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.doctorsTableAdapter = new TheDuckingDocs._TheDuckingDocs_Model1DataSetTableAdapters.DoctorsTableAdapter();
+            this.peopleTableAdapter = new TheDuckingDocs._TheDuckingDocs_Model1DataSetTableAdapters.PeopleTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.peopleBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this._TheDuckingDocs_Model1DataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.doctorsBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // label2
@@ -70,10 +79,34 @@
             // 
             // dataGridView1
             // 
-            this.dataGridView1.Location = new System.Drawing.Point(400, 134);
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(12, 214);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(240, 150);
-            this.dataGridView1.TabIndex = 0;
+            this.dataGridView1.Size = new System.Drawing.Size(843, 150);
+            this.dataGridView1.TabIndex = 27;
+            // 
+            // peopleBindingSource
+            // 
+            this.peopleBindingSource.DataMember = "People";
+            this.peopleBindingSource.DataSource = this._TheDuckingDocs_Model1DataSet;
+            // 
+            // _TheDuckingDocs_Model1DataSet
+            // 
+            this._TheDuckingDocs_Model1DataSet.DataSetName = "_TheDuckingDocs_Model1DataSet";
+            this._TheDuckingDocs_Model1DataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // doctorsBindingSource
+            // 
+            this.doctorsBindingSource.DataMember = "Doctors";
+            this.doctorsBindingSource.DataSource = this._TheDuckingDocs_Model1DataSet;
+            // 
+            // doctorsTableAdapter
+            // 
+            this.doctorsTableAdapter.ClearBeforeFill = true;
+            // 
+            // peopleTableAdapter
+            // 
+            this.peopleTableAdapter.ClearBeforeFill = true;
             // 
             // DoctorManagementForm
             // 
@@ -93,6 +126,9 @@
             this.Text = "مدریت دکتر ها";
             this.Load += new System.EventHandler(this.DoctorManagementForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.peopleBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this._TheDuckingDocs_Model1DataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.doctorsBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -104,6 +140,15 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtboxLastName;
         private System.Windows.Forms.TextBox txtboxName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn doctorIdDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn startTimeDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn endTimeDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn statusDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridView dataGridView1;
+        private _TheDuckingDocs_Model1DataSet _TheDuckingDocs_Model1DataSet;
+        private System.Windows.Forms.BindingSource doctorsBindingSource;
+        private _TheDuckingDocs_Model1DataSetTableAdapters.DoctorsTableAdapter doctorsTableAdapter;
+        private System.Windows.Forms.BindingSource peopleBindingSource;
+        private _TheDuckingDocs_Model1DataSetTableAdapters.PeopleTableAdapter peopleTableAdapter;
     }
 }

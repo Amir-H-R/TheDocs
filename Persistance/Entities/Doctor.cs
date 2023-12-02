@@ -11,6 +11,8 @@ namespace Persistance.Entities
     {
         public int DoctorId { get; set; }
         public virtual Person DoctorInfo { get; set; }
+        public DateTime StartTime { get; set; }
+        public DateTime EndTime { get; set; }
         public ICollection<Specialization> Specializations { get; set; }
         public ICollection<DoctorSpecialization> DoctorSpecializations { get; set; }
 
