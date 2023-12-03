@@ -58,6 +58,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AppointmentManagement.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AppointmentManagement.Designer.cs">
+      <DependentUpon>AppointmentManagement.cs</DependentUpon>
+    </Compile>
     <Compile Include="DoctorManagementForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -98,6 +104,10 @@
     <Compile Include="Migrations\202311291658251_DoctorAvailableDate.designer.cs">
       <DependentUpon>202311291658251_DoctorAvailableDate.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202312022030565_SpecializationEdit.cs" />
+    <Compile Include="Migrations\202312022030565_SpecializationEdit.designer.cs">
+      <DependentUpon>202312022030565_SpecializationEdit.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Model1.cs" />
     <Compile Include="Program.cs" />
@@ -108,11 +118,20 @@
     <Compile Include="RegisterForm.Designer.cs">
       <DependentUpon>RegisterForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="SpecializationManagementForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SpecializationManagementForm.Designer.cs">
+      <DependentUpon>SpecializationManagementForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="_TheDuckingDocs_Model1DataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>_TheDuckingDocs_Model1DataSet.xsd</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="AppointmentManagement.resx">
+      <DependentUpon>AppointmentManagement.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="DoctorManagementForm.resx">
       <DependentUpon>DoctorManagementForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -137,6 +156,9 @@
     <EmbeddedResource Include="Migrations\202311291658251_DoctorAvailableDate.resx">
       <DependentUpon>202311291658251_DoctorAvailableDate.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202312022030565_SpecializationEdit.resx">
+      <DependentUpon>202312022030565_SpecializationEdit.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -148,6 +170,9 @@
     </Compile>
     <EmbeddedResource Include="RegisterForm.resx">
       <DependentUpon>RegisterForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SpecializationManagementForm.resx">
+      <DependentUpon>SpecializationManagementForm.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\DataSources\DoctorManagementForm.datasource" />

@@ -22,7 +22,7 @@ namespace Persistance.Entities
         public int SpecializationId { get; set; }
         public string Name { get; set; }
         public ICollection<DoctorSpecialization> DoctorSpecializations { get; set; }
-        ICollection<Doctor> Doctors { get; set; }
+        public ICollection<Doctor> Doctors { get; set; }
     }
     public class DoctorSpecialization
     {
