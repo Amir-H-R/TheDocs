@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.txtboxLastName = new System.Windows.Forms.TextBox();
@@ -55,9 +56,15 @@
             this.btnAddDoctor = new System.Windows.Forms.Button();
             this.btnDeleteDoctor = new System.Windows.Forms.Button();
             this.btnEditDoctor = new System.Windows.Forms.Button();
+            this.cmboxSpecializations = new System.Windows.Forms.ComboBox();
+            this._TheDuckingDocs_Model1DataSet = new TheDuckingDocs._TheDuckingDocs_Model1DataSet();
+            this.specializationsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.specializationsTableAdapter = new TheDuckingDocs._TheDuckingDocs_Model1DataSetTableAdapters.SpecializationsTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtboxAge)).BeginInit();
             this.menuStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this._TheDuckingDocs_Model1DataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.specializationsBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // label2
@@ -83,22 +90,25 @@
             this.txtboxLastName.Location = new System.Drawing.Point(270, 47);
             this.txtboxLastName.Name = "txtboxLastName";
             this.txtboxLastName.Size = new System.Drawing.Size(194, 20);
-            this.txtboxLastName.TabIndex = 24;
+            this.txtboxLastName.TabIndex = 1;
             // 
             // txtboxName
             // 
             this.txtboxName.Location = new System.Drawing.Point(8, 47);
             this.txtboxName.Name = "txtboxName";
             this.txtboxName.Size = new System.Drawing.Size(193, 20);
-            this.txtboxName.TabIndex = 23;
+            this.txtboxName.TabIndex = 0;
             // 
             // dataGridView1
             // 
+            this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(8, 294);
             this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.ReadOnly = true;
             this.dataGridView1.Size = new System.Drawing.Size(843, 204);
-            this.dataGridView1.TabIndex = 27;
+            this.dataGridView1.TabIndex = 10;
             this.dataGridView1.RowHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView1_RowHeaderMouseClick);
             // 
             // txtboxAge
@@ -106,7 +116,7 @@
             this.txtboxAge.Location = new System.Drawing.Point(8, 140);
             this.txtboxAge.Name = "txtboxAge";
             this.txtboxAge.Size = new System.Drawing.Size(194, 20);
-            this.txtboxAge.TabIndex = 30;
+            this.txtboxAge.TabIndex = 4;
             // 
             // label7
             // 
@@ -158,42 +168,42 @@
             this.txtboxPassword.Location = new System.Drawing.Point(270, 191);
             this.txtboxPassword.Name = "txtboxPassword";
             this.txtboxPassword.Size = new System.Drawing.Size(194, 20);
-            this.txtboxPassword.TabIndex = 32;
+            this.txtboxPassword.TabIndex = 6;
             // 
             // txtboxUsername
             // 
             this.txtboxUsername.Location = new System.Drawing.Point(8, 191);
             this.txtboxUsername.Name = "txtboxUsername";
             this.txtboxUsername.Size = new System.Drawing.Size(194, 20);
-            this.txtboxUsername.TabIndex = 31;
+            this.txtboxUsername.TabIndex = 5;
             // 
             // txtboxIdCardNum
             // 
             this.txtboxIdCardNum.Location = new System.Drawing.Point(270, 90);
             this.txtboxIdCardNum.Name = "txtboxIdCardNum";
             this.txtboxIdCardNum.Size = new System.Drawing.Size(193, 20);
-            this.txtboxIdCardNum.TabIndex = 29;
+            this.txtboxIdCardNum.TabIndex = 3;
             // 
             // txtboxPhoneNum
             // 
             this.txtboxPhoneNum.Location = new System.Drawing.Point(8, 90);
             this.txtboxPhoneNum.Name = "txtboxPhoneNum";
             this.txtboxPhoneNum.Size = new System.Drawing.Size(193, 20);
-            this.txtboxPhoneNum.TabIndex = 28;
+            this.txtboxPhoneNum.TabIndex = 2;
             // 
             // datetimeStartDate
             // 
             this.datetimeStartDate.Location = new System.Drawing.Point(8, 241);
             this.datetimeStartDate.Name = "datetimeStartDate";
             this.datetimeStartDate.Size = new System.Drawing.Size(200, 20);
-            this.datetimeStartDate.TabIndex = 38;
+            this.datetimeStartDate.TabIndex = 7;
             // 
             // datetimeEndDate
             // 
             this.datetimeEndDate.Location = new System.Drawing.Point(270, 241);
             this.datetimeEndDate.Name = "datetimeEndDate";
             this.datetimeEndDate.Size = new System.Drawing.Size(200, 20);
-            this.datetimeEndDate.TabIndex = 39;
+            this.datetimeEndDate.TabIndex = 8;
             // 
             // label8
             // 
@@ -243,7 +253,7 @@
             // 
             // btnAddSpecialization
             // 
-            this.btnAddSpecialization.Location = new System.Drawing.Point(642, 12);
+            this.btnAddSpecialization.Location = new System.Drawing.Point(642, 39);
             this.btnAddSpecialization.Name = "btnAddSpecialization";
             this.btnAddSpecialization.Size = new System.Drawing.Size(83, 23);
             this.btnAddSpecialization.TabIndex = 43;
@@ -252,7 +262,7 @@
             // 
             // btnDeleteSpecialization
             // 
-            this.btnDeleteSpecialization.Location = new System.Drawing.Point(642, 41);
+            this.btnDeleteSpecialization.Location = new System.Drawing.Point(642, 69);
             this.btnDeleteSpecialization.Name = "btnDeleteSpecialization";
             this.btnDeleteSpecialization.Size = new System.Drawing.Size(83, 23);
             this.btnDeleteSpecialization.TabIndex = 44;
@@ -264,7 +274,7 @@
             this.btnAddDoctor.Location = new System.Drawing.Point(8, 267);
             this.btnAddDoctor.Name = "btnAddDoctor";
             this.btnAddDoctor.Size = new System.Drawing.Size(75, 23);
-            this.btnAddDoctor.TabIndex = 45;
+            this.btnAddDoctor.TabIndex = 9;
             this.btnAddDoctor.Text = "افزودن دکتر";
             this.btnAddDoctor.UseVisualStyleBackColor = true;
             this.btnAddDoctor.Click += new System.EventHandler(this.btnAddDoctor_Click);
@@ -274,7 +284,7 @@
             this.btnDeleteDoctor.Location = new System.Drawing.Point(9, 505);
             this.btnDeleteDoctor.Name = "btnDeleteDoctor";
             this.btnDeleteDoctor.Size = new System.Drawing.Size(75, 23);
-            this.btnDeleteDoctor.TabIndex = 46;
+            this.btnDeleteDoctor.TabIndex = 11;
             this.btnDeleteDoctor.Text = "حذف دکتر";
             this.btnDeleteDoctor.UseVisualStyleBackColor = true;
             // 
@@ -283,9 +293,34 @@
             this.btnEditDoctor.Location = new System.Drawing.Point(91, 504);
             this.btnEditDoctor.Name = "btnEditDoctor";
             this.btnEditDoctor.Size = new System.Drawing.Size(93, 23);
-            this.btnEditDoctor.TabIndex = 47;
+            this.btnEditDoctor.TabIndex = 12;
             this.btnEditDoctor.Text = "ویرایش مشخصات";
             this.btnEditDoctor.UseVisualStyleBackColor = true;
+            // 
+            // cmboxSpecializations
+            // 
+            this.cmboxSpecializations.DataSource = this.specializationsBindingSource;
+            this.cmboxSpecializations.DisplayMember = "Name";
+            this.cmboxSpecializations.FormattingEnabled = true;
+            this.cmboxSpecializations.Location = new System.Drawing.Point(604, 12);
+            this.cmboxSpecializations.Name = "cmboxSpecializations";
+            this.cmboxSpecializations.Size = new System.Drawing.Size(121, 21);
+            this.cmboxSpecializations.TabIndex = 45;
+            this.cmboxSpecializations.ValueMember = "SpecializationId";
+            // 
+            // _TheDuckingDocs_Model1DataSet
+            // 
+            this._TheDuckingDocs_Model1DataSet.DataSetName = "_TheDuckingDocs_Model1DataSet";
+            this._TheDuckingDocs_Model1DataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // specializationsBindingSource
+            // 
+            this.specializationsBindingSource.DataMember = "Specializations";
+            this.specializationsBindingSource.DataSource = this._TheDuckingDocs_Model1DataSet;
+            // 
+            // specializationsTableAdapter
+            // 
+            this.specializationsTableAdapter.ClearBeforeFill = true;
             // 
             // DoctorManagementForm
             // 
@@ -293,6 +328,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.CadetBlue;
             this.ClientSize = new System.Drawing.Size(1022, 620);
+            this.Controls.Add(this.cmboxSpecializations);
             this.Controls.Add(this.btnEditDoctor);
             this.Controls.Add(this.btnDeleteDoctor);
             this.Controls.Add(this.btnAddDoctor);
@@ -330,6 +366,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtboxAge)).EndInit();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this._TheDuckingDocs_Model1DataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.specializationsBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -368,5 +406,9 @@
         private System.Windows.Forms.Button btnAddDoctor;
         private System.Windows.Forms.Button btnDeleteDoctor;
         private System.Windows.Forms.Button btnEditDoctor;
+        private System.Windows.Forms.ComboBox cmboxSpecializations;
+        private _TheDuckingDocs_Model1DataSet _TheDuckingDocs_Model1DataSet;
+        private System.Windows.Forms.BindingSource specializationsBindingSource;
+        private _TheDuckingDocs_Model1DataSetTableAdapters.SpecializationsTableAdapter specializationsTableAdapter;
     }
 }

@@ -51,7 +51,7 @@ namespace TheDuckingDocs
             {
                 Name = txtboxName.Text,
                 LastName = txtboxLastName.Text,
-                IdCardNumebr = txtboxIdCardNum.Text,
+                IdCardNumber = txtboxIdCardNum.Text,
                 Password = txtboxPassword.Text,
                 RePassword = txtboxPassword.Text,
                 Username = txtboxUsername.Text,
@@ -60,7 +60,7 @@ namespace TheDuckingDocs
                 Roles = new List<Role> { new Role { RoleId = (int)cmboxRoles.SelectedValue } }
             };
             AddUserService addUserService = new AddUserService(model);
-            ResultDto result = addUserService.Execute(person);
+            ResultDto<Person> result = addUserService.Execute(person);
             MessageBox.Show(result.Message);
             this.peopleTableAdapter.Fill(this._TheDuckingDocs_Model1DataSet.People);
 

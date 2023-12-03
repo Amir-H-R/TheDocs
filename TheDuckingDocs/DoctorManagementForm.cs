@@ -17,19 +17,25 @@ namespace TheDuckingDocs
 {
     public partial class DoctorManagementForm : Form
     {
-        int? id=null;
+        int? id = null;
         IModel1 model1 = new Model1();
         public DoctorManagementForm()
         {
             InitializeComponent();
         }
-
-        private void DoctorManagementForm_Load(object sender, EventArgs e)
+        private void FillDGV()
         {
+            model1 = new Model1();
             var people = model1.People.Include(p => p.PeopleRoles).ToList();
             var docs = people.Where(p => p.PeopleRoles.Any(i => i.RoleId == 4)).ToList();
 
             dataGridView1.DataSource = docs;
+        }
+        private void DoctorManagementForm_Load(object sender, EventArgs e)
+        {
+            // TODO: This line of code loads data into the '_TheDuckingDocs_Model1DataSet.Specializations' table. You can move, or remove it, as needed.
+            this.specializationsTableAdapter.Fill(this._TheDuckingDocs_Model1DataSet.Specializations);
+            FillDGV();
             // TODO: This line of code loads data into the '_TheDuckingDocs_Model1DataSet.People' table. You can move, or remove it, as needed.
             // this.peopleTableAdapter.Fill(this._TheDuckingDocs_Model1DataSet.People);
             // TODO: This line of code loads data into the '_TheDuckingDocs_Model1DataSet.Doctors' table. You can move, or remove it, as needed.
@@ -49,7 +55,7 @@ namespace TheDuckingDocs
             txtboxPassword.Text = dataGridView1.Rows[e.RowIndex].Cells[6].Value as string;
             txtboxIdCardNum.Text = dataGridView1.Rows[e.RowIndex].Cells[7].Value as string;
 
-            var doctor = model1.Doctors.Include(p=>p.DoctorInfo).Where(p=>p.DoctorId == id).FirstOrDefault();
+            var doctor = model1.Doctors.Include(p => p.DoctorInfo).Where(p => p.DoctorId == id).FirstOrDefault();
             datetimeEndDate.Value = doctor.EndTime;
             datetimeStartDate.Value = doctor.StartTime;
         }
@@ -62,19 +68,32 @@ namespace TheDuckingDocs
 
         private void btnAddDoctor_Click(object sender, EventArgs e)
         {
-            AddUserService userService = new AddUserService(model1);
-            UserDto userDto = new UserDto() 
+            AddDoctorService addDoctorService = new AddDoctorService(model1);
+            UserDto userDto = new UserDto()
             {
                 Name = txtboxName.Text,
                 LastName = txtboxLastName.Text,
                 Age = (int)txtboxAge.Value,
                 PhoneNumber = txtboxPhoneNum.Text,
-                IdCardNumebr= txtboxIdCardNum.Text,
-                Username= txtboxUsername.Text,
-                Password= txtboxPassword.Text,
-                Roles = new List<Role> { new Role { Name= "Doctor",RoleId=4} }
+                IdCardNumber = txtboxIdCardNum.Text,
+                Username = txtboxUsername.Text,
+                Password = txtboxPassword.Text,
+                RePassword = txtboxPassword.Text,
+                Roles = new List<Role> { new Role { Name = "Doctor", RoleId = 4 } }
             };
-            userService.Execute(userDto);
+            Doctor doctor = new Doctor()
+            {
+                EndTime = datetimeEndDate.Value,
+                StartTime = datetimeStartDate.Value,
+            };
+            ICollection<Specialization> specializations = new List<Specialization>();
+            int selectedSpecialization = (int)cmboxSpecializations.SelectedValue;
+            Specialization specialization = model1.Specializations.Where(p => p.SpecializationId == selectedSpecialization).FirstOrDefault();
+            specializations.Add(specialization);
+            doctor.Specializations = specializations;
+            ResultDto result = addDoctorService.Execute(userDto, doctor);
+            MessageBox.Show(result.Message);
+            FillDGV();
         }
     }
 }

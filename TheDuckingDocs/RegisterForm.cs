@@ -28,7 +28,7 @@ namespace TheDuckingDocs
                 Name = txtboxName.Text,
                 LastName = txtboxLastName.Text,
                 Age = int.Parse(txtboxAge.Text),
-                IdCardNumebr = txtboxIdCardNum.Text,
+                IdCardNumber = txtboxIdCardNum.Text,
                 PhoneNumber = txtboxPhoneNum.Text,
                 Password = txtboxPassword.Text,
                 RePassword = txtboxRePassword.Text,
@@ -38,7 +38,7 @@ namespace TheDuckingDocs
 
             Model1 model = new Model1();
             AddUserService addUser = new AddUserService(model);
-            ResultDto result = addUser.Execute(userDto);
+            ResultDto<Person> result = addUser.Execute(userDto);
             MessageBox.Show(result.Message);
         }
 

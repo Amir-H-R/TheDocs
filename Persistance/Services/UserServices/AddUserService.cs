@@ -18,7 +18,7 @@ namespace Persistance.Services.UserServices
             _context = context;
         }
 
-        public ResultDto Execute(UserDto dto)
+        public ResultDto<Person> Execute(UserDto dto)
         {
             Person person = new Person()
             {
@@ -26,7 +26,7 @@ namespace Persistance.Services.UserServices
                 LastName = dto.LastName,
                 Age = dto.Age,
                 PhoneNumber = dto.PhoneNumber,
-                IdCardNumber = dto.IdCardNumebr,
+                IdCardNumber = dto.IdCardNumber,
                 Password = dto.Password,
                 UserName = dto.Username
             };
@@ -36,7 +36,7 @@ namespace Persistance.Services.UserServices
                 ICollection<PeopleRoles> peopleRoles = new List<PeopleRoles>();
                 foreach (var role in dto.Roles)
                 {
-                    Role theRole = _context.Roles.Where(p => p.Name == role.Name||p.RoleId==role.RoleId).FirstOrDefault();
+                    Role theRole = _context.Roles.Where(p => p.Name == role.Name || p.RoleId == role.RoleId).FirstOrDefault();
                     peopleRoles.Add(new PeopleRoles
                     {
                         Person = person,
@@ -48,10 +48,10 @@ namespace Persistance.Services.UserServices
                 person.PeopleRoles = peopleRoles;
                 _context.People.Add(person);
                 _context.SaveChanges();
-                return new ResultDto { Message = "ثبت نام با موفقیت انجام شد", Success = true };
+                return new ResultDto<Person> { Data = person, Message = "ثبت نام با موفقیت انجام شد", Success = true };
             }
-            else 
-            return new ResultDto {Message=userValidation.Message, Success = false };
+            else
+                return new ResultDto<Person> { Data = person, Message = userValidation.Message, Success = false };
         }
     }
 }
