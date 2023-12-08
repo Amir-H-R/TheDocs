@@ -111,5 +111,10 @@ namespace TheDuckingDocs
             MessageBox.Show(result.Message);
             this.peopleTableAdapter.Fill(this._TheDuckingDocs_Model1DataSet.People);
         }
+
+        private void btnDeleteUser_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

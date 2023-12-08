@@ -44,7 +44,21 @@ namespace TheDuckingDocs
                 var specialization = model1.Specializations.Where(p => p.SpecializationId == item.SpecializationId).FirstOrDefault();
                 lstboxSpecializations.Items.Add(specialization.Name);
             }
-
+        }
+        private void ClearFields()
+        {
+            id = null;
+            txtboxName.Text = "";
+            txtboxLastName.Text = "";
+            txtboxAge.Value = 0;
+            txtboxPhoneNum.Text = "";
+            txtboxUsername.Text = "";
+            txtboxPassword.Text = "";
+            txtboxIdCardNum.Text = "";
+            datetimeStartDate.Value = DateTime.Now;
+            datetimeEndDate.Value = DateTime.Now;
+            lstboxSpecializations.Items.Clear();
+            lstboxSpecializations.Items.Add("لطفا یک ردیف را انتخاب کنید");
         }
         private void DoctorManagementForm_Load(object sender, EventArgs e)
         {
@@ -170,6 +184,16 @@ namespace TheDuckingDocs
                 model1.SaveChanges();
                 FillSpecialization();
             }
+        }
+
+        private void btnDeleteDoctor_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            ClearFields();
         }
     }
 }

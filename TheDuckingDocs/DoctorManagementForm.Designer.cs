@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.Button btnClearFields;
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.txtboxLastName = new System.Windows.Forms.TextBox();
@@ -60,6 +61,7 @@
             this.specializationsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this._TheDuckingDocs_Model1DataSet = new TheDuckingDocs._TheDuckingDocs_Model1DataSet();
             this.specializationsTableAdapter = new TheDuckingDocs._TheDuckingDocs_Model1DataSetTableAdapters.SpecializationsTableAdapter();
+            btnClearFields = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtboxAge)).BeginInit();
             this.menuStrip1.SuspendLayout();
@@ -247,14 +249,14 @@
             this.lstboxSpecializations.FormattingEnabled = true;
             this.lstboxSpecializations.Items.AddRange(new object[] {
             "لطفا یک ردیف را انتخاب کنید"});
-            this.lstboxSpecializations.Location = new System.Drawing.Point(731, 12);
+            this.lstboxSpecializations.Location = new System.Drawing.Point(719, 12);
             this.lstboxSpecializations.Name = "lstboxSpecializations";
-            this.lstboxSpecializations.Size = new System.Drawing.Size(120, 134);
+            this.lstboxSpecializations.Size = new System.Drawing.Size(134, 134);
             this.lstboxSpecializations.TabIndex = 42;
             // 
             // btnAddSpecialization
             // 
-            this.btnAddSpecialization.Location = new System.Drawing.Point(642, 39);
+            this.btnAddSpecialization.Location = new System.Drawing.Point(630, 39);
             this.btnAddSpecialization.Name = "btnAddSpecialization";
             this.btnAddSpecialization.Size = new System.Drawing.Size(83, 23);
             this.btnAddSpecialization.TabIndex = 43;
@@ -264,7 +266,7 @@
             // 
             // btnDeleteSpecialization
             // 
-            this.btnDeleteSpecialization.Location = new System.Drawing.Point(642, 69);
+            this.btnDeleteSpecialization.Location = new System.Drawing.Point(630, 69);
             this.btnDeleteSpecialization.Name = "btnDeleteSpecialization";
             this.btnDeleteSpecialization.Size = new System.Drawing.Size(83, 23);
             this.btnDeleteSpecialization.TabIndex = 44;
@@ -290,6 +292,7 @@
             this.btnDeleteDoctor.TabIndex = 11;
             this.btnDeleteDoctor.Text = "حذف دکتر";
             this.btnDeleteDoctor.UseVisualStyleBackColor = true;
+            this.btnDeleteDoctor.Click += new System.EventHandler(this.btnDeleteDoctor_Click);
             // 
             // btnEditDoctor
             // 
@@ -306,7 +309,7 @@
             this.cmboxSpecializations.DataSource = this.specializationsBindingSource;
             this.cmboxSpecializations.DisplayMember = "Name";
             this.cmboxSpecializations.FormattingEnabled = true;
-            this.cmboxSpecializations.Location = new System.Drawing.Point(604, 12);
+            this.cmboxSpecializations.Location = new System.Drawing.Point(592, 12);
             this.cmboxSpecializations.Name = "cmboxSpecializations";
             this.cmboxSpecializations.Size = new System.Drawing.Size(121, 21);
             this.cmboxSpecializations.TabIndex = 45;
@@ -326,12 +329,23 @@
             // 
             this.specializationsTableAdapter.ClearBeforeFill = true;
             // 
+            // btnClearFields
+            // 
+            btnClearFields.Location = new System.Drawing.Point(756, 267);
+            btnClearFields.Name = "btnClearFields";
+            btnClearFields.Size = new System.Drawing.Size(95, 23);
+            btnClearFields.TabIndex = 46;
+            btnClearFields.Text = "پاکسازی فیلدها";
+            btnClearFields.UseVisualStyleBackColor = true;
+            btnClearFields.Click += new System.EventHandler(this.button1_Click);
+            // 
             // DoctorManagementForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.CadetBlue;
             this.ClientSize = new System.Drawing.Size(865, 620);
+            this.Controls.Add(btnClearFields);
             this.Controls.Add(this.cmboxSpecializations);
             this.Controls.Add(this.btnEditDoctor);
             this.Controls.Add(this.btnDeleteDoctor);
