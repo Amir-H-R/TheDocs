@@ -104,10 +104,11 @@
             this.dataGridView1.AllowUserToAddRows = false;
             this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(8, 294);
+            this.dataGridView1.Location = new System.Drawing.Point(8, 296);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.Size = new System.Drawing.Size(843, 204);
+            this.dataGridView1.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.dataGridView1.Size = new System.Drawing.Size(843, 282);
             this.dataGridView1.TabIndex = 10;
             this.dataGridView1.RowHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView1_RowHeaderMouseClick);
             // 
@@ -230,7 +231,7 @@
             this.toolStripItemSpecializations});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1022, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(865, 24);
             this.menuStrip1.TabIndex = 41;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -269,6 +270,7 @@
             this.btnDeleteSpecialization.TabIndex = 44;
             this.btnDeleteSpecialization.Text = "حذف تخصص";
             this.btnDeleteSpecialization.UseVisualStyleBackColor = true;
+            this.btnDeleteSpecialization.Click += new System.EventHandler(this.btnDeleteSpecialization_Click);
             // 
             // btnAddDoctor
             // 
@@ -282,7 +284,7 @@
             // 
             // btnDeleteDoctor
             // 
-            this.btnDeleteDoctor.Location = new System.Drawing.Point(9, 505);
+            this.btnDeleteDoctor.Location = new System.Drawing.Point(9, 585);
             this.btnDeleteDoctor.Name = "btnDeleteDoctor";
             this.btnDeleteDoctor.Size = new System.Drawing.Size(75, 23);
             this.btnDeleteDoctor.TabIndex = 11;
@@ -291,7 +293,7 @@
             // 
             // btnEditDoctor
             // 
-            this.btnEditDoctor.Location = new System.Drawing.Point(91, 504);
+            this.btnEditDoctor.Location = new System.Drawing.Point(91, 584);
             this.btnEditDoctor.Name = "btnEditDoctor";
             this.btnEditDoctor.Size = new System.Drawing.Size(93, 23);
             this.btnEditDoctor.TabIndex = 12;
@@ -329,7 +331,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.CadetBlue;
-            this.ClientSize = new System.Drawing.Size(1022, 620);
+            this.ClientSize = new System.Drawing.Size(865, 620);
             this.Controls.Add(this.cmboxSpecializations);
             this.Controls.Add(this.btnEditDoctor);
             this.Controls.Add(this.btnDeleteDoctor);

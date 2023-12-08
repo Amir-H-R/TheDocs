@@ -18,16 +18,24 @@ namespace Persistance.Services.UserServices
         }
         public ResultDto<int> Execute(UserDto userDto)
         {
-            var person = _model1.People.FirstOrDefault(p => p.PersonId == userDto.Id);
-            person.IdCardNumber = userDto.IdCardNumber;
-            person.PhoneNumber = userDto.PhoneNumber;
-            person.Name = userDto.Name;
-            person.LastName = userDto.LastName;
-            person.Age = userDto.Age;
-            person.Password = userDto.Password;
-            person.UserName = userDto.Username;
-            _model1.SaveChanges();
-            return new ResultDto<int>() { Data = person.PersonId, Message = "تغییرات کاربر ثبت گردید", Success = true };
+            try
+            {
+                var person = _model1.People.FirstOrDefault(p => p.PersonId == userDto.Id);
+                person.IdCardNumber = userDto.IdCardNumber;
+                person.PhoneNumber = userDto.PhoneNumber;
+                person.Name = userDto.Name;
+                person.LastName = userDto.LastName;
+                person.Age = userDto.Age;
+                person.Password = userDto.Password;
+                person.UserName = userDto.Username;
+                _model1.SaveChanges();
+                return new ResultDto<int>() { Data = person.PersonId, Message = "تغییرات کاربر ثبت گردید", Success = true };
+            }
+            catch (Exception)
+            {
+                return new ResultDto<int>() {Message = "عملیات با خطا مواجه شد" ,Success = false};
+            }
+
         }
     }
 }

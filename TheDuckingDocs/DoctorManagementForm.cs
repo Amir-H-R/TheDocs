@@ -31,6 +31,21 @@ namespace TheDuckingDocs
 
             dataGridView1.DataSource = docs;
         }
+        private void FillSpecialization()
+        {
+            model1 = new Model1();
+
+            var doctor = model1.Doctors.Include(p => p.DoctorInfo).Where(p => p.DoctorInfo.PersonId == id).FirstOrDefault();
+
+            var specializations = model1.DoctorSpecializations.Where(p => p.DoctorId == doctor.DoctorId).ToList();
+            lstboxSpecializations.Items.Clear();
+            foreach (var item in specializations)
+            {
+                var specialization = model1.Specializations.Where(p => p.SpecializationId == item.SpecializationId).FirstOrDefault();
+                lstboxSpecializations.Items.Add(specialization.Name);
+            }
+
+        }
         private void DoctorManagementForm_Load(object sender, EventArgs e)
         {
             // TODO: This line of code loads data into the '_TheDuckingDocs_Model1DataSet.Specializations' table. You can move, or remove it, as needed.
@@ -66,13 +81,7 @@ namespace TheDuckingDocs
                 datetimeStartDate.Value = doctor.StartTime;
             }
 
-            var specializations = model1.DoctorSpecializations.Where(p => p.DoctorId == doctor.DoctorId).ToList();
-            lstboxSpecializations.Items.Clear();
-            foreach (var item in specializations)
-            {
-                var specialization = model1.Specializations.Where(p => p.SpecializationId == item.SpecializationId).FirstOrDefault();
-                lstboxSpecializations.Items.Add(specialization.Name);
-            }
+            FillSpecialization();
         }
 
         private void toolStripItemSpecializations_Click(object sender, EventArgs e)
@@ -106,6 +115,7 @@ namespace TheDuckingDocs
             Specialization specialization = model1.Specializations.Where(p => p.SpecializationId == selectedSpecialization).FirstOrDefault();
             specializations.Add(specialization);
             doctor.Specializations = specializations;
+
             ResultDto result = addDoctorService.Execute(userDto, doctor);
             MessageBox.Show(result.Message);
             FillDGV();
@@ -113,12 +123,53 @@ namespace TheDuckingDocs
 
         private void btnEditDoctor_Click(object sender, EventArgs e)
         {
-            
+            EditDoctorService doctorService = new EditDoctorService(model1);
+            UserDto userDto = new UserDto
+            {
+                Id = id.Value,
+                Name = txtboxName.Text,
+                LastName = txtboxLastName.Text,
+                Age = (int)txtboxAge.Value,
+                PhoneNumber = txtboxPhoneNum.Text,
+                IdCardNumber = txtboxIdCardNum.Text,
+                Username = txtboxUsername.Text,
+                Password = txtboxPassword.Text,
+                RePassword = txtboxPassword.Text
+            };
+            Doctor doctorDto = new Doctor
+            {
+                EndTime = datetimeEndDate.Value,
+                StartTime = datetimeStartDate.Value,
+            };
+            var result = doctorService.Execute(userDto, doctorDto);
+            MessageBox.Show(result.Message);
+            FillDGV();
         }
 
         private void btnAddSpecialization_Click(object sender, EventArgs e)
         {
+            AddSpecializationService specializationService = new AddSpecializationService(model1);
 
+            var selectedSpecialization = cmboxSpecializations.SelectedValue;
+            var specialization = model1.Specializations.FirstOrDefault(x => x.SpecializationId == (int)selectedSpecialization);
+            var result = specializationService.Execute(id.Value, specialization);
+            MessageBox.Show(result.Message);
+            FillSpecialization();
+        }
+
+        private void btnDeleteSpecialization_Click(object sender, EventArgs e)
+        {
+            var result = MessageBox.Show("از حذف این تخصص مطمعن هستید؟", "حذف تخصص", MessageBoxButtons.YesNo);
+            if (result == DialogResult.Yes)
+            {
+                var selectedSpecialization = lstboxSpecializations.SelectedItem;
+                var specialization = model1.Specializations.FirstOrDefault(x => x.Name == selectedSpecialization.ToString());
+                var doc = model1.Doctors.Where(p => p.DoctorInfo.PersonId == id.Value).FirstOrDefault();
+                var target = model1.DoctorSpecializations.Where(p => p.DoctorId == doc.DoctorId && p.SpecializationId == specialization.SpecializationId).FirstOrDefault();
+                model1.DoctorSpecializations.Remove(target);
+                model1.SaveChanges();
+                FillSpecialization();
+            }
         }
     }
 }

@@ -63,6 +63,7 @@
     <Compile Include="Entities\Role.cs" />
     <Compile Include="Entities\Staff.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\UserServices\AddSpecializationService.cs" />
     <Compile Include="Services\UserServices\AddUserService.cs" />
     <Compile Include="Services\UserServices\AddDoctorService.cs" />
     <Compile Include="Services\UserServices\EditDoctorService.cs" />
