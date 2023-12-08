@@ -21,10 +21,10 @@ namespace TheDuckingDocs
         {
             InitializeComponent();
         }
-        int Id;
+        int id;
         private void ClearFields()
         {
-            Id = 0;
+            id = 0;
             txtboxName.Text = "";
             txtboxLastName.Text = "";
             txtboxAge.Value = 0;
@@ -70,7 +70,7 @@ namespace TheDuckingDocs
         {
             lstboxRoles.Items.Clear();
 
-            Id = (int)dataGridView1.Rows[e.RowIndex].Cells[0].Value;
+            id = (int)dataGridView1.Rows[e.RowIndex].Cells[0].Value;
             txtboxName.Text = dataGridView1.Rows[e.RowIndex].Cells[1].Value as string;
             txtboxLastName.Text = dataGridView1.Rows[e.RowIndex].Cells[2].Value as string;
             txtboxAge.Value = (int)dataGridView1.Rows[e.RowIndex].Cells[3].Value;
@@ -78,7 +78,7 @@ namespace TheDuckingDocs
             txtboxUsername.Text = dataGridView1.Rows[e.RowIndex].Cells[5].Value as string;
             txtboxPassword.Text = dataGridView1.Rows[e.RowIndex].Cells[6].Value as string;
             txtboxIdCardNum.Text = dataGridView1.Rows[e.RowIndex].Cells[7].Value as string;
-            var roles = model.PeopleRoles.Where(p => p.PersonId == Id).ToList();
+            var roles = model.PeopleRoles.Where(p => p.PersonId == id).ToList();
             foreach (var item in roles)
             {
                 var dsds = model.Roles.Where(p => p.RoleId == item.RoleId).FirstOrDefault().Name;
@@ -89,6 +89,27 @@ namespace TheDuckingDocs
         private void btnClearFields_Click(object sender, EventArgs e)
         {
             ClearFields();
+        }
+
+        private void btnUpdateUser_Click(object sender, EventArgs e)
+        {
+            EditUserService userService = new EditUserService(model);
+
+            UserDto userDto = new UserDto()
+            {
+                Id = id,
+                Name = txtboxName.Text,
+                LastName = txtboxLastName.Text,
+                IdCardNumber = txtboxIdCardNum.Text,
+                Password = txtboxPassword.Text,
+                RePassword = txtboxPassword.Text,
+                Username = txtboxUsername.Text,
+                PhoneNumber = txtboxPhoneNum.Text,
+                Age = (int)txtboxAge.Value
+            };
+            var result = userService.Execute(userDto);
+            MessageBox.Show(result.Message);
+            this.peopleTableAdapter.Fill(this._TheDuckingDocs_Model1DataSet.People);
         }
     }
 }

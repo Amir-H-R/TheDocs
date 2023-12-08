@@ -29,13 +29,13 @@ namespace Persistance.Services.UserServices
                 person.Age = userDto.Age;
                 person.Password = userDto.Password;
                 person.UserName = userDto.Username;
-                ICollection<PeopleRoles> roles = new List<PeopleRoles>();
-                foreach (var role in userDto.Roles)
-                {
-                    var theRole = _model1.Roles.FirstOrDefault(p => p.RoleId == role.RoleId);
-                    roles.Add(new PeopleRoles { PersonId = person.PersonId, Person = person, Role = theRole, RoleId = theRole.RoleId });
-                }
-                person.PeopleRoles = roles;
+                //ICollection<PeopleRoles> roles = new List<PeopleRoles>();
+                //foreach (var role in userDto.Roles)
+                //{
+                //    var theRole = _model1.Roles.FirstOrDefault(p => p.RoleId == role.RoleId);
+                //    roles.Add(new PeopleRoles { PersonId = person.PersonId, Person = person, Role = theRole, RoleId = theRole.RoleId });
+                //}
+                //person.PeopleRoles = roles;
                 _model1.SaveChanges();
                 return new ResultDto() { Message = "تغییرات ثبت گردید", Success = true };
             }
