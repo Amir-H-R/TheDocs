@@ -57,14 +57,14 @@
             this.btnDeleteDoctor = new System.Windows.Forms.Button();
             this.btnEditDoctor = new System.Windows.Forms.Button();
             this.cmboxSpecializations = new System.Windows.Forms.ComboBox();
-            this._TheDuckingDocs_Model1DataSet = new TheDuckingDocs._TheDuckingDocs_Model1DataSet();
             this.specializationsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this._TheDuckingDocs_Model1DataSet = new TheDuckingDocs._TheDuckingDocs_Model1DataSet();
             this.specializationsTableAdapter = new TheDuckingDocs._TheDuckingDocs_Model1DataSetTableAdapters.SpecializationsTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtboxAge)).BeginInit();
             this.menuStrip1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this._TheDuckingDocs_Model1DataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.specializationsBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this._TheDuckingDocs_Model1DataSet)).BeginInit();
             this.SuspendLayout();
             // 
             // label2
@@ -245,7 +245,7 @@
             // 
             this.lstboxSpecializations.FormattingEnabled = true;
             this.lstboxSpecializations.Items.AddRange(new object[] {
-            "یک ردیف را انتخاب کنید"});
+            "لطفا یک ردیف را انتخاب کنید"});
             this.lstboxSpecializations.Location = new System.Drawing.Point(731, 12);
             this.lstboxSpecializations.Name = "lstboxSpecializations";
             this.lstboxSpecializations.Size = new System.Drawing.Size(120, 134);
@@ -259,6 +259,7 @@
             this.btnAddSpecialization.TabIndex = 43;
             this.btnAddSpecialization.Text = "افرودن تخصص";
             this.btnAddSpecialization.UseVisualStyleBackColor = true;
+            this.btnAddSpecialization.Click += new System.EventHandler(this.btnAddSpecialization_Click);
             // 
             // btnDeleteSpecialization
             // 
@@ -296,6 +297,7 @@
             this.btnEditDoctor.TabIndex = 12;
             this.btnEditDoctor.Text = "ویرایش مشخصات";
             this.btnEditDoctor.UseVisualStyleBackColor = true;
+            this.btnEditDoctor.Click += new System.EventHandler(this.btnEditDoctor_Click);
             // 
             // cmboxSpecializations
             // 
@@ -308,15 +310,15 @@
             this.cmboxSpecializations.TabIndex = 45;
             this.cmboxSpecializations.ValueMember = "SpecializationId";
             // 
-            // _TheDuckingDocs_Model1DataSet
-            // 
-            this._TheDuckingDocs_Model1DataSet.DataSetName = "_TheDuckingDocs_Model1DataSet";
-            this._TheDuckingDocs_Model1DataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
             // specializationsBindingSource
             // 
             this.specializationsBindingSource.DataMember = "Specializations";
             this.specializationsBindingSource.DataSource = this._TheDuckingDocs_Model1DataSet;
+            // 
+            // _TheDuckingDocs_Model1DataSet
+            // 
+            this._TheDuckingDocs_Model1DataSet.DataSetName = "_TheDuckingDocs_Model1DataSet";
+            this._TheDuckingDocs_Model1DataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // specializationsTableAdapter
             // 
@@ -366,8 +368,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtboxAge)).EndInit();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this._TheDuckingDocs_Model1DataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.specializationsBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this._TheDuckingDocs_Model1DataSet)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

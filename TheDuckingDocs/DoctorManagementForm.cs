@@ -54,10 +54,25 @@ namespace TheDuckingDocs
             txtboxUsername.Text = dataGridView1.Rows[e.RowIndex].Cells[5].Value as string;
             txtboxPassword.Text = dataGridView1.Rows[e.RowIndex].Cells[6].Value as string;
             txtboxIdCardNum.Text = dataGridView1.Rows[e.RowIndex].Cells[7].Value as string;
+            var doctor = model1.Doctors.Include(p => p.DoctorInfo).Where(p => p.DoctorInfo.PersonId == id).FirstOrDefault();
+            if (doctor == null)
+            {
+                datetimeEndDate.Value = DateTime.Now;
+                datetimeStartDate.Value = DateTime.Now;
+            }
+            else
+            {
+                datetimeEndDate.Value = doctor.EndTime;
+                datetimeStartDate.Value = doctor.StartTime;
+            }
 
-            var doctor = model1.Doctors.Include(p => p.DoctorInfo).Where(p => p.DoctorId == id).FirstOrDefault();
-            datetimeEndDate.Value = doctor.EndTime;
-            datetimeStartDate.Value = doctor.StartTime;
+            var specializations = model1.DoctorSpecializations.Where(p => p.DoctorId == doctor.DoctorId).ToList();
+            lstboxSpecializations.Items.Clear();
+            foreach (var item in specializations)
+            {
+                var specialization = model1.Specializations.Where(p => p.SpecializationId == item.SpecializationId).FirstOrDefault();
+                lstboxSpecializations.Items.Add(specialization.Name);
+            }
         }
 
         private void toolStripItemSpecializations_Click(object sender, EventArgs e)
@@ -94,6 +109,16 @@ namespace TheDuckingDocs
             ResultDto result = addDoctorService.Execute(userDto, doctor);
             MessageBox.Show(result.Message);
             FillDGV();
+        }
+
+        private void btnEditDoctor_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void btnAddSpecialization_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
