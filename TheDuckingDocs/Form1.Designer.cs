@@ -36,11 +36,12 @@
             this.toolStripItemNews = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripItemAboutUs = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripItemManagement = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripItemDocsManagement = new System.Windows.Forms.ToolStripMenuItem();
             this.button1 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.btnLogout = new System.Windows.Forms.Button();
-            this.toolStripItemDocsManagement = new System.Windows.Forms.ToolStripMenuItem();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.toolStripItemAppointmentsManagement = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -55,7 +56,8 @@
             this.toolStripItemNews,
             this.toolStripItemAboutUs,
             this.toolStripItemManagement,
-            this.toolStripItemDocsManagement});
+            this.toolStripItemDocsManagement,
+            this.toolStripItemAppointmentsManagement});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(1264, 24);
@@ -101,6 +103,14 @@
             this.toolStripItemManagement.Visible = false;
             this.toolStripItemManagement.Click += new System.EventHandler(this.toolStripItemManagement_Click);
             // 
+            // toolStripItemDocsManagement
+            // 
+            this.toolStripItemDocsManagement.Name = "toolStripItemDocsManagement";
+            this.toolStripItemDocsManagement.Size = new System.Drawing.Size(95, 20);
+            this.toolStripItemDocsManagement.Text = "مدیریت دکتر ها";
+            this.toolStripItemDocsManagement.Visible = false;
+            this.toolStripItemDocsManagement.Click += new System.EventHandler(this.toolStripItemDocsManagement_Click);
+            // 
             // button1
             // 
             this.button1.BackColor = System.Drawing.Color.LightSkyBlue;
@@ -142,14 +152,6 @@
             this.btnLogout.UseVisualStyleBackColor = false;
             this.btnLogout.Click += new System.EventHandler(this.btnLogout_Click);
             // 
-            // toolStripItemDocsManagement
-            // 
-            this.toolStripItemDocsManagement.Name = "toolStripItemDocsManagement";
-            this.toolStripItemDocsManagement.Size = new System.Drawing.Size(95, 20);
-            this.toolStripItemDocsManagement.Text = "مدیریت دکتر ها";
-            this.toolStripItemDocsManagement.Visible = false;
-            this.toolStripItemDocsManagement.Click += new System.EventHandler(this.toolStripItemDocsManagement_Click);
-            // 
             // pictureBox1
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
@@ -159,6 +161,13 @@
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 1;
             this.pictureBox1.TabStop = false;
+            // 
+            // toolStripItemAppointmentsManagement
+            // 
+            this.toolStripItemAppointmentsManagement.Name = "toolStripItemAppointmentsManagement";
+            this.toolStripItemAppointmentsManagement.Size = new System.Drawing.Size(99, 20);
+            this.toolStripItemAppointmentsManagement.Text = "مدیریت نوبت ها";
+            this.toolStripItemAppointmentsManagement.Click += new System.EventHandler(this.toolStripItemAppointmentsManagement_Click);
             // 
             // MainForm
             // 
@@ -202,6 +211,7 @@
         private System.Windows.Forms.Button btnLogout;
         private System.Windows.Forms.ToolStripMenuItem toolStripItemManagement;
         private System.Windows.Forms.ToolStripMenuItem toolStripItemDocsManagement;
+        private System.Windows.Forms.ToolStripMenuItem toolStripItemAppointmentsManagement;
     }
 }
 

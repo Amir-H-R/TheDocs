@@ -61,5 +61,11 @@ namespace TheDuckingDocs
             DoctorManagementForm form = new DoctorManagementForm();
             form.ShowDialog();
         }
+
+        private void toolStripItemAppointmentsManagement_Click(object sender, EventArgs e)
+        {
+            AppointmentManagement appointments = new AppointmentManagement();
+            appointments.ShowDialog();
+        }
     }
 }

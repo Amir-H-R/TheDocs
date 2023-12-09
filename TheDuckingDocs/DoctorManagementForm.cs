@@ -62,6 +62,8 @@ namespace TheDuckingDocs
         }
         private void DoctorManagementForm_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the '_TheDuckingDocs_Model1DataSet.Appointments' table. You can move, or remove it, as needed.
+            this.appointmentsTableAdapter.Fill(this._TheDuckingDocs_Model1DataSet.Appointments);
             // TODO: This line of code loads data into the '_TheDuckingDocs_Model1DataSet.Specializations' table. You can move, or remove it, as needed.
             this.specializationsTableAdapter.Fill(this._TheDuckingDocs_Model1DataSet.Specializations);
             FillDGV();

@@ -108,6 +108,10 @@
     <Compile Include="Migrations\202312022030565_SpecializationEdit.designer.cs">
       <DependentUpon>202312022030565_SpecializationEdit.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202312091611380_AppointmentDate.cs" />
+    <Compile Include="Migrations\202312091611380_AppointmentDate.designer.cs">
+      <DependentUpon>202312091611380_AppointmentDate.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Model1.cs" />
     <Compile Include="Program.cs" />
@@ -158,6 +162,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202312022030565_SpecializationEdit.resx">
       <DependentUpon>202312022030565_SpecializationEdit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202312091611380_AppointmentDate.resx">
+      <DependentUpon>202312091611380_AppointmentDate.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

@@ -55,6 +55,7 @@
     <Compile Include="Entities\Address.cs" />
     <Compile Include="Entities\Appointment.cs" />
     <Compile Include="Entities\Doctor.cs" />
+    <Compile Include="Entities\Dtos\AppointmentDto.cs" />
     <Compile Include="Entities\Dtos\UserDto.cs" />
     <Compile Include="Entities\Patient.cs" />
     <Compile Include="Entities\PeopleRoles.cs" />
@@ -63,6 +64,7 @@
     <Compile Include="Entities\Role.cs" />
     <Compile Include="Entities\Staff.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\UserServices\AddAppointmentService.cs" />
     <Compile Include="Services\UserServices\AddSpecializationService.cs" />
     <Compile Include="Services\UserServices\AddUserService.cs" />
     <Compile Include="Services\UserServices\AddDoctorService.cs" />
@@ -74,6 +76,7 @@
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+    <None Include="Properties\DataSources\Persistance.Entities.Dtos.AppointmentDto.datasource" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

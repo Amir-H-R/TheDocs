@@ -61,6 +61,7 @@
             this.specializationsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this._TheDuckingDocs_Model1DataSet = new TheDuckingDocs._TheDuckingDocs_Model1DataSet();
             this.specializationsTableAdapter = new TheDuckingDocs._TheDuckingDocs_Model1DataSetTableAdapters.SpecializationsTableAdapter();
+            this.appointmentsTableAdapter = new TheDuckingDocs._TheDuckingDocs_Model1DataSetTableAdapters.AppointmentsTableAdapter();
             btnClearFields = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtboxAge)).BeginInit();
@@ -68,6 +69,16 @@
             ((System.ComponentModel.ISupportInitialize)(this.specializationsBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this._TheDuckingDocs_Model1DataSet)).BeginInit();
             this.SuspendLayout();
+            // 
+            // btnClearFields
+            // 
+            btnClearFields.Location = new System.Drawing.Point(756, 267);
+            btnClearFields.Name = "btnClearFields";
+            btnClearFields.Size = new System.Drawing.Size(95, 23);
+            btnClearFields.TabIndex = 46;
+            btnClearFields.Text = "پاکسازی فیلدها";
+            btnClearFields.UseVisualStyleBackColor = true;
+            btnClearFields.Click += new System.EventHandler(this.btnClearFields_Click);
             // 
             // label2
             // 
@@ -329,15 +340,9 @@
             // 
             this.specializationsTableAdapter.ClearBeforeFill = true;
             // 
-            // btnClearFields
+            // appointmentsTableAdapter
             // 
-            btnClearFields.Location = new System.Drawing.Point(756, 267);
-            btnClearFields.Name = "btnClearFields";
-            btnClearFields.Size = new System.Drawing.Size(95, 23);
-            btnClearFields.TabIndex = 46;
-            btnClearFields.Text = "پاکسازی فیلدها";
-            btnClearFields.UseVisualStyleBackColor = true;
-            btnClearFields.Click += new System.EventHandler(this.btnClearFields_Click);
+            this.appointmentsTableAdapter.ClearBeforeFill = true;
             // 
             // DoctorManagementForm
             // 
@@ -428,5 +433,6 @@
         private _TheDuckingDocs_Model1DataSet _TheDuckingDocs_Model1DataSet;
         private System.Windows.Forms.BindingSource specializationsBindingSource;
         private _TheDuckingDocs_Model1DataSetTableAdapters.SpecializationsTableAdapter specializationsTableAdapter;
+        private _TheDuckingDocs_Model1DataSetTableAdapters.AppointmentsTableAdapter appointmentsTableAdapter;
     }
 }
