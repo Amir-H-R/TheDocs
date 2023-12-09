@@ -114,6 +114,18 @@ namespace TheDuckingDocs
 
         private void btnDeleteUser_Click(object sender, EventArgs e)
         {
+            var dialogResult = MessageBox.Show("از حذف این کاربر مطمعن هستید؟", "حذف کاربر", MessageBoxButtons.YesNo);
+            if (dialogResult == DialogResult.Yes)
+            {
+                DeleteUserService userService = new DeleteUserService(model);
+                var result = userService.Execute(id);
+                MessageBox.Show(result.Message);
+                this.peopleTableAdapter.Fill(this._TheDuckingDocs_Model1DataSet.People);
+            }
+        }
+
+        private void btnAddRole_Click(object sender, EventArgs e)
+        {
 
         }
     }

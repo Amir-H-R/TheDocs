@@ -256,7 +256,7 @@
             // 
             // btnAddSpecialization
             // 
-            this.btnAddSpecialization.Location = new System.Drawing.Point(630, 39);
+            this.btnAddSpecialization.Location = new System.Drawing.Point(770, 152);
             this.btnAddSpecialization.Name = "btnAddSpecialization";
             this.btnAddSpecialization.Size = new System.Drawing.Size(83, 23);
             this.btnAddSpecialization.TabIndex = 43;
@@ -266,7 +266,7 @@
             // 
             // btnDeleteSpecialization
             // 
-            this.btnDeleteSpecialization.Location = new System.Drawing.Point(630, 69);
+            this.btnDeleteSpecialization.Location = new System.Drawing.Point(630, 123);
             this.btnDeleteSpecialization.Name = "btnDeleteSpecialization";
             this.btnDeleteSpecialization.Size = new System.Drawing.Size(83, 23);
             this.btnDeleteSpecialization.TabIndex = 44;
@@ -309,7 +309,7 @@
             this.cmboxSpecializations.DataSource = this.specializationsBindingSource;
             this.cmboxSpecializations.DisplayMember = "Name";
             this.cmboxSpecializations.FormattingEnabled = true;
-            this.cmboxSpecializations.Location = new System.Drawing.Point(592, 12);
+            this.cmboxSpecializations.Location = new System.Drawing.Point(732, 181);
             this.cmboxSpecializations.Name = "cmboxSpecializations";
             this.cmboxSpecializations.Size = new System.Drawing.Size(121, 21);
             this.cmboxSpecializations.TabIndex = 45;
@@ -337,7 +337,7 @@
             btnClearFields.TabIndex = 46;
             btnClearFields.Text = "پاکسازی فیلدها";
             btnClearFields.UseVisualStyleBackColor = true;
-            btnClearFields.Click += new System.EventHandler(this.button1_Click);
+            btnClearFields.Click += new System.EventHandler(this.btnClearFields_Click);
             // 
             // DoctorManagementForm
             // 

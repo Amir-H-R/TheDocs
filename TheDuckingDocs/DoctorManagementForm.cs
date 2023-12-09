@@ -188,10 +188,16 @@ namespace TheDuckingDocs
 
         private void btnDeleteDoctor_Click(object sender, EventArgs e)
         {
-
+            var dialogResult = MessageBox.Show("از حذف این دکتر مطمعن هستید؟", "حذف دکتر", MessageBoxButtons.YesNo);
+            if (dialogResult == DialogResult.Yes)
+            {
+                DeleteUserService userService = new DeleteUserService(model1);
+                var result = userService.Execute(id.Value);
+                MessageBox.Show(result.Message);
+                FillDGV();
+            }
         }
-
-        private void button1_Click(object sender, EventArgs e)
+        private void btnClearFields_Click(object sender, EventArgs e)
         {
             ClearFields();
         }

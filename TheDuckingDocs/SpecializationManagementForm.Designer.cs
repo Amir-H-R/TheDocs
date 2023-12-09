@@ -74,6 +74,7 @@
             this.nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
             this.nameDataGridViewTextBoxColumn.HeaderText = "Name";
             this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
+            this.nameDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // specializationsBindingSource
             // 
@@ -135,8 +136,11 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnAddSpecialization);
             this.Controls.Add(this.dataGridView1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "SpecializationManagementForm";
-            this.Text = "SpecializationManagementForm";
+            this.Text = "مدیریت تخصص ها";
             this.Load += new System.EventHandler(this.SpecializationManagementForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.specializationsBindingSource)).EndInit();

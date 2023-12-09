@@ -66,6 +66,7 @@
     <Compile Include="Services\UserServices\AddSpecializationService.cs" />
     <Compile Include="Services\UserServices\AddUserService.cs" />
     <Compile Include="Services\UserServices\AddDoctorService.cs" />
+    <Compile Include="Services\UserServices\DeleteUserService.cs" />
     <Compile Include="Services\UserServices\EditDoctorService.cs" />
     <Compile Include="Services\UserServices\EditUserService.cs" />
     <Compile Include="Services\UserServices\UserValidator.cs" />
