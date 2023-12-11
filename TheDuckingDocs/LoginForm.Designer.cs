@@ -93,6 +93,7 @@
             // chckbxRememberMe
             // 
             this.chckbxRememberMe.AutoSize = true;
+            this.chckbxRememberMe.Enabled = false;
             this.chckbxRememberMe.Location = new System.Drawing.Point(202, 122);
             this.chckbxRememberMe.Name = "chckbxRememberMe";
             this.chckbxRememberMe.Size = new System.Drawing.Size(94, 17);

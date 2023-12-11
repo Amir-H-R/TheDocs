@@ -37,12 +37,10 @@ namespace TheDuckingDocs
             Person user = model.People.Include(p => p.PeopleRoles).Where(p => p.UserName == txtboxUsername.Text && p.Password == txtboxPassword.Text).FirstOrDefault();
             if (user != null)
             {
-                if (chckbxRememberMe.Checked)
-                {
-                    Settings.Default.Username = txtboxUsername.Text;
-                    Settings.Default.Password = txtboxUsername.Text;
-                    Settings.Default.Save();
-                }
+                Settings.Default.Username = txtboxUsername.Text;
+                Settings.Default.Password = txtboxUsername.Text;
+                Settings.Default.Save();
+
                 if (user.PeopleRoles.FirstOrDefault().RoleId == 1)
                 {
                     mainForm1.ManagementVisibility = true;

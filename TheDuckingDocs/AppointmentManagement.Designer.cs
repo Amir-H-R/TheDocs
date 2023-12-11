@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.cmboxPatients = new System.Windows.Forms.ComboBox();
             this.cmboxDoctors = new System.Windows.Forms.ComboBox();
@@ -45,12 +44,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this._TheDuckingDocs_Model1DataSet = new TheDuckingDocs._TheDuckingDocs_Model1DataSet();
-            this.appointmentsBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.appointmentsTableAdapter = new TheDuckingDocs._TheDuckingDocs_Model1DataSetTableAdapters.AppointmentsTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this._TheDuckingDocs_Model1DataSet)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.appointmentsBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // dataGridView1
@@ -61,8 +55,9 @@
             this.dataGridView1.Location = new System.Drawing.Point(12, 234);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.Size = new System.Drawing.Size(843, 258);
+            this.dataGridView1.Size = new System.Drawing.Size(748, 258);
             this.dataGridView1.TabIndex = 0;
+            this.dataGridView1.RowHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView1_RowHeaderMouseClick);
             // 
             // cmboxPatients
             // 
@@ -74,11 +69,14 @@
             // 
             // cmboxDoctors
             // 
+            this.cmboxDoctors.DisplayMember = "Name";
             this.cmboxDoctors.FormattingEnabled = true;
             this.cmboxDoctors.Location = new System.Drawing.Point(240, 25);
             this.cmboxDoctors.Name = "cmboxDoctors";
             this.cmboxDoctors.Size = new System.Drawing.Size(181, 21);
             this.cmboxDoctors.TabIndex = 2;
+            this.cmboxDoctors.ValueMember = "DoctorId";
+            this.cmboxDoctors.SelectedIndexChanged += new System.EventHandler(this.cmboxDoctors_SelectedIndexChanged);
             // 
             // label1
             // 
@@ -157,12 +155,13 @@
             this.btnDelete.TabIndex = 7;
             this.btnDelete.Text = "حذف";
             this.btnDelete.UseVisualStyleBackColor = true;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // datetimeAppointment
             // 
             this.datetimeAppointment.Location = new System.Drawing.Point(12, 108);
             this.datetimeAppointment.Name = "datetimeAppointment";
-            this.datetimeAppointment.Size = new System.Drawing.Size(200, 20);
+            this.datetimeAppointment.Size = new System.Drawing.Size(201, 20);
             this.datetimeAppointment.TabIndex = 8;
             // 
             // label3
@@ -185,33 +184,18 @@
             // 
             // comboBox1
             // 
-            this.comboBox1.DataSource = this.appointmentsBindingSource;
-            this.comboBox1.DisplayMember = "Status";
             this.comboBox1.FormattingEnabled = true;
             this.comboBox1.Location = new System.Drawing.Point(240, 107);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(121, 21);
             this.comboBox1.TabIndex = 9;
             // 
-            // _TheDuckingDocs_Model1DataSet
-            // 
-            this._TheDuckingDocs_Model1DataSet.DataSetName = "_TheDuckingDocs_Model1DataSet";
-            this._TheDuckingDocs_Model1DataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // appointmentsBindingSource
-            // 
-            this.appointmentsBindingSource.DataMember = "Appointments";
-            this.appointmentsBindingSource.DataSource = this._TheDuckingDocs_Model1DataSet;
-            // 
-            // appointmentsTableAdapter
-            // 
-            this.appointmentsTableAdapter.ClearBeforeFill = true;
-            // 
             // AppointmentManagement
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(865, 539);
+            this.BackColor = System.Drawing.Color.LightSeaGreen;
+            this.ClientSize = new System.Drawing.Size(769, 539);
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.datetimeAppointment);
             this.Controls.Add(this.btnDelete);
@@ -229,11 +213,9 @@
             this.Controls.Add(this.cmboxPatients);
             this.Controls.Add(this.dataGridView1);
             this.Name = "AppointmentManagement";
-            this.Text = "AppointmentManagement";
+            this.Text = "مدیریت نوبت ها";
             this.Load += new System.EventHandler(this.AppointmentManagement_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this._TheDuckingDocs_Model1DataSet)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.appointmentsBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -257,8 +239,5 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.ComboBox comboBox1;
-        private _TheDuckingDocs_Model1DataSet _TheDuckingDocs_Model1DataSet;
-        private System.Windows.Forms.BindingSource appointmentsBindingSource;
-        private _TheDuckingDocs_Model1DataSetTableAdapters.AppointmentsTableAdapter appointmentsTableAdapter;
     }
 }

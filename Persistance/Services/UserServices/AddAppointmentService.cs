@@ -19,7 +19,7 @@ namespace Persistance.Services.UserServices
         {
             var doc = _model1.Doctors.Where(p => p.DoctorId == appointment.DoctorId).FirstOrDefault();
             var user = _model1.People.Where(p => p.PersonId == p.PersonId).FirstOrDefault();
-            if (appointment.AppointmentDate < doc.StartTime && appointment.AppointmentDate > doc.StartTime)
+            if (appointment.AppointmentDate.Value.Date > doc.StartTime.Date && appointment.AppointmentDate.Value.Date < doc.EndTime.Date)
             {
                 var existingAppointment = _model1.Appointments.Where(p => p.AppointmentDate == appointment.AppointmentDate).FirstOrDefault();
                 if (existingAppointment == null)
@@ -33,6 +33,8 @@ namespace Persistance.Services.UserServices
                         Patient = appointment.Patient,
                         PatientId = appointment.PatientId
                     };
+                    _model1.Appointments.Add(newAppointment);
+                    _model1.SaveChanges();
                     return new ResultDto { Message = "نوبت با موفقیت ثبت شد", Success = true };
                 }
                 return new ResultDto { Message = "این تاریخ قبلا اشغال شده است", Success = false };

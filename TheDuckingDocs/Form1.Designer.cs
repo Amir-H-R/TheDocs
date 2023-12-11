@@ -37,11 +37,11 @@
             this.toolStripItemAboutUs = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripItemManagement = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripItemDocsManagement = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripItemAppointmentsManagement = new System.Windows.Forms.ToolStripMenuItem();
             this.button1 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.btnLogout = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.toolStripItemAppointmentsManagement = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -76,6 +76,7 @@
             this.toolStripItemReservation.Name = "toolStripItemReservation";
             this.toolStripItemReservation.Size = new System.Drawing.Size(71, 20);
             this.toolStripItemReservation.Text = "نوبت دهی";
+            this.toolStripItemReservation.Click += new System.EventHandler(this.toolStripItemReservation_Click);
             // 
             // toolStripItemDoctors
             // 
@@ -110,6 +111,13 @@
             this.toolStripItemDocsManagement.Text = "مدیریت دکتر ها";
             this.toolStripItemDocsManagement.Visible = false;
             this.toolStripItemDocsManagement.Click += new System.EventHandler(this.toolStripItemDocsManagement_Click);
+            // 
+            // toolStripItemAppointmentsManagement
+            // 
+            this.toolStripItemAppointmentsManagement.Name = "toolStripItemAppointmentsManagement";
+            this.toolStripItemAppointmentsManagement.Size = new System.Drawing.Size(99, 20);
+            this.toolStripItemAppointmentsManagement.Text = "مدیریت نوبت ها";
+            this.toolStripItemAppointmentsManagement.Click += new System.EventHandler(this.toolStripItemAppointmentsManagement_Click);
             // 
             // button1
             // 
@@ -161,13 +169,6 @@
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 1;
             this.pictureBox1.TabStop = false;
-            // 
-            // toolStripItemAppointmentsManagement
-            // 
-            this.toolStripItemAppointmentsManagement.Name = "toolStripItemAppointmentsManagement";
-            this.toolStripItemAppointmentsManagement.Size = new System.Drawing.Size(99, 20);
-            this.toolStripItemAppointmentsManagement.Text = "مدیریت نوبت ها";
-            this.toolStripItemAppointmentsManagement.Click += new System.EventHandler(this.toolStripItemAppointmentsManagement_Click);
             // 
             // MainForm
             // 

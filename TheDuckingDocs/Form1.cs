@@ -67,5 +67,10 @@ namespace TheDuckingDocs
             AppointmentManagement appointments = new AppointmentManagement();
             appointments.ShowDialog();
         }
+
+        private void toolStripItemReservation_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
