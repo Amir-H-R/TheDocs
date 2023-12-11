@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Persistance.Common;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -13,6 +14,7 @@ namespace TheDuckingDocs
 {
     public partial class MainForm : Form
     {
+        IModel1 model1 = new Model1();
         public MainForm()
         {
             InitializeComponent();
@@ -70,7 +72,20 @@ namespace TheDuckingDocs
 
         private void toolStripItemReservation_Click(object sender, EventArgs e)
         {
+            var username = Settings.Default.Username;
+            var user = model1.People.Where(p => p.UserName == username).FirstOrDefault();
+            var patient = model1.Patients.Where(p => p.PatientInfo.UserName == user.UserName).FirstOrDefault();
+            if (user != null)
+            {
+                if (model1.Patients.Where(p => p.PatientInfo.UserName == user.UserName).FirstOrDefault() == null)
+                {
 
+                }
+                else
+                {
+                    
+                }
+            }
         }
     }
 }
