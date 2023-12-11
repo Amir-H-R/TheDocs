@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AppointmentManagement));
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.cmboxPatients = new System.Windows.Forms.ComboBox();
             this.cmboxDoctors = new System.Windows.Forms.ComboBox();
@@ -212,6 +213,7 @@
             this.Controls.Add(this.cmboxDoctors);
             this.Controls.Add(this.cmboxPatients);
             this.Controls.Add(this.dataGridView1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "AppointmentManagement";
             this.Text = "مدیریت نوبت ها";
             this.Load += new System.EventHandler(this.AppointmentManagement_Load);
