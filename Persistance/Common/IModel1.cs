@@ -10,7 +10,7 @@ namespace Persistance.Common
 {
     public interface IModel1
     {
-         DbSet<Address> Addresses { get; set; }
+        // DbSet<Address> Addresses { get; set; }
          DbSet<Appointment> Appointments { get; set; }
          DbSet<Patient> Patients { get; set; }
          DbSet<Person> People { get; set; }

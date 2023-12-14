@@ -79,7 +79,8 @@ namespace TheDuckingDocs
             {
                 if (model1.Patients.Where(p => p.PatientInfo.UserName == user.UserName).FirstOrDefault() == null)
                 {
-
+                    PatientInfoForm form = new PatientInfoForm();
+                    form.ShowDialog();
                 }
                 else
                 {

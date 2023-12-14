@@ -44,8 +44,8 @@
             this.txtboxLastName = new System.Windows.Forms.TextBox();
             this.txtboxName = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.txtboxAddress = new System.Windows.Forms.TextBox();
+            this.datetimeBirthDate = new System.Windows.Forms.DateTimePicker();
             this.label9 = new System.Windows.Forms.Label();
             this.btnSubmit = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.txtboxAge)).BeginInit();
@@ -123,7 +123,7 @@
             // 
             // txtboxPassword
             // 
-            this.txtboxPassword.Location = new System.Drawing.Point(277, 186);
+            this.txtboxPassword.Location = new System.Drawing.Point(278, 186);
             this.txtboxPassword.Name = "txtboxPassword";
             this.txtboxPassword.Size = new System.Drawing.Size(194, 20);
             this.txtboxPassword.TabIndex = 6;
@@ -140,6 +140,7 @@
             // 
             this.txtboxIdCardNum.Location = new System.Drawing.Point(278, 85);
             this.txtboxIdCardNum.Name = "txtboxIdCardNum";
+            this.txtboxIdCardNum.ReadOnly = true;
             this.txtboxIdCardNum.Size = new System.Drawing.Size(193, 20);
             this.txtboxIdCardNum.TabIndex = 3;
             // 
@@ -173,20 +174,20 @@
             this.label8.TabIndex = 37;
             this.label8.Text = "آدرس";
             // 
-            // textBox1
+            // txtboxAddress
             // 
-            this.textBox1.Location = new System.Drawing.Point(13, 239);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(193, 109);
-            this.textBox1.TabIndex = 7;
+            this.txtboxAddress.Location = new System.Drawing.Point(13, 239);
+            this.txtboxAddress.Multiline = true;
+            this.txtboxAddress.Name = "txtboxAddress";
+            this.txtboxAddress.Size = new System.Drawing.Size(193, 109);
+            this.txtboxAddress.TabIndex = 7;
             // 
-            // dateTimePicker1
+            // datetimeBirthDate
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(278, 239);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(200, 20);
-            this.dateTimePicker1.TabIndex = 8;
+            this.datetimeBirthDate.Location = new System.Drawing.Point(278, 239);
+            this.datetimeBirthDate.Name = "datetimeBirthDate";
+            this.datetimeBirthDate.Size = new System.Drawing.Size(204, 20);
+            this.datetimeBirthDate.TabIndex = 8;
             // 
             // label9
             // 
@@ -205,15 +206,16 @@
             this.btnSubmit.TabIndex = 9;
             this.btnSubmit.Text = "ثبت";
             this.btnSubmit.UseVisualStyleBackColor = true;
+            this.btnSubmit.Click += new System.EventHandler(this.btnSubmit_Click);
             // 
             // PatientInfoForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.CadetBlue;
-            this.ClientSize = new System.Drawing.Size(555, 419);
+            this.ClientSize = new System.Drawing.Size(494, 419);
             this.Controls.Add(this.btnSubmit);
-            this.Controls.Add(this.dateTimePicker1);
+            this.Controls.Add(this.datetimeBirthDate);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.txtboxAge);
             this.Controls.Add(this.label9);
@@ -229,13 +231,14 @@
             this.Controls.Add(this.txtboxIdCardNum);
             this.Controls.Add(this.txtboxPhoneNum);
             this.Controls.Add(this.txtboxLastName);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txtboxAddress);
             this.Controls.Add(this.txtboxName);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "PatientInfoForm";
             this.Text = "اطلاعات بیمار";
+            this.Load += new System.EventHandler(this.PatientInfoForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.txtboxAge)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -259,8 +262,8 @@
         private System.Windows.Forms.TextBox txtboxLastName;
         private System.Windows.Forms.TextBox txtboxName;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.TextBox txtboxAddress;
+        private System.Windows.Forms.DateTimePicker datetimeBirthDate;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Button btnSubmit;
     }

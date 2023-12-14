@@ -45,6 +45,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.btnClearFields = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -119,6 +120,7 @@
             this.btnSearchDoctor.TabIndex = 5;
             this.btnSearchDoctor.Text = "جستجو";
             this.btnSearchDoctor.UseVisualStyleBackColor = true;
+            this.btnSearchDoctor.Click += new System.EventHandler(this.btnSearchDoctor_Click);
             // 
             // btnSearchPatient
             // 
@@ -128,6 +130,7 @@
             this.btnSearchPatient.TabIndex = 6;
             this.btnSearchPatient.Text = "جستجو";
             this.btnSearchPatient.UseVisualStyleBackColor = true;
+            this.btnSearchPatient.Click += new System.EventHandler(this.btnSearchPatient_Click);
             // 
             // btnEdit
             // 
@@ -191,12 +194,23 @@
             this.comboBox1.Size = new System.Drawing.Size(121, 21);
             this.comboBox1.TabIndex = 9;
             // 
+            // btnClearFields
+            // 
+            this.btnClearFields.Location = new System.Drawing.Point(16, 205);
+            this.btnClearFields.Name = "btnClearFields";
+            this.btnClearFields.Size = new System.Drawing.Size(96, 23);
+            this.btnClearFields.TabIndex = 10;
+            this.btnClearFields.Text = "پاکسازی فیلد ها";
+            this.btnClearFields.UseVisualStyleBackColor = true;
+            this.btnClearFields.Click += new System.EventHandler(this.btnClearFields_Click);
+            // 
             // AppointmentManagement
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightSeaGreen;
             this.ClientSize = new System.Drawing.Size(769, 539);
+            this.Controls.Add(this.btnClearFields);
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.datetimeAppointment);
             this.Controls.Add(this.btnDelete);
@@ -241,5 +255,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.Button btnClearFields;
     }
 }

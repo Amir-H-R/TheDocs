@@ -18,8 +18,8 @@ namespace Persistance.Services.UserServices
         public ResultDto Execute(int doctorId, Specialization specialization)
         {
             var doc = _model1.Doctors.Where(p => p.DoctorInfo.PersonId == doctorId).FirstOrDefault();
-
-            doc.DoctorSpecializations.Add(new DoctorSpecialization { DoctorId = doc.DoctorId, Doctor = doc, SpecializationId = specialization.SpecializationId, Specialization = specialization });
+            var doctorSpecialization = new DoctorSpecialization { DoctorId = doc.DoctorId, Doctor = doc, SpecializationId = specialization.SpecializationId, Specialization = specialization };
+            doc.DoctorSpecializations.Add(doctorSpecialization);
             _model1.SaveChanges();
             return new ResultDto() { Message = "تخصص با موفقیت اضافه شد", Success = true };
         }

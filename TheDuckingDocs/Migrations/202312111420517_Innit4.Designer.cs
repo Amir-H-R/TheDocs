@@ -7,13 +7,13 @@ namespace TheDuckingDocs.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.4.4")]
-    public sealed partial class SpecializationEdit : IMigrationMetadata
+    public sealed partial class Innit4 : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(SpecializationEdit));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(Innit4));
         
         string IMigrationMetadata.Id
         {
-            get { return "202312022030565_SpecializationEdit"; }
+            get { return "202312111420517_Innit4"; }
         }
         
         string IMigrationMetadata.Source

@@ -379,6 +379,7 @@
             this.btnDeleteRole.TabIndex = 28;
             this.btnDeleteRole.Text = "حذف نقش";
             this.btnDeleteRole.UseVisualStyleBackColor = true;
+            this.btnDeleteRole.Click += new System.EventHandler(this.btnDeleteRole_Click);
             // 
             // btnAddRole
             // 

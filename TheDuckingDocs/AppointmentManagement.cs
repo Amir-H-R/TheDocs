@@ -67,10 +67,10 @@ namespace TheDuckingDocs
             else
                 dataGridView1.DataSource = allAppointments;
 
-            var patients = model1.People.Select(p => new
+            var patients = model1.Patients.Select(p => new
             {
-                PersonId = p.PersonId,
-                Name = p.Name,
+                PersonId = p.PatientInfo.PersonId,
+                Name = p.PatientInfo.Name,
             }).ToList();
             cmboxPatients.DataSource = patients;
             cmboxPatients.ValueMember = "PersonId";
@@ -83,8 +83,8 @@ namespace TheDuckingDocs
             }).ToList();
 
             cmboxDoctors.DataSource = doctors;
-          //  cmboxDoctors.ValueMember = "DoctorId";
-           // cmboxDoctors.DisplayMember = "Name";
+            //  cmboxDoctors.ValueMember = "DoctorId";
+            // cmboxDoctors.DisplayMember = "Name";
 
             comboBox1.DataSource = Enum.GetValues(typeof(Status));
 
@@ -114,7 +114,7 @@ namespace TheDuckingDocs
         private void dataGridView1_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
             var docId = (int)dataGridView1.Rows[e.RowIndex].Cells[2].Value;
-            var doc = model1.Doctors.Where(p=>p.DoctorId == docId).FirstOrDefault();
+            var doc = model1.Doctors.Where(p => p.DoctorId == docId).FirstOrDefault();
             appointmentId = (int)dataGridView1.Rows[e.RowIndex].Cells[0].Value;
             datetimeAppointment.Value = (DateTime)dataGridView1.Rows[e.RowIndex].Cells[5].Value;
             datetimeAppointment.MinDate = doc.StartTime;
@@ -137,9 +137,61 @@ namespace TheDuckingDocs
         private void cmboxDoctors_SelectedIndexChanged(object sender, EventArgs e)
         {
             var docId = cmboxDoctors.SelectedValue;
-            var doc = model1.Doctors.Where(p=>p.DoctorId == (int)docId).FirstOrDefault();
-            datetimeAppointment.MinDate=doc.StartTime;
-            datetimeAppointment.MaxDate=doc.EndTime;
+            var doc = model1.Doctors.Where(p => p.DoctorId == (int)docId).FirstOrDefault();
+            datetimeAppointment.MinDate = doc.StartTime;
+            datetimeAppointment.MaxDate = doc.EndTime;
+        }
+
+        private void btnSearchPatient_Click(object sender, EventArgs e)
+        {
+            var patientName = txtboxPatient.Text;
+            int patientId;
+            int.TryParse(txtboxPatient.Text, out patientId);
+            var patient = model1.Patients.Where(p => p.PatientInfo.Name == patientName || p.PatientId == patientId).Select(p => new
+            {
+                PersonId = p.PatientInfo.PersonId,
+                Name = p.PatientInfo.Name
+            }).ToList();
+            if (patient != null)
+            {
+                //cmboxPatients.Items.Clear();
+                cmboxPatients.DataSource = patient;
+                cmboxPatients.ValueMember = "PersonId";
+                cmboxPatients.DisplayMember = "Name";
+            }
+            else
+            {
+                MessageBox.Show("کاربر مورد نظر پیدا نشد");
+            }
+        }
+
+        private void btnSearchDoctor_Click(object sender, EventArgs e)
+        {
+            var doctorName = txtboxPatient.Text;
+            int doctorId;
+            int.TryParse(txtboxPatient.Text, out doctorId);
+            var doctor = model1.Doctors.Where(p => p.DoctorInfo.Name == doctorName || p.DoctorId == doctorId).Select(p => new
+            {
+                DoctorId = p.DoctorInfo.PersonId,
+                Name = p.DoctorInfo.Name
+            }).ToList();
+            if (doctor != null)
+            {
+                //cmboxPatients.Items.Clear();
+                cmboxPatients.DataSource = doctor;
+                cmboxPatients.ValueMember = "DoctorId";
+                cmboxPatients.DisplayMember = "Name";
+            }
+            else
+            {
+                MessageBox.Show(" دکتر مورد نظر پیدا نشد");
+            }
+        }
+        private void btnClearFields_Click(object sender, EventArgs e)
+        {
+            FillDGV();
+            txtboxDoctor.Text = string.Empty;
+            txtboxPatient.Text = string.Empty;
         }
     }
     public class ComboBoxItem

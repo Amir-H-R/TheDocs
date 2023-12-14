@@ -22,6 +22,17 @@ namespace TheDuckingDocs
             InitializeComponent();
         }
         int id;
+        private void FillUserRolesListBox()
+        {
+            lstboxRoles.Items.Clear();
+
+            var roles = model.PeopleRoles.Where(p => p.PersonId == id).ToList();
+            foreach (var item in roles)
+            {
+                var role = model.Roles.Where(p => p.RoleId == item.RoleId).FirstOrDefault().Name;
+                lstboxRoles.Items.Add(role);
+            }
+        }
         private void ClearFields()
         {
             id = 0;
@@ -68,8 +79,6 @@ namespace TheDuckingDocs
 
         private void dataGridView1_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
-            lstboxRoles.Items.Clear();
-
             id = (int)dataGridView1.Rows[e.RowIndex].Cells[0].Value;
             txtboxName.Text = dataGridView1.Rows[e.RowIndex].Cells[1].Value as string;
             txtboxLastName.Text = dataGridView1.Rows[e.RowIndex].Cells[2].Value as string;
@@ -78,12 +87,7 @@ namespace TheDuckingDocs
             txtboxUsername.Text = dataGridView1.Rows[e.RowIndex].Cells[5].Value as string;
             txtboxPassword.Text = dataGridView1.Rows[e.RowIndex].Cells[6].Value as string;
             txtboxIdCardNum.Text = dataGridView1.Rows[e.RowIndex].Cells[7].Value as string;
-            var roles = model.PeopleRoles.Where(p => p.PersonId == id).ToList();
-            foreach (var item in roles)
-            {
-                var dsds = model.Roles.Where(p => p.RoleId == item.RoleId).FirstOrDefault().Name;
-                lstboxRoles.Items.Add(dsds);
-            }
+            FillUserRolesListBox();
         }
 
         private void btnClearFields_Click(object sender, EventArgs e)
@@ -126,6 +130,61 @@ namespace TheDuckingDocs
 
         private void btnAddRole_Click(object sender, EventArgs e)
         {
+            var user = model.People.Where(p => p.PersonId == id).FirstOrDefault();
+            if (user != null)
+            {
+                var selectedRole = (int)cmboxRoles.SelectedValue;
+                var role = model.Roles.Where(p => p.RoleId == selectedRole).FirstOrDefault();
+                PeopleRoles personRole = new PeopleRoles()
+                {
+                    Person = user,
+                    PersonId = user.PersonId,
+                    RoleId = role.RoleId,
+                    Role = role
+                };
+                model.PeopleRoles.Add(personRole);
+                model.SaveChanges();
+                MessageBox.Show("نقش کاربر با موفقیت اضافه شد");
+
+                //Add user as a doctor if the slected role is Doctor
+                if (role.Name == "Doctor")
+                {
+                    Doctor doctor = new Doctor()
+                    {
+                        DoctorInfo = user,
+                        StartTime = DateTime.Now,
+                        EndTime = DateTime.Now,
+                    };
+                    model.Doctors.Add(doctor);
+                    model.SaveChanges();
+                }
+                FillUserRolesListBox();
+            }
+            else
+                MessageBox.Show("لطفا یک کاربر را انتخاب کنید");
+
+        }
+
+        private void btnDeleteRole_Click(object sender, EventArgs e)
+        {
+
+            var user = model.People.Where(p => p.PersonId == id).FirstOrDefault();
+            if (user != null)
+            {
+                var dialogResult = MessageBox.Show("از حذف این نقش مطمعن هستید؟", "حذف نقش", MessageBoxButtons.YesNo);
+                if (dialogResult == DialogResult.Yes)
+                {
+                    var selectedRole = lstboxRoles.SelectedItem.ToString();
+                    var role = model.Roles.Where(p => p.Name == selectedRole).FirstOrDefault();
+                    var personRole = model.PeopleRoles.Where(p => p.PersonId == user.PersonId && p.RoleId == role.RoleId).FirstOrDefault();
+                    model.PeopleRoles.Remove(personRole);
+                    model.SaveChanges();
+                    FillUserRolesListBox();
+                    MessageBox.Show("نقش کاربر با موفقیت حذف شد");
+                }
+            }
+            else
+                MessageBox.Show("لطفا یک کاربر را انتخاب کنید");
 
         }
     }

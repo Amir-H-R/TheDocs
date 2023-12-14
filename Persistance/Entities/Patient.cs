@@ -12,9 +12,8 @@ namespace Persistance.Entities
         public int PatientId { get; set; }
         public virtual Person PatientInfo { get; set; }
         public DateTime BirthDate { get; set; }
-        public virtual Address PersonAddress { get; set; }
-        public int AddressId {  get; set; }
-        [Required]
+       // public virtual Address PersonAddress { get; set; }
+        public string Address {  get; set; }
         public virtual Appointment AppointmentDate { get; set; }
         public int AppointmentId {  get; set; }
     }

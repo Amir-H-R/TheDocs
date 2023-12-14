@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(RegisterForm));
             this.txtboxName = new System.Windows.Forms.TextBox();
             this.txtboxLastName = new System.Windows.Forms.TextBox();
             this.txtboxPhoneNum = new System.Windows.Forms.TextBox();
@@ -216,10 +217,10 @@
             this.Controls.Add(this.txtboxPhoneNum);
             this.Controls.Add(this.txtboxLastName);
             this.Controls.Add(this.txtboxName);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "RegisterForm";
-            this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "فرم ثبت نام";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.RegisterForm_FormClosed);

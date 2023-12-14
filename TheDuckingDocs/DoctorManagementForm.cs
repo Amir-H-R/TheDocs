@@ -36,13 +36,15 @@ namespace TheDuckingDocs
             model1 = new Model1();
 
             var doctor = model1.Doctors.Include(p => p.DoctorInfo).Where(p => p.DoctorInfo.PersonId == id).FirstOrDefault();
-
-            var specializations = model1.DoctorSpecializations.Where(p => p.DoctorId == doctor.DoctorId).ToList();
-            lstboxSpecializations.Items.Clear();
-            foreach (var item in specializations)
+            if (doctor != null)
             {
-                var specialization = model1.Specializations.Where(p => p.SpecializationId == item.SpecializationId).FirstOrDefault();
-                lstboxSpecializations.Items.Add(specialization.Name);
+                var specializations = model1.DoctorSpecializations.Where(p => p.DoctorId == doctor.DoctorId).ToList();
+                lstboxSpecializations.Items.Clear();
+                foreach (var item in specializations)
+                {
+                    var specialization = model1.Specializations.Where(p => p.SpecializationId == item.SpecializationId).FirstOrDefault();
+                    lstboxSpecializations.Items.Add(specialization.Name);
+                }
             }
         }
         private void ClearFields()
@@ -108,95 +110,130 @@ namespace TheDuckingDocs
 
         private void btnAddDoctor_Click(object sender, EventArgs e)
         {
-            AddDoctorService addDoctorService = new AddDoctorService(model1);
-            UserDto userDto = new UserDto()
+            try
             {
-                Name = txtboxName.Text,
-                LastName = txtboxLastName.Text,
-                Age = (int)txtboxAge.Value,
-                PhoneNumber = txtboxPhoneNum.Text,
-                IdCardNumber = txtboxIdCardNum.Text,
-                Username = txtboxUsername.Text,
-                Password = txtboxPassword.Text,
-                RePassword = txtboxPassword.Text,
-                Roles = new List<Role> { new Role { Name = "Doctor", RoleId = 4 } }
-            };
-            Doctor doctor = new Doctor()
-            {
-                EndTime = datetimeEndDate.Value,
-                StartTime = datetimeStartDate.Value,
-            };
-            ICollection<Specialization> specializations = new List<Specialization>();
-            int selectedSpecialization = (int)cmboxSpecializations.SelectedValue;
-            Specialization specialization = model1.Specializations.Where(p => p.SpecializationId == selectedSpecialization).FirstOrDefault();
-            specializations.Add(specialization);
-            doctor.Specializations = specializations;
+                AddDoctorService addDoctorService = new AddDoctorService(model1);
+                UserDto userDto = new UserDto()
+                {
+                    Name = txtboxName.Text,
+                    LastName = txtboxLastName.Text,
+                    Age = (int)txtboxAge.Value,
+                    PhoneNumber = txtboxPhoneNum.Text,
+                    IdCardNumber = txtboxIdCardNum.Text,
+                    Username = txtboxUsername.Text,
+                    Password = txtboxPassword.Text,
+                    RePassword = txtboxPassword.Text,
+                    Roles = new List<Role> { new Role { Name = "Doctor", RoleId = 4 } }
+                };
+                Doctor doctor = new Doctor()
+                {
+                    EndTime = datetimeEndDate.Value,
+                    StartTime = datetimeStartDate.Value,
+                };
+                ICollection<Specialization> specializations = new List<Specialization>();
+                int selectedSpecialization = (int)cmboxSpecializations.SelectedValue;
+                Specialization specialization = model1.Specializations.Where(p => p.SpecializationId == selectedSpecialization).FirstOrDefault();
+                specializations.Add(specialization);
+                doctor.Specializations = specializations;
 
-            ResultDto result = addDoctorService.Execute(userDto, doctor);
-            MessageBox.Show(result.Message);
-            FillDGV();
+                ResultDto result = addDoctorService.Execute(userDto, doctor);
+                MessageBox.Show(result.Message);
+                FillDGV();
+            }
+            catch
+            {
+                MessageBox.Show("لطفا یک ردیف را انتخاب کنید");
+            }
         }
 
         private void btnEditDoctor_Click(object sender, EventArgs e)
         {
-            EditDoctorService doctorService = new EditDoctorService(model1);
-            UserDto userDto = new UserDto
+            try
             {
-                Id = id.Value,
-                Name = txtboxName.Text,
-                LastName = txtboxLastName.Text,
-                Age = (int)txtboxAge.Value,
-                PhoneNumber = txtboxPhoneNum.Text,
-                IdCardNumber = txtboxIdCardNum.Text,
-                Username = txtboxUsername.Text,
-                Password = txtboxPassword.Text,
-                RePassword = txtboxPassword.Text
-            };
-            Doctor doctorDto = new Doctor
+                EditDoctorService doctorService = new EditDoctorService(model1);
+                UserDto userDto = new UserDto
+                {
+                    Id = id.Value,
+                    Name = txtboxName.Text,
+                    LastName = txtboxLastName.Text,
+                    Age = (int)txtboxAge.Value,
+                    PhoneNumber = txtboxPhoneNum.Text,
+                    IdCardNumber = txtboxIdCardNum.Text,
+                    Username = txtboxUsername.Text,
+                    Password = txtboxPassword.Text,
+                    RePassword = txtboxPassword.Text
+                };
+                Doctor doctorDto = new Doctor
+                {
+                    EndTime = datetimeEndDate.Value,
+                    StartTime = datetimeStartDate.Value,
+                };
+                var result = doctorService.Execute(userDto, doctorDto);
+                MessageBox.Show(result.Message);
+                FillDGV();
+            }
+            catch
             {
-                EndTime = datetimeEndDate.Value,
-                StartTime = datetimeStartDate.Value,
-            };
-            var result = doctorService.Execute(userDto, doctorDto);
-            MessageBox.Show(result.Message);
-            FillDGV();
+                MessageBox.Show("لطفا یک ردیف را انتخاب کنید");
+            }
         }
 
         private void btnAddSpecialization_Click(object sender, EventArgs e)
         {
-            AddSpecializationService specializationService = new AddSpecializationService(model1);
+            try
+            {
+                AddSpecializationService specializationService = new AddSpecializationService(model1);
 
-            var selectedSpecialization = cmboxSpecializations.SelectedValue;
-            var specialization = model1.Specializations.FirstOrDefault(x => x.SpecializationId == (int)selectedSpecialization);
-            var result = specializationService.Execute(id.Value, specialization);
-            MessageBox.Show(result.Message);
-            FillSpecialization();
+                var selectedSpecialization = cmboxSpecializations.SelectedValue;
+                var specialization = model1.Specializations.FirstOrDefault(x => x.SpecializationId == (int)selectedSpecialization);
+                var result = specializationService.Execute(id.Value, specialization);
+                MessageBox.Show(result.Message);
+                FillSpecialization();
+            }
+            catch
+            {
+                MessageBox.Show("لطفا یک ردیف را انتخاب کنید");
+            }
         }
 
         private void btnDeleteSpecialization_Click(object sender, EventArgs e)
         {
-            var result = MessageBox.Show("از حذف این تخصص مطمعن هستید؟", "حذف تخصص", MessageBoxButtons.YesNo);
-            if (result == DialogResult.Yes)
+            try
             {
-                var selectedSpecialization = lstboxSpecializations.SelectedItem;
-                var specialization = model1.Specializations.FirstOrDefault(x => x.Name == selectedSpecialization.ToString());
-                var doc = model1.Doctors.Where(p => p.DoctorInfo.PersonId == id.Value).FirstOrDefault();
-                var target = model1.DoctorSpecializations.Where(p => p.DoctorId == doc.DoctorId && p.SpecializationId == specialization.SpecializationId).FirstOrDefault();
-                model1.DoctorSpecializations.Remove(target);
-                model1.SaveChanges();
-                FillSpecialization();
+                var result = MessageBox.Show("از حذف این تخصص مطمعن هستید؟", "حذف تخصص", MessageBoxButtons.YesNo);
+                if (result == DialogResult.Yes)
+                {
+                    var selectedSpecialization = lstboxSpecializations.SelectedItem;
+                    var specialization = model1.Specializations.FirstOrDefault(x => x.Name == selectedSpecialization.ToString());
+                    var doc = model1.Doctors.Where(p => p.DoctorInfo.PersonId == id.Value).FirstOrDefault();
+                    var target = model1.DoctorSpecializations.Where(p => p.DoctorId == doc.DoctorId && p.SpecializationId == specialization.SpecializationId).FirstOrDefault();
+                    model1.DoctorSpecializations.Remove(target);
+                    model1.SaveChanges();
+                    FillSpecialization();
+                }
+            }
+            catch
+            {
+                MessageBox.Show("لطفا یک ردیف را انتخاب کنید");
             }
         }
 
         private void btnDeleteDoctor_Click(object sender, EventArgs e)
         {
-            var dialogResult = MessageBox.Show("از حذف این دکتر مطمعن هستید؟", "حذف دکتر", MessageBoxButtons.YesNo);
-            if (dialogResult == DialogResult.Yes)
+            try
             {
-                DeleteUserService userService = new DeleteUserService(model1);
-                var result = userService.Execute(id.Value);
-                MessageBox.Show(result.Message);
-                FillDGV();
+                var dialogResult = MessageBox.Show("از حذف این دکتر مطمعن هستید؟", "حذف دکتر", MessageBoxButtons.YesNo);
+                if (dialogResult == DialogResult.Yes)
+                {
+                    DeleteUserService userService = new DeleteUserService(model1);
+                    var result = userService.Execute(id.Value);
+                    MessageBox.Show(result.Message);
+                    FillDGV();
+                }
+            }
+            catch
+            {
+                MessageBox.Show("لطفا یک ردیف را انتخاب کنید");
             }
         }
         private void btnClearFields_Click(object sender, EventArgs e)

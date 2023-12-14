@@ -1,11 +1,11 @@
 ﻿namespace TheDuckingDocs.Migrations
 {
+    using Persistance.Entities;
     using System;
     using System.Collections.Generic;
     using System.Data.Entity;
     using System.Data.Entity.Migrations;
     using System.Linq;
-    using Persistance.Entities;
 
     internal sealed class Configuration : DbMigrationsConfiguration<TheDuckingDocs.Model1>
     {
@@ -34,13 +34,13 @@
                 IdCardNumber = "0",
                 Age = 0,
             };
-            Role role = context.Roles.Where(p=>p.Name=="Admin").FirstOrDefault();
+            Role role = context.Roles.Where(p => p.Name == "Admin").FirstOrDefault();
             peopleRoles.Add(new PeopleRoles
             {
                 Person = person,
                 PersonId = 1,
                 RoleId = 1,
-                Role= role
+                Role = role
             });
             person.PeopleRoles = peopleRoles;
             context.People.AddOrUpdate(person);

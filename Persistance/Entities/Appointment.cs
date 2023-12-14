@@ -9,9 +9,13 @@ namespace Persistance.Entities
 {
     public class Appointment
     {
+        [Required]
+        [Key]
         public int AppointmentId { get; set; }
+        [Required]
         public virtual Doctor Doctor { get; set; }
         public int DoctorId { get; set; }
+        [Required]
         public virtual Patient Patient { get; set; }
         public int PatientId { get; set; }
         public DateTime? AppointmentDate { get; set; }

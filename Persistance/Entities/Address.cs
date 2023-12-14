@@ -7,16 +7,16 @@ using System.Threading.Tasks;
 
 namespace Persistance.Entities
 {
-    public class Address
-    {
-        [Key]
-        public int AddressId { get; set; }
-        public string Country { get; set; }
-        public string Province { get; set; }
-        public string City { get; set; }
-        public string ZipCode { get; set; }
-        [Required]
-        public virtual Patient Patient { get; set; }
-        public int PatientId { get; set; }
-    }
+    //public class Address
+    //{
+    //    [Key]
+    //    public int AddressId { get; set; }
+    //    public string Country { get; set; }
+    //    public string Province { get; set; }
+    //    public string City { get; set; }
+    //    public string ZipCode { get; set; }
+    //    [Required]
+    //    public virtual Patient Patient { get; set; }
+    //    public int PatientId { get; set; }
+    //}
 }
