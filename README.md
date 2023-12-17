@@ -1,5 +1,5 @@
-- An offline WinodowsForms Hospital-Management project requested by my masters in university.
-- Includes services like, Appointment management, Users management and Roles mangement.
+- An offline WinodowsForms Hospital-Management project for my university assignment.
+- Includes services like: Appointment management, Users management and Roles mangement.
 - This projects uses .Net Framework 4.8 as requested by my master.
-- Code-first approch is used for database.
+- EntityFramework Code-first approch is used for database.
 - ![Screenshot](https://github.com/Amir-H-R/TheDocs/assets/90279254/0124e3ed-714b-486c-a06f-f160be5b6d3b)
