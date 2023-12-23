@@ -93,7 +93,7 @@
             // 
             this.toolStripItemDocsManagement.Name = "toolStripItemDocsManagement";
             this.toolStripItemDocsManagement.Size = new System.Drawing.Size(95, 20);
-            this.toolStripItemDocsManagement.Text = "مدیریت دکتر ها";
+            this.toolStripItemDocsManagement.Text = "مدیریت پزشکان";
             this.toolStripItemDocsManagement.Visible = false;
             this.toolStripItemDocsManagement.Click += new System.EventHandler(this.toolStripItemDocsManagement_Click);
             // 

@@ -18,7 +18,7 @@ namespace Persistance.Services.UserServices
         public ResultDto Execute(Appointment appointment)
         {
             var doc = _model1.Doctors.Where(p => p.DoctorId == appointment.DoctorId).FirstOrDefault();
-            var patient = _model1.Patients.Where(p => p.PatientInfo.PersonId == appointment.PatientId).FirstOrDefault();
+            var patient = _model1.Patients.Where(p => p.PatientId == appointment.PatientId).FirstOrDefault();
             if (appointment.AppointmentDate.Value.Date > doc.StartTime.Date && appointment.AppointmentDate.Value.Date < doc.EndTime.Date)
             {
                 var existingAppointment = _model1.Appointments.Where(p => p.AppointmentDate == appointment.AppointmentDate).FirstOrDefault();
@@ -26,7 +26,6 @@ namespace Persistance.Services.UserServices
                 {
                     Appointment newAppointment = new Appointment
                     {
-                        AppointmentId = 0,
                         AppointmentDate = appointment.AppointmentDate,
                         Status = appointment.Status,
                         Doctor = doc,

@@ -18,6 +18,7 @@ namespace TheDuckingDocs
         int? id = null;
         public SpecializationManagementForm()
         {
+            this.Icon = Properties.Resources.hospital_icon_7294_Windows;
             InitializeComponent();
         }
 

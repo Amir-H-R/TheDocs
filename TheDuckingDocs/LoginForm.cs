@@ -18,6 +18,7 @@ namespace TheDuckingDocs
     {
         public LoginForm()
         {
+            this.Icon = Properties.Resources.hospital_icon_7294_Windows;
             InitializeComponent();
         }
 

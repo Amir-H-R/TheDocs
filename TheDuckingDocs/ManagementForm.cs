@@ -19,6 +19,7 @@ namespace TheDuckingDocs
         IModel1 model = new Model1();
         public ManagementForm()
         {
+            this.Icon = Properties.Resources.hospital_icon_7294_Windows;
             InitializeComponent();
         }
         int id;

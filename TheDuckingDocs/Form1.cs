@@ -17,6 +17,7 @@ namespace TheDuckingDocs
         IModel1 model1 = new Model1();
         public MainForm()
         {
+            this.Icon = Properties.Resources.hospital_icon_7294_Windows;
             InitializeComponent();
         }
 
@@ -92,7 +93,8 @@ namespace TheDuckingDocs
 
         private void toolStripItemDoctors_Click(object sender, EventArgs e)
         {
-
+            DoctorsListForm doctorsList = new DoctorsListForm();
+            doctorsList.ShowDialog();
         }
     }
 }

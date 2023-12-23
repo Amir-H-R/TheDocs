@@ -12,6 +12,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace TheDuckingDocs
 {
@@ -22,10 +23,12 @@ namespace TheDuckingDocs
         int appointmentId;
         public AppointmentManagement()
         {
+            this.Icon = Properties.Resources.hospital_icon_7294_Windows;
             InitializeComponent();
         }
         public AppointmentManagement(int doctorId)
         {
+            this.Icon = Properties.Resources.hospital_icon_7294_Windows;
             id = doctorId;
             InitializeComponent();
         }
@@ -99,11 +102,14 @@ namespace TheDuckingDocs
             Status status;
             Enum.TryParse(comboBox1.SelectedValue.ToString(), out status);
             AddAppointmentService appointmentService = new AddAppointmentService(model1);
+            var userId = (int)cmboxPatients.SelectedValue;
+            var patient = model1.Patients.FirstOrDefault(p => p.PatientInfo.PersonId== userId);
+
             Appointment appointment = new Appointment()
             {
                 AppointmentDate = datetimeAppointment.Value,
                 DoctorId = (int)cmboxDoctors.SelectedValue,
-                PatientId = (int)cmboxPatients.SelectedValue,
+                PatientId = patient.PatientId,
                 Status = status
             };
             var result = appointmentService.Execute(appointment);

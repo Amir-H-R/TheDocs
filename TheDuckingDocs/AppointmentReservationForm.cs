@@ -19,6 +19,7 @@ namespace TheDuckingDocs
         IModel1 model1 = new Model1();
         public AppointmentReservationForm()
         {
+            this.Icon = Properties.Resources.hospital_icon_7294_Windows;
             InitializeComponent();
         }
 

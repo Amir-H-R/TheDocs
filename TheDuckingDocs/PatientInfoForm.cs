@@ -21,6 +21,7 @@ namespace TheDuckingDocs
         Person user;
         public PatientInfoForm()
         {
+            this.Icon = Properties.Resources.hospital_icon_7294_Windows;
             InitializeComponent();
         }
 

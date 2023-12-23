@@ -26,8 +26,6 @@ namespace TheDuckingDocs {
         
         private @__MigrationHistoryDataTable table__MigrationHistory;
         
-        private AddressesDataTable tableAddresses;
-        
         private AppointmentsDataTable tableAppointments;
         
         private DoctorsDataTable tableDoctors;
@@ -50,17 +48,15 @@ namespace TheDuckingDocs {
         
         private StaffsDataTable tableStaffs;
         
-        private global::System.Data.DataRelation _relationFK_dbo_Addresses_dbo_Patients_AddressId;
-        
         private global::System.Data.DataRelation _relationFK_dbo_Appointments_dbo_Doctors_DoctorId;
+        
+        private global::System.Data.DataRelation _relationFK_dbo_Appointments_dbo_Patients_AppointmentId;
         
         private global::System.Data.DataRelation _relationFK_dbo_Doctors_dbo_People_DoctorInfo_PersonId;
         
         private global::System.Data.DataRelation _relationFK_dbo_DoctorSpecializations_dbo_Doctors_DoctorId;
         
         private global::System.Data.DataRelation _relationFK_dbo_DoctorSpecializations_dbo_Specializations_SpecializationId;
-        
-        private global::System.Data.DataRelation _relationFK_dbo_Patients_dbo_Appointments_PatientId;
         
         private global::System.Data.DataRelation _relationFK_dbo_Patients_dbo_People_PatientInfo_PersonId;
         
@@ -108,9 +104,6 @@ namespace TheDuckingDocs {
                 ds.ReadXmlSchema(new global::System.Xml.XmlTextReader(new global::System.IO.StringReader(strSchema)));
                 if ((ds.Tables["__MigrationHistory"] != null)) {
                     base.Tables.Add(new @__MigrationHistoryDataTable(ds.Tables["__MigrationHistory"]));
-                }
-                if ((ds.Tables["Addresses"] != null)) {
-                    base.Tables.Add(new AddressesDataTable(ds.Tables["Addresses"]));
                 }
                 if ((ds.Tables["Appointments"] != null)) {
                     base.Tables.Add(new AppointmentsDataTable(ds.Tables["Appointments"]));
@@ -170,16 +163,6 @@ namespace TheDuckingDocs {
         public @__MigrationHistoryDataTable @__MigrationHistory {
             get {
                 return this.table__MigrationHistory;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        [global::System.ComponentModel.Browsable(false)]
-        [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
-        public AddressesDataTable Addresses {
-            get {
-                return this.tableAddresses;
             }
         }
         
@@ -363,9 +346,6 @@ namespace TheDuckingDocs {
                 if ((ds.Tables["__MigrationHistory"] != null)) {
                     base.Tables.Add(new @__MigrationHistoryDataTable(ds.Tables["__MigrationHistory"]));
                 }
-                if ((ds.Tables["Addresses"] != null)) {
-                    base.Tables.Add(new AddressesDataTable(ds.Tables["Addresses"]));
-                }
                 if ((ds.Tables["Appointments"] != null)) {
                     base.Tables.Add(new AppointmentsDataTable(ds.Tables["Appointments"]));
                 }
@@ -438,12 +418,6 @@ namespace TheDuckingDocs {
                     this.table__MigrationHistory.InitVars();
                 }
             }
-            this.tableAddresses = ((AddressesDataTable)(base.Tables["Addresses"]));
-            if ((initTable == true)) {
-                if ((this.tableAddresses != null)) {
-                    this.tableAddresses.InitVars();
-                }
-            }
             this.tableAppointments = ((AppointmentsDataTable)(base.Tables["Appointments"]));
             if ((initTable == true)) {
                 if ((this.tableAppointments != null)) {
@@ -510,12 +484,11 @@ namespace TheDuckingDocs {
                     this.tableStaffs.InitVars();
                 }
             }
-            this._relationFK_dbo_Addresses_dbo_Patients_AddressId = this.Relations["FK_dbo.Addresses_dbo.Patients_AddressId"];
             this._relationFK_dbo_Appointments_dbo_Doctors_DoctorId = this.Relations["FK_dbo.Appointments_dbo.Doctors_DoctorId"];
+            this._relationFK_dbo_Appointments_dbo_Patients_AppointmentId = this.Relations["FK_dbo.Appointments_dbo.Patients_AppointmentId"];
             this._relationFK_dbo_Doctors_dbo_People_DoctorInfo_PersonId = this.Relations["FK_dbo.Doctors_dbo.People_DoctorInfo_PersonId"];
             this._relationFK_dbo_DoctorSpecializations_dbo_Doctors_DoctorId = this.Relations["FK_dbo.DoctorSpecializations_dbo.Doctors_DoctorId"];
             this._relationFK_dbo_DoctorSpecializations_dbo_Specializations_SpecializationId = this.Relations["FK_dbo.DoctorSpecializations_dbo.Specializations_SpecializationId"];
-            this._relationFK_dbo_Patients_dbo_Appointments_PatientId = this.Relations["FK_dbo.Patients_dbo.Appointments_PatientId"];
             this._relationFK_dbo_Patients_dbo_People_PatientInfo_PersonId = this.Relations["FK_dbo.Patients_dbo.People_PatientInfo_PersonId"];
             this._relationFK_dbo_PeopleRoles_dbo_People_PersonId = this.Relations["FK_dbo.PeopleRoles_dbo.People_PersonId"];
             this._relationFK_dbo_PeopleRoles_dbo_Roles_RoleId = this.Relations["FK_dbo.PeopleRoles_dbo.Roles_RoleId"];
@@ -536,8 +509,6 @@ namespace TheDuckingDocs {
             this.SchemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
             this.table__MigrationHistory = new @__MigrationHistoryDataTable();
             base.Tables.Add(this.table__MigrationHistory);
-            this.tableAddresses = new AddressesDataTable();
-            base.Tables.Add(this.tableAddresses);
             this.tableAppointments = new AppointmentsDataTable();
             base.Tables.Add(this.tableAppointments);
             this.tableDoctors = new DoctorsDataTable();
@@ -560,14 +531,14 @@ namespace TheDuckingDocs {
             base.Tables.Add(this.tableSpecializations);
             this.tableStaffs = new StaffsDataTable();
             base.Tables.Add(this.tableStaffs);
-            this._relationFK_dbo_Addresses_dbo_Patients_AddressId = new global::System.Data.DataRelation("FK_dbo.Addresses_dbo.Patients_AddressId", new global::System.Data.DataColumn[] {
-                        this.tablePatients.PatientIdColumn}, new global::System.Data.DataColumn[] {
-                        this.tableAddresses.AddressIdColumn}, false);
-            this.Relations.Add(this._relationFK_dbo_Addresses_dbo_Patients_AddressId);
             this._relationFK_dbo_Appointments_dbo_Doctors_DoctorId = new global::System.Data.DataRelation("FK_dbo.Appointments_dbo.Doctors_DoctorId", new global::System.Data.DataColumn[] {
                         this.tableDoctors.DoctorIdColumn}, new global::System.Data.DataColumn[] {
                         this.tableAppointments.DoctorIdColumn}, false);
             this.Relations.Add(this._relationFK_dbo_Appointments_dbo_Doctors_DoctorId);
+            this._relationFK_dbo_Appointments_dbo_Patients_AppointmentId = new global::System.Data.DataRelation("FK_dbo.Appointments_dbo.Patients_AppointmentId", new global::System.Data.DataColumn[] {
+                        this.tablePatients.PatientIdColumn}, new global::System.Data.DataColumn[] {
+                        this.tableAppointments.AppointmentIdColumn}, false);
+            this.Relations.Add(this._relationFK_dbo_Appointments_dbo_Patients_AppointmentId);
             this._relationFK_dbo_Doctors_dbo_People_DoctorInfo_PersonId = new global::System.Data.DataRelation("FK_dbo.Doctors_dbo.People_DoctorInfo_PersonId", new global::System.Data.DataColumn[] {
                         this.tablePeople.PersonIdColumn}, new global::System.Data.DataColumn[] {
                         this.tableDoctors.DoctorInfo_PersonIdColumn}, false);
@@ -580,10 +551,6 @@ namespace TheDuckingDocs {
                         this.tableSpecializations.SpecializationIdColumn}, new global::System.Data.DataColumn[] {
                         this.tableDoctorSpecializations.SpecializationIdColumn}, false);
             this.Relations.Add(this._relationFK_dbo_DoctorSpecializations_dbo_Specializations_SpecializationId);
-            this._relationFK_dbo_Patients_dbo_Appointments_PatientId = new global::System.Data.DataRelation("FK_dbo.Patients_dbo.Appointments_PatientId", new global::System.Data.DataColumn[] {
-                        this.tableAppointments.AppointmentIdColumn}, new global::System.Data.DataColumn[] {
-                        this.tablePatients.PatientIdColumn}, false);
-            this.Relations.Add(this._relationFK_dbo_Patients_dbo_Appointments_PatientId);
             this._relationFK_dbo_Patients_dbo_People_PatientInfo_PersonId = new global::System.Data.DataRelation("FK_dbo.Patients_dbo.People_PatientInfo_PersonId", new global::System.Data.DataColumn[] {
                         this.tablePeople.PersonIdColumn}, new global::System.Data.DataColumn[] {
                         this.tablePatients.PatientInfo_PersonIdColumn}, false);
@@ -621,12 +588,6 @@ namespace TheDuckingDocs {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         private bool ShouldSerialize__MigrationHistory() {
-            return false;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        private bool ShouldSerializeAddresses() {
             return false;
         }
         
@@ -753,9 +714,6 @@ namespace TheDuckingDocs {
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         public delegate void @__MigrationHistoryRowChangeEventHandler(object sender, @__MigrationHistoryRowChangeEvent e);
-        
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        public delegate void AddressesRowChangeEventHandler(object sender, AddressesRowChangeEvent e);
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         public delegate void AppointmentsRowChangeEventHandler(object sender, AppointmentsRowChangeEvent e);
@@ -1102,353 +1060,17 @@ namespace TheDuckingDocs {
         ///</summary>
         [global::System.Serializable()]
         [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
-        public partial class AddressesDataTable : global::System.Data.TypedTableBase<AddressesRow> {
-            
-            private global::System.Data.DataColumn columnAddressId;
-            
-            private global::System.Data.DataColumn columnCountry;
-            
-            private global::System.Data.DataColumn columnProvince;
-            
-            private global::System.Data.DataColumn columnCity;
-            
-            private global::System.Data.DataColumn columnZipCode;
-            
-            private global::System.Data.DataColumn columnPatientId;
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public AddressesDataTable() {
-                this.TableName = "Addresses";
-                this.BeginInit();
-                this.InitClass();
-                this.EndInit();
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            internal AddressesDataTable(global::System.Data.DataTable table) {
-                this.TableName = table.TableName;
-                if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
-                    this.CaseSensitive = table.CaseSensitive;
-                }
-                if ((table.Locale.ToString() != table.DataSet.Locale.ToString())) {
-                    this.Locale = table.Locale;
-                }
-                if ((table.Namespace != table.DataSet.Namespace)) {
-                    this.Namespace = table.Namespace;
-                }
-                this.Prefix = table.Prefix;
-                this.MinimumCapacity = table.MinimumCapacity;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            protected AddressesDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
-                    base(info, context) {
-                this.InitVars();
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn AddressIdColumn {
-                get {
-                    return this.columnAddressId;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn CountryColumn {
-                get {
-                    return this.columnCountry;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn ProvinceColumn {
-                get {
-                    return this.columnProvince;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn CityColumn {
-                get {
-                    return this.columnCity;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn ZipCodeColumn {
-                get {
-                    return this.columnZipCode;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn PatientIdColumn {
-                get {
-                    return this.columnPatientId;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            [global::System.ComponentModel.Browsable(false)]
-            public int Count {
-                get {
-                    return this.Rows.Count;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public AddressesRow this[int index] {
-                get {
-                    return ((AddressesRow)(this.Rows[index]));
-                }
-            }
-            
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public event AddressesRowChangeEventHandler AddressesRowChanging;
-            
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public event AddressesRowChangeEventHandler AddressesRowChanged;
-            
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public event AddressesRowChangeEventHandler AddressesRowDeleting;
-            
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public event AddressesRowChangeEventHandler AddressesRowDeleted;
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void AddAddressesRow(AddressesRow row) {
-                this.Rows.Add(row);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public AddressesRow AddAddressesRow(PatientsRow _parentPatientsRowByFK_dbo_Addresses_dbo_Patients_AddressId, string Country, string Province, string City, string ZipCode, int PatientId) {
-                AddressesRow rowAddressesRow = ((AddressesRow)(this.NewRow()));
-                object[] columnValuesArray = new object[] {
-                        null,
-                        Country,
-                        Province,
-                        City,
-                        ZipCode,
-                        PatientId};
-                if ((_parentPatientsRowByFK_dbo_Addresses_dbo_Patients_AddressId != null)) {
-                    columnValuesArray[0] = _parentPatientsRowByFK_dbo_Addresses_dbo_Patients_AddressId[0];
-                }
-                rowAddressesRow.ItemArray = columnValuesArray;
-                this.Rows.Add(rowAddressesRow);
-                return rowAddressesRow;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public AddressesRow FindByAddressId(int AddressId) {
-                return ((AddressesRow)(this.Rows.Find(new object[] {
-                            AddressId})));
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public override global::System.Data.DataTable Clone() {
-                AddressesDataTable cln = ((AddressesDataTable)(base.Clone()));
-                cln.InitVars();
-                return cln;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            protected override global::System.Data.DataTable CreateInstance() {
-                return new AddressesDataTable();
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            internal void InitVars() {
-                this.columnAddressId = base.Columns["AddressId"];
-                this.columnCountry = base.Columns["Country"];
-                this.columnProvince = base.Columns["Province"];
-                this.columnCity = base.Columns["City"];
-                this.columnZipCode = base.Columns["ZipCode"];
-                this.columnPatientId = base.Columns["PatientId"];
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            private void InitClass() {
-                this.columnAddressId = new global::System.Data.DataColumn("AddressId", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnAddressId);
-                this.columnCountry = new global::System.Data.DataColumn("Country", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnCountry);
-                this.columnProvince = new global::System.Data.DataColumn("Province", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnProvince);
-                this.columnCity = new global::System.Data.DataColumn("City", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnCity);
-                this.columnZipCode = new global::System.Data.DataColumn("ZipCode", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnZipCode);
-                this.columnPatientId = new global::System.Data.DataColumn("PatientId", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnPatientId);
-                this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
-                                this.columnAddressId}, true));
-                this.columnAddressId.AllowDBNull = false;
-                this.columnAddressId.Unique = true;
-                this.columnCountry.MaxLength = 2147483647;
-                this.columnProvince.MaxLength = 2147483647;
-                this.columnCity.MaxLength = 2147483647;
-                this.columnZipCode.MaxLength = 2147483647;
-                this.columnPatientId.AllowDBNull = false;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public AddressesRow NewAddressesRow() {
-                return ((AddressesRow)(this.NewRow()));
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
-                return new AddressesRow(builder);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            protected override global::System.Type GetRowType() {
-                return typeof(AddressesRow);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
-                base.OnRowChanged(e);
-                if ((this.AddressesRowChanged != null)) {
-                    this.AddressesRowChanged(this, new AddressesRowChangeEvent(((AddressesRow)(e.Row)), e.Action));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
-                base.OnRowChanging(e);
-                if ((this.AddressesRowChanging != null)) {
-                    this.AddressesRowChanging(this, new AddressesRowChangeEvent(((AddressesRow)(e.Row)), e.Action));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
-                base.OnRowDeleted(e);
-                if ((this.AddressesRowDeleted != null)) {
-                    this.AddressesRowDeleted(this, new AddressesRowChangeEvent(((AddressesRow)(e.Row)), e.Action));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
-                base.OnRowDeleting(e);
-                if ((this.AddressesRowDeleting != null)) {
-                    this.AddressesRowDeleting(this, new AddressesRowChangeEvent(((AddressesRow)(e.Row)), e.Action));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void RemoveAddressesRow(AddressesRow row) {
-                this.Rows.Remove(row);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
-                global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
-                global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
-                _TheDuckingDocs_Model1DataSet ds = new _TheDuckingDocs_Model1DataSet();
-                global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
-                any1.Namespace = "http://www.w3.org/2001/XMLSchema";
-                any1.MinOccurs = new decimal(0);
-                any1.MaxOccurs = decimal.MaxValue;
-                any1.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
-                sequence.Items.Add(any1);
-                global::System.Xml.Schema.XmlSchemaAny any2 = new global::System.Xml.Schema.XmlSchemaAny();
-                any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1";
-                any2.MinOccurs = new decimal(1);
-                any2.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
-                sequence.Items.Add(any2);
-                global::System.Xml.Schema.XmlSchemaAttribute attribute1 = new global::System.Xml.Schema.XmlSchemaAttribute();
-                attribute1.Name = "namespace";
-                attribute1.FixedValue = ds.Namespace;
-                type.Attributes.Add(attribute1);
-                global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
-                attribute2.Name = "tableTypeName";
-                attribute2.FixedValue = "AddressesDataTable";
-                type.Attributes.Add(attribute2);
-                type.Particle = sequence;
-                global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
-                if (xs.Contains(dsSchema.TargetNamespace)) {
-                    global::System.IO.MemoryStream s1 = new global::System.IO.MemoryStream();
-                    global::System.IO.MemoryStream s2 = new global::System.IO.MemoryStream();
-                    try {
-                        global::System.Xml.Schema.XmlSchema schema = null;
-                        dsSchema.Write(s1);
-                        for (global::System.Collections.IEnumerator schemas = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator(); schemas.MoveNext(); ) {
-                            schema = ((global::System.Xml.Schema.XmlSchema)(schemas.Current));
-                            s2.SetLength(0);
-                            schema.Write(s2);
-                            if ((s1.Length == s2.Length)) {
-                                s1.Position = 0;
-                                s2.Position = 0;
-                                for (; ((s1.Position != s1.Length) 
-                                            && (s1.ReadByte() == s2.ReadByte())); ) {
-                                    ;
-                                }
-                                if ((s1.Position == s1.Length)) {
-                                    return type;
-                                }
-                            }
-                        }
-                    }
-                    finally {
-                        if ((s1 != null)) {
-                            s1.Close();
-                        }
-                        if ((s2 != null)) {
-                            s2.Close();
-                        }
-                    }
-                }
-                xs.Add(dsSchema);
-                return type;
-            }
-        }
-        
-        /// <summary>
-        ///Represents the strongly named DataTable class.
-        ///</summary>
-        [global::System.Serializable()]
-        [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
         public partial class AppointmentsDataTable : global::System.Data.TypedTableBase<AppointmentsRow> {
             
             private global::System.Data.DataColumn columnAppointmentId;
             
-            private global::System.Data.DataColumn columnPatientId;
-            
             private global::System.Data.DataColumn columnDoctorId;
             
-            private global::System.Data.DataColumn columnStatus;
+            private global::System.Data.DataColumn columnPatientId;
             
             private global::System.Data.DataColumn columnAppointmentDate;
+            
+            private global::System.Data.DataColumn columnStatus;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
@@ -1493,14 +1115,6 @@ namespace TheDuckingDocs {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn PatientIdColumn {
-                get {
-                    return this.columnPatientId;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public global::System.Data.DataColumn DoctorIdColumn {
                 get {
                     return this.columnDoctorId;
@@ -1509,9 +1123,9 @@ namespace TheDuckingDocs {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn StatusColumn {
+            public global::System.Data.DataColumn PatientIdColumn {
                 get {
-                    return this.columnStatus;
+                    return this.columnPatientId;
                 }
             }
             
@@ -1520,6 +1134,14 @@ namespace TheDuckingDocs {
             public global::System.Data.DataColumn AppointmentDateColumn {
                 get {
                     return this.columnAppointmentDate;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn StatusColumn {
+                get {
+                    return this.columnStatus;
                 }
             }
             
@@ -1560,16 +1182,16 @@ namespace TheDuckingDocs {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public AppointmentsRow AddAppointmentsRow(int PatientId, DoctorsRow _parentDoctorsRowByFK_dbo_Appointments_dbo_Doctors_DoctorId, int Status, System.DateTime AppointmentDate) {
+            public AppointmentsRow AddAppointmentsRow(DoctorsRow _parentDoctorsRowByFK_dbo_Appointments_dbo_Doctors_DoctorId, int PatientId, System.DateTime AppointmentDate, int Status) {
                 AppointmentsRow rowAppointmentsRow = ((AppointmentsRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
-                        PatientId,
                         null,
-                        Status,
-                        AppointmentDate};
+                        PatientId,
+                        AppointmentDate,
+                        Status};
                 if ((_parentDoctorsRowByFK_dbo_Appointments_dbo_Doctors_DoctorId != null)) {
-                    columnValuesArray[2] = _parentDoctorsRowByFK_dbo_Appointments_dbo_Doctors_DoctorId[0];
+                    columnValuesArray[1] = _parentDoctorsRowByFK_dbo_Appointments_dbo_Doctors_DoctorId[0];
                 }
                 rowAppointmentsRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowAppointmentsRow);
@@ -1601,10 +1223,10 @@ namespace TheDuckingDocs {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             internal void InitVars() {
                 this.columnAppointmentId = base.Columns["AppointmentId"];
-                this.columnPatientId = base.Columns["PatientId"];
                 this.columnDoctorId = base.Columns["DoctorId"];
-                this.columnStatus = base.Columns["Status"];
+                this.columnPatientId = base.Columns["PatientId"];
                 this.columnAppointmentDate = base.Columns["AppointmentDate"];
+                this.columnStatus = base.Columns["Status"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1612,14 +1234,14 @@ namespace TheDuckingDocs {
             private void InitClass() {
                 this.columnAppointmentId = new global::System.Data.DataColumn("AppointmentId", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnAppointmentId);
-                this.columnPatientId = new global::System.Data.DataColumn("PatientId", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnPatientId);
                 this.columnDoctorId = new global::System.Data.DataColumn("DoctorId", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnDoctorId);
-                this.columnStatus = new global::System.Data.DataColumn("Status", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnStatus);
+                this.columnPatientId = new global::System.Data.DataColumn("PatientId", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnPatientId);
                 this.columnAppointmentDate = new global::System.Data.DataColumn("AppointmentDate", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnAppointmentDate);
+                this.columnStatus = new global::System.Data.DataColumn("Status", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnStatus);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnAppointmentId}, true));
                 this.columnAppointmentId.AutoIncrement = true;
@@ -1628,8 +1250,8 @@ namespace TheDuckingDocs {
                 this.columnAppointmentId.AllowDBNull = false;
                 this.columnAppointmentId.ReadOnly = true;
                 this.columnAppointmentId.Unique = true;
-                this.columnPatientId.AllowDBNull = false;
                 this.columnDoctorId.AllowDBNull = false;
+                this.columnPatientId.AllowDBNull = false;
                 this.columnStatus.AllowDBNull = false;
             }
             
@@ -1766,11 +1388,11 @@ namespace TheDuckingDocs {
             
             private global::System.Data.DataColumn columnDoctorId;
             
-            private global::System.Data.DataColumn columnDoctorInfo_PersonId;
-            
             private global::System.Data.DataColumn columnStartTime;
             
             private global::System.Data.DataColumn columnEndTime;
+            
+            private global::System.Data.DataColumn columnDoctorInfo_PersonId;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
@@ -1815,14 +1437,6 @@ namespace TheDuckingDocs {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn DoctorInfo_PersonIdColumn {
-                get {
-                    return this.columnDoctorInfo_PersonId;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public global::System.Data.DataColumn StartTimeColumn {
                 get {
                     return this.columnStartTime;
@@ -1834,6 +1448,14 @@ namespace TheDuckingDocs {
             public global::System.Data.DataColumn EndTimeColumn {
                 get {
                     return this.columnEndTime;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn DoctorInfo_PersonIdColumn {
+                get {
+                    return this.columnDoctorInfo_PersonId;
                 }
             }
             
@@ -1874,15 +1496,15 @@ namespace TheDuckingDocs {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public DoctorsRow AddDoctorsRow(PeopleRow _parentPeopleRowByFK_dbo_Doctors_dbo_People_DoctorInfo_PersonId, System.DateTime StartTime, System.DateTime EndTime) {
+            public DoctorsRow AddDoctorsRow(System.DateTime StartTime, System.DateTime EndTime, PeopleRow _parentPeopleRowByFK_dbo_Doctors_dbo_People_DoctorInfo_PersonId) {
                 DoctorsRow rowDoctorsRow = ((DoctorsRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
-                        null,
                         StartTime,
-                        EndTime};
+                        EndTime,
+                        null};
                 if ((_parentPeopleRowByFK_dbo_Doctors_dbo_People_DoctorInfo_PersonId != null)) {
-                    columnValuesArray[1] = _parentPeopleRowByFK_dbo_Doctors_dbo_People_DoctorInfo_PersonId[0];
+                    columnValuesArray[3] = _parentPeopleRowByFK_dbo_Doctors_dbo_People_DoctorInfo_PersonId[0];
                 }
                 rowDoctorsRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowDoctorsRow);
@@ -1914,9 +1536,9 @@ namespace TheDuckingDocs {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             internal void InitVars() {
                 this.columnDoctorId = base.Columns["DoctorId"];
-                this.columnDoctorInfo_PersonId = base.Columns["DoctorInfo_PersonId"];
                 this.columnStartTime = base.Columns["StartTime"];
                 this.columnEndTime = base.Columns["EndTime"];
+                this.columnDoctorInfo_PersonId = base.Columns["DoctorInfo_PersonId"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1924,12 +1546,12 @@ namespace TheDuckingDocs {
             private void InitClass() {
                 this.columnDoctorId = new global::System.Data.DataColumn("DoctorId", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnDoctorId);
-                this.columnDoctorInfo_PersonId = new global::System.Data.DataColumn("DoctorInfo_PersonId", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnDoctorInfo_PersonId);
                 this.columnStartTime = new global::System.Data.DataColumn("StartTime", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnStartTime);
                 this.columnEndTime = new global::System.Data.DataColumn("EndTime", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnEndTime);
+                this.columnDoctorInfo_PersonId = new global::System.Data.DataColumn("DoctorInfo_PersonId", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnDoctorInfo_PersonId);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnDoctorId}, true));
                 this.columnDoctorId.AutoIncrement = true;
@@ -2375,11 +1997,11 @@ namespace TheDuckingDocs {
             
             private global::System.Data.DataColumn columnBirthDate;
             
-            private global::System.Data.DataColumn columnAddressId;
-            
-            private global::System.Data.DataColumn columnPatientInfo_PersonId;
+            private global::System.Data.DataColumn columnAddress;
             
             private global::System.Data.DataColumn columnAppointmentId;
+            
+            private global::System.Data.DataColumn columnPatientInfo_PersonId;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
@@ -2432,17 +2054,9 @@ namespace TheDuckingDocs {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn AddressIdColumn {
+            public global::System.Data.DataColumn AddressColumn {
                 get {
-                    return this.columnAddressId;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn PatientInfo_PersonIdColumn {
-                get {
-                    return this.columnPatientInfo_PersonId;
+                    return this.columnAddress;
                 }
             }
             
@@ -2451,6 +2065,14 @@ namespace TheDuckingDocs {
             public global::System.Data.DataColumn AppointmentIdColumn {
                 get {
                     return this.columnAppointmentId;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn PatientInfo_PersonIdColumn {
+                get {
+                    return this.columnPatientInfo_PersonId;
                 }
             }
             
@@ -2491,16 +2113,16 @@ namespace TheDuckingDocs {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public PatientsRow AddPatientsRow(System.DateTime BirthDate, int AddressId, PeopleRow _parentPeopleRowByFK_dbo_Patients_dbo_People_PatientInfo_PersonId, int AppointmentId) {
+            public PatientsRow AddPatientsRow(System.DateTime BirthDate, string Address, int AppointmentId, PeopleRow _parentPeopleRowByFK_dbo_Patients_dbo_People_PatientInfo_PersonId) {
                 PatientsRow rowPatientsRow = ((PatientsRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
                         BirthDate,
-                        AddressId,
-                        null,
-                        AppointmentId};
+                        Address,
+                        AppointmentId,
+                        null};
                 if ((_parentPeopleRowByFK_dbo_Patients_dbo_People_PatientInfo_PersonId != null)) {
-                    columnValuesArray[3] = _parentPeopleRowByFK_dbo_Patients_dbo_People_PatientInfo_PersonId[0];
+                    columnValuesArray[4] = _parentPeopleRowByFK_dbo_Patients_dbo_People_PatientInfo_PersonId[0];
                 }
                 rowPatientsRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowPatientsRow);
@@ -2533,9 +2155,9 @@ namespace TheDuckingDocs {
             internal void InitVars() {
                 this.columnPatientId = base.Columns["PatientId"];
                 this.columnBirthDate = base.Columns["BirthDate"];
-                this.columnAddressId = base.Columns["AddressId"];
-                this.columnPatientInfo_PersonId = base.Columns["PatientInfo_PersonId"];
+                this.columnAddress = base.Columns["Address"];
                 this.columnAppointmentId = base.Columns["AppointmentId"];
+                this.columnPatientInfo_PersonId = base.Columns["PatientInfo_PersonId"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2545,12 +2167,12 @@ namespace TheDuckingDocs {
                 base.Columns.Add(this.columnPatientId);
                 this.columnBirthDate = new global::System.Data.DataColumn("BirthDate", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnBirthDate);
-                this.columnAddressId = new global::System.Data.DataColumn("AddressId", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnAddressId);
-                this.columnPatientInfo_PersonId = new global::System.Data.DataColumn("PatientInfo_PersonId", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnPatientInfo_PersonId);
+                this.columnAddress = new global::System.Data.DataColumn("Address", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnAddress);
                 this.columnAppointmentId = new global::System.Data.DataColumn("AppointmentId", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnAppointmentId);
+                this.columnPatientInfo_PersonId = new global::System.Data.DataColumn("PatientInfo_PersonId", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnPatientInfo_PersonId);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnPatientId}, true));
                 this.columnPatientId.AutoIncrement = true;
@@ -2560,7 +2182,7 @@ namespace TheDuckingDocs {
                 this.columnPatientId.ReadOnly = true;
                 this.columnPatientId.Unique = true;
                 this.columnBirthDate.AllowDBNull = false;
-                this.columnAddressId.AllowDBNull = false;
+                this.columnAddress.MaxLength = 2147483647;
                 this.columnAppointmentId.AllowDBNull = false;
             }
             
@@ -4808,166 +4430,6 @@ namespace TheDuckingDocs {
         /// <summary>
         ///Represents strongly named DataRow class.
         ///</summary>
-        public partial class AddressesRow : global::System.Data.DataRow {
-            
-            private AddressesDataTable tableAddresses;
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            internal AddressesRow(global::System.Data.DataRowBuilder rb) : 
-                    base(rb) {
-                this.tableAddresses = ((AddressesDataTable)(this.Table));
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public int AddressId {
-                get {
-                    return ((int)(this[this.tableAddresses.AddressIdColumn]));
-                }
-                set {
-                    this[this.tableAddresses.AddressIdColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public string Country {
-                get {
-                    try {
-                        return ((string)(this[this.tableAddresses.CountryColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Country\' in table \'Addresses\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableAddresses.CountryColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public string Province {
-                get {
-                    try {
-                        return ((string)(this[this.tableAddresses.ProvinceColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Province\' in table \'Addresses\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableAddresses.ProvinceColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public string City {
-                get {
-                    try {
-                        return ((string)(this[this.tableAddresses.CityColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'City\' in table \'Addresses\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableAddresses.CityColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public string ZipCode {
-                get {
-                    try {
-                        return ((string)(this[this.tableAddresses.ZipCodeColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'ZipCode\' in table \'Addresses\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableAddresses.ZipCodeColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public int PatientId {
-                get {
-                    return ((int)(this[this.tableAddresses.PatientIdColumn]));
-                }
-                set {
-                    this[this.tableAddresses.PatientIdColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public PatientsRow PatientsRow {
-                get {
-                    return ((PatientsRow)(this.GetParentRow(this.Table.ParentRelations["FK_dbo.Addresses_dbo.Patients_AddressId"])));
-                }
-                set {
-                    this.SetParentRow(value, this.Table.ParentRelations["FK_dbo.Addresses_dbo.Patients_AddressId"]);
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool IsCountryNull() {
-                return this.IsNull(this.tableAddresses.CountryColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void SetCountryNull() {
-                this[this.tableAddresses.CountryColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool IsProvinceNull() {
-                return this.IsNull(this.tableAddresses.ProvinceColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void SetProvinceNull() {
-                this[this.tableAddresses.ProvinceColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool IsCityNull() {
-                return this.IsNull(this.tableAddresses.CityColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void SetCityNull() {
-                this[this.tableAddresses.CityColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool IsZipCodeNull() {
-                return this.IsNull(this.tableAddresses.ZipCodeColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void SetZipCodeNull() {
-                this[this.tableAddresses.ZipCodeColumn] = global::System.Convert.DBNull;
-            }
-        }
-        
-        /// <summary>
-        ///Represents strongly named DataRow class.
-        ///</summary>
         public partial class AppointmentsRow : global::System.Data.DataRow {
             
             private AppointmentsDataTable tableAppointments;
@@ -4992,17 +4454,6 @@ namespace TheDuckingDocs {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public int PatientId {
-                get {
-                    return ((int)(this[this.tableAppointments.PatientIdColumn]));
-                }
-                set {
-                    this[this.tableAppointments.PatientIdColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public int DoctorId {
                 get {
                     return ((int)(this[this.tableAppointments.DoctorIdColumn]));
@@ -5014,12 +4465,12 @@ namespace TheDuckingDocs {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public int Status {
+            public int PatientId {
                 get {
-                    return ((int)(this[this.tableAppointments.StatusColumn]));
+                    return ((int)(this[this.tableAppointments.PatientIdColumn]));
                 }
                 set {
-                    this[this.tableAppointments.StatusColumn] = value;
+                    this[this.tableAppointments.PatientIdColumn] = value;
                 }
             }
             
@@ -5041,12 +4492,34 @@ namespace TheDuckingDocs {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public int Status {
+                get {
+                    return ((int)(this[this.tableAppointments.StatusColumn]));
+                }
+                set {
+                    this[this.tableAppointments.StatusColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public DoctorsRow DoctorsRow {
                 get {
                     return ((DoctorsRow)(this.GetParentRow(this.Table.ParentRelations["FK_dbo.Appointments_dbo.Doctors_DoctorId"])));
                 }
                 set {
                     this.SetParentRow(value, this.Table.ParentRelations["FK_dbo.Appointments_dbo.Doctors_DoctorId"]);
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public PatientsRow PatientsRow {
+                get {
+                    return ((PatientsRow)(this.GetParentRow(this.Table.ParentRelations["FK_dbo.Appointments_dbo.Patients_AppointmentId"])));
+                }
+                set {
+                    this.SetParentRow(value, this.Table.ParentRelations["FK_dbo.Appointments_dbo.Patients_AppointmentId"]);
                 }
             }
             
@@ -5060,17 +4533,6 @@ namespace TheDuckingDocs {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public void SetAppointmentDateNull() {
                 this[this.tableAppointments.AppointmentDateColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public PatientsRow[] GetPatientsRows() {
-                if ((this.Table.ChildRelations["FK_dbo.Patients_dbo.Appointments_PatientId"] == null)) {
-                    return new PatientsRow[0];
-                }
-                else {
-                    return ((PatientsRow[])(base.GetChildRows(this.Table.ChildRelations["FK_dbo.Patients_dbo.Appointments_PatientId"])));
-                }
             }
         }
         
@@ -5101,22 +4563,6 @@ namespace TheDuckingDocs {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public int DoctorInfo_PersonId {
-                get {
-                    try {
-                        return ((int)(this[this.tableDoctors.DoctorInfo_PersonIdColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'DoctorInfo_PersonId\' in table \'Doctors\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableDoctors.DoctorInfo_PersonIdColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public System.DateTime StartTime {
                 get {
                     return ((global::System.DateTime)(this[this.tableDoctors.StartTimeColumn]));
@@ -5134,6 +4580,22 @@ namespace TheDuckingDocs {
                 }
                 set {
                     this[this.tableDoctors.EndTimeColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public int DoctorInfo_PersonId {
+                get {
+                    try {
+                        return ((int)(this[this.tableDoctors.DoctorInfo_PersonIdColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'DoctorInfo_PersonId\' in table \'Doctors\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableDoctors.DoctorInfo_PersonIdColumn] = value;
                 }
             }
             
@@ -5302,12 +4764,28 @@ namespace TheDuckingDocs {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public int AddressId {
+            public string Address {
                 get {
-                    return ((int)(this[this.tablePatients.AddressIdColumn]));
+                    try {
+                        return ((string)(this[this.tablePatients.AddressColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Address\' in table \'Patients\' is DBNull.", e);
+                    }
                 }
                 set {
-                    this[this.tablePatients.AddressIdColumn] = value;
+                    this[this.tablePatients.AddressColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public int AppointmentId {
+                get {
+                    return ((int)(this[this.tablePatients.AppointmentIdColumn]));
+                }
+                set {
+                    this[this.tablePatients.AppointmentIdColumn] = value;
                 }
             }
             
@@ -5329,28 +4807,6 @@ namespace TheDuckingDocs {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public int AppointmentId {
-                get {
-                    return ((int)(this[this.tablePatients.AppointmentIdColumn]));
-                }
-                set {
-                    this[this.tablePatients.AppointmentIdColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public AppointmentsRow AppointmentsRow {
-                get {
-                    return ((AppointmentsRow)(this.GetParentRow(this.Table.ParentRelations["FK_dbo.Patients_dbo.Appointments_PatientId"])));
-                }
-                set {
-                    this.SetParentRow(value, this.Table.ParentRelations["FK_dbo.Patients_dbo.Appointments_PatientId"]);
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public PeopleRow PeopleRow {
                 get {
                     return ((PeopleRow)(this.GetParentRow(this.Table.ParentRelations["FK_dbo.Patients_dbo.People_PatientInfo_PersonId"])));
@@ -5358,6 +4814,18 @@ namespace TheDuckingDocs {
                 set {
                     this.SetParentRow(value, this.Table.ParentRelations["FK_dbo.Patients_dbo.People_PatientInfo_PersonId"]);
                 }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsAddressNull() {
+                return this.IsNull(this.tablePatients.AddressColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetAddressNull() {
+                this[this.tablePatients.AddressColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -5374,12 +4842,12 @@ namespace TheDuckingDocs {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public AddressesRow[] GetAddressesRows() {
-                if ((this.Table.ChildRelations["FK_dbo.Addresses_dbo.Patients_AddressId"] == null)) {
-                    return new AddressesRow[0];
+            public AppointmentsRow[] GetAppointmentsRows() {
+                if ((this.Table.ChildRelations["FK_dbo.Appointments_dbo.Patients_AppointmentId"] == null)) {
+                    return new AppointmentsRow[0];
                 }
                 else {
-                    return ((AddressesRow[])(base.GetChildRows(this.Table.ChildRelations["FK_dbo.Addresses_dbo.Patients_AddressId"])));
+                    return ((AppointmentsRow[])(base.GetChildRows(this.Table.ChildRelations["FK_dbo.Appointments_dbo.Patients_AppointmentId"])));
                 }
             }
         }
@@ -6069,40 +5537,6 @@ namespace TheDuckingDocs {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public @__MigrationHistoryRow Row {
-                get {
-                    return this.eventRow;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataRowAction Action {
-                get {
-                    return this.eventAction;
-                }
-            }
-        }
-        
-        /// <summary>
-        ///Row event argument class
-        ///</summary>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        public class AddressesRowChangeEvent : global::System.EventArgs {
-            
-            private AddressesRow eventRow;
-            
-            private global::System.Data.DataRowAction eventAction;
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public AddressesRowChangeEvent(AddressesRow row, global::System.Data.DataRowAction action) {
-                this.eventRow = row;
-                this.eventAction = action;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public AddressesRow Row {
                 get {
                     return this.eventRow;
                 }
@@ -6889,365 +6323,6 @@ SELECT MigrationId, ContextKey, Model, ProductVersion FROM __MigrationHistory WH
     [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
         ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-    public partial class AddressesTableAdapter : global::System.ComponentModel.Component {
-        
-        private global::System.Data.SqlClient.SqlDataAdapter _adapter;
-        
-        private global::System.Data.SqlClient.SqlConnection _connection;
-        
-        private global::System.Data.SqlClient.SqlTransaction _transaction;
-        
-        private global::System.Data.SqlClient.SqlCommand[] _commandCollection;
-        
-        private bool _clearBeforeFill;
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        public AddressesTableAdapter() {
-            this.ClearBeforeFill = true;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        protected internal global::System.Data.SqlClient.SqlDataAdapter Adapter {
-            get {
-                if ((this._adapter == null)) {
-                    this.InitAdapter();
-                }
-                return this._adapter;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        internal global::System.Data.SqlClient.SqlConnection Connection {
-            get {
-                if ((this._connection == null)) {
-                    this.InitConnection();
-                }
-                return this._connection;
-            }
-            set {
-                this._connection = value;
-                if ((this.Adapter.InsertCommand != null)) {
-                    this.Adapter.InsertCommand.Connection = value;
-                }
-                if ((this.Adapter.DeleteCommand != null)) {
-                    this.Adapter.DeleteCommand.Connection = value;
-                }
-                if ((this.Adapter.UpdateCommand != null)) {
-                    this.Adapter.UpdateCommand.Connection = value;
-                }
-                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
-                    if ((this.CommandCollection[i] != null)) {
-                        ((global::System.Data.SqlClient.SqlCommand)(this.CommandCollection[i])).Connection = value;
-                    }
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        internal global::System.Data.SqlClient.SqlTransaction Transaction {
-            get {
-                return this._transaction;
-            }
-            set {
-                this._transaction = value;
-                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
-                    this.CommandCollection[i].Transaction = this._transaction;
-                }
-                if (((this.Adapter != null) 
-                            && (this.Adapter.DeleteCommand != null))) {
-                    this.Adapter.DeleteCommand.Transaction = this._transaction;
-                }
-                if (((this.Adapter != null) 
-                            && (this.Adapter.InsertCommand != null))) {
-                    this.Adapter.InsertCommand.Transaction = this._transaction;
-                }
-                if (((this.Adapter != null) 
-                            && (this.Adapter.UpdateCommand != null))) {
-                    this.Adapter.UpdateCommand.Transaction = this._transaction;
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        protected global::System.Data.SqlClient.SqlCommand[] CommandCollection {
-            get {
-                if ((this._commandCollection == null)) {
-                    this.InitCommandCollection();
-                }
-                return this._commandCollection;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        public bool ClearBeforeFill {
-            get {
-                return this._clearBeforeFill;
-            }
-            set {
-                this._clearBeforeFill = value;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        private void InitAdapter() {
-            this._adapter = new global::System.Data.SqlClient.SqlDataAdapter();
-            global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
-            tableMapping.SourceTable = "Table";
-            tableMapping.DataSetTable = "Addresses";
-            tableMapping.ColumnMappings.Add("AddressId", "AddressId");
-            tableMapping.ColumnMappings.Add("Country", "Country");
-            tableMapping.ColumnMappings.Add("Province", "Province");
-            tableMapping.ColumnMappings.Add("City", "City");
-            tableMapping.ColumnMappings.Add("ZipCode", "ZipCode");
-            tableMapping.ColumnMappings.Add("PatientId", "PatientId");
-            this._adapter.TableMappings.Add(tableMapping);
-            this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
-            this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = "DELETE FROM [dbo].[Addresses] WHERE (([AddressId] = @Original_AddressId) AND ([Pa" +
-                "tientId] = @Original_PatientId))";
-            this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_AddressId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "AddressId", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_PatientId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PatientId", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
-            this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = @"INSERT INTO [dbo].[Addresses] ([AddressId], [Country], [Province], [City], [ZipCode], [PatientId]) VALUES (@AddressId, @Country, @Province, @City, @ZipCode, @PatientId);
-SELECT AddressId, Country, Province, City, ZipCode, PatientId FROM Addresses WHERE (AddressId = @AddressId)";
-            this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@AddressId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "AddressId", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Country", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Country", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Province", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Province", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@City", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "City", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ZipCode", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ZipCode", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PatientId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PatientId", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
-            this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[Addresses] SET [AddressId] = @AddressId, [Country] = @Country, [Province] = @Province, [City] = @City, [ZipCode] = @ZipCode, [PatientId] = @PatientId WHERE (([AddressId] = @Original_AddressId) AND ([PatientId] = @Original_PatientId));
-SELECT AddressId, Country, Province, City, ZipCode, PatientId FROM Addresses WHERE (AddressId = @AddressId)";
-            this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@AddressId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "AddressId", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Country", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Country", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Province", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Province", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@City", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "City", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ZipCode", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ZipCode", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PatientId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PatientId", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_AddressId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "AddressId", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_PatientId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PatientId", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        private void InitConnection() {
-            this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::TheDuckingDocs.Properties.Settings.Default.TheDuckingDocs_Model1ConnectionString;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
-            this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
-            this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT AddressId, Country, Province, City, ZipCode, PatientId FROM dbo.Addresses";
-            this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(_TheDuckingDocs_Model1DataSet.AddressesDataTable dataTable) {
-            this.Adapter.SelectCommand = this.CommandCollection[0];
-            if ((this.ClearBeforeFill == true)) {
-                dataTable.Clear();
-            }
-            int returnValue = this.Adapter.Fill(dataTable);
-            return returnValue;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual _TheDuckingDocs_Model1DataSet.AddressesDataTable GetData() {
-            this.Adapter.SelectCommand = this.CommandCollection[0];
-            _TheDuckingDocs_Model1DataSet.AddressesDataTable dataTable = new _TheDuckingDocs_Model1DataSet.AddressesDataTable();
-            this.Adapter.Fill(dataTable);
-            return dataTable;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(_TheDuckingDocs_Model1DataSet.AddressesDataTable dataTable) {
-            return this.Adapter.Update(dataTable);
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(_TheDuckingDocs_Model1DataSet dataSet) {
-            return this.Adapter.Update(dataSet, "Addresses");
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(global::System.Data.DataRow dataRow) {
-            return this.Adapter.Update(new global::System.Data.DataRow[] {
-                        dataRow});
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(global::System.Data.DataRow[] dataRows) {
-            return this.Adapter.Update(dataRows);
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(int Original_AddressId, int Original_PatientId) {
-            this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_AddressId));
-            this.Adapter.DeleteCommand.Parameters[1].Value = ((int)(Original_PatientId));
-            global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
-            if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
-                        != global::System.Data.ConnectionState.Open)) {
-                this.Adapter.DeleteCommand.Connection.Open();
-            }
-            try {
-                int returnValue = this.Adapter.DeleteCommand.ExecuteNonQuery();
-                return returnValue;
-            }
-            finally {
-                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
-                    this.Adapter.DeleteCommand.Connection.Close();
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(int AddressId, string Country, string Province, string City, string ZipCode, int PatientId) {
-            this.Adapter.InsertCommand.Parameters[0].Value = ((int)(AddressId));
-            if ((Country == null)) {
-                this.Adapter.InsertCommand.Parameters[1].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[1].Value = ((string)(Country));
-            }
-            if ((Province == null)) {
-                this.Adapter.InsertCommand.Parameters[2].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[2].Value = ((string)(Province));
-            }
-            if ((City == null)) {
-                this.Adapter.InsertCommand.Parameters[3].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[3].Value = ((string)(City));
-            }
-            if ((ZipCode == null)) {
-                this.Adapter.InsertCommand.Parameters[4].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[4].Value = ((string)(ZipCode));
-            }
-            this.Adapter.InsertCommand.Parameters[5].Value = ((int)(PatientId));
-            global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
-            if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
-                        != global::System.Data.ConnectionState.Open)) {
-                this.Adapter.InsertCommand.Connection.Open();
-            }
-            try {
-                int returnValue = this.Adapter.InsertCommand.ExecuteNonQuery();
-                return returnValue;
-            }
-            finally {
-                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
-                    this.Adapter.InsertCommand.Connection.Close();
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(int AddressId, string Country, string Province, string City, string ZipCode, int PatientId, int Original_AddressId, int Original_PatientId) {
-            this.Adapter.UpdateCommand.Parameters[0].Value = ((int)(AddressId));
-            if ((Country == null)) {
-                this.Adapter.UpdateCommand.Parameters[1].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[1].Value = ((string)(Country));
-            }
-            if ((Province == null)) {
-                this.Adapter.UpdateCommand.Parameters[2].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[2].Value = ((string)(Province));
-            }
-            if ((City == null)) {
-                this.Adapter.UpdateCommand.Parameters[3].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[3].Value = ((string)(City));
-            }
-            if ((ZipCode == null)) {
-                this.Adapter.UpdateCommand.Parameters[4].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[4].Value = ((string)(ZipCode));
-            }
-            this.Adapter.UpdateCommand.Parameters[5].Value = ((int)(PatientId));
-            this.Adapter.UpdateCommand.Parameters[6].Value = ((int)(Original_AddressId));
-            this.Adapter.UpdateCommand.Parameters[7].Value = ((int)(Original_PatientId));
-            global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
-            if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
-                        != global::System.Data.ConnectionState.Open)) {
-                this.Adapter.UpdateCommand.Connection.Open();
-            }
-            try {
-                int returnValue = this.Adapter.UpdateCommand.ExecuteNonQuery();
-                return returnValue;
-            }
-            finally {
-                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
-                    this.Adapter.UpdateCommand.Connection.Close();
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(string Country, string Province, string City, string ZipCode, int PatientId, int Original_AddressId, int Original_PatientId) {
-            return this.Update(Original_AddressId, Country, Province, City, ZipCode, PatientId, Original_AddressId, Original_PatientId);
-        }
-    }
-    
-    /// <summary>
-    ///Represents the connection and commands used to retrieve and save data.
-    ///</summary>
-    [global::System.ComponentModel.DesignerCategoryAttribute("code")]
-    [global::System.ComponentModel.ToolboxItem(true)]
-    [global::System.ComponentModel.DataObjectAttribute(true)]
-    [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
-        ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
-    [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
     public partial class AppointmentsTableAdapter : global::System.ComponentModel.Component {
         
         private global::System.Data.SqlClient.SqlDataAdapter _adapter;
@@ -7361,45 +6436,45 @@ SELECT AddressId, Country, Province, City, ZipCode, PatientId FROM Addresses WHE
             tableMapping.SourceTable = "Table";
             tableMapping.DataSetTable = "Appointments";
             tableMapping.ColumnMappings.Add("AppointmentId", "AppointmentId");
-            tableMapping.ColumnMappings.Add("PatientId", "PatientId");
             tableMapping.ColumnMappings.Add("DoctorId", "DoctorId");
-            tableMapping.ColumnMappings.Add("Status", "Status");
+            tableMapping.ColumnMappings.Add("PatientId", "PatientId");
             tableMapping.ColumnMappings.Add("AppointmentDate", "AppointmentDate");
+            tableMapping.ColumnMappings.Add("Status", "Status");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [dbo].[Appointments] WHERE (([AppointmentId] = @Original_AppointmentId) AND ([PatientId] = @Original_PatientId) AND ([DoctorId] = @Original_DoctorId) AND ([Status] = @Original_Status) AND ((@IsNull_AppointmentDate = 1 AND [AppointmentDate] IS NULL) OR ([AppointmentDate] = @Original_AppointmentDate)))";
+            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [dbo].[Appointments] WHERE (([AppointmentId] = @Original_AppointmentId) AND ([DoctorId] = @Original_DoctorId) AND ([PatientId] = @Original_PatientId) AND ((@IsNull_AppointmentDate = 1 AND [AppointmentDate] IS NULL) OR ([AppointmentDate] = @Original_AppointmentDate)) AND ([Status] = @Original_Status))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_AppointmentId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "AppointmentId", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_PatientId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PatientId", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_DoctorId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DoctorId", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Status", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Status", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_PatientId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PatientId", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_AppointmentDate", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "AppointmentDate", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_AppointmentDate", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "AppointmentDate", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Status", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Status", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = @"INSERT INTO [dbo].[Appointments] ([PatientId], [DoctorId], [Status], [AppointmentDate]) VALUES (@PatientId, @DoctorId, @Status, @AppointmentDate);
-SELECT AppointmentId, PatientId, DoctorId, Status, AppointmentDate FROM Appointments WHERE (AppointmentId = SCOPE_IDENTITY())";
+            this._adapter.InsertCommand.CommandText = @"INSERT INTO [dbo].[Appointments] ([DoctorId], [PatientId], [AppointmentDate], [Status]) VALUES (@DoctorId, @PatientId, @AppointmentDate, @Status);
+SELECT AppointmentId, DoctorId, PatientId, AppointmentDate, Status FROM Appointments WHERE (AppointmentId = SCOPE_IDENTITY())";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PatientId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PatientId", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@DoctorId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DoctorId", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Status", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Status", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PatientId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PatientId", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@AppointmentDate", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "AppointmentDate", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Status", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Status", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[Appointments] SET [PatientId] = @PatientId, [DoctorId] = @DoctorId, [Status] = @Status, [AppointmentDate] = @AppointmentDate WHERE (([AppointmentId] = @Original_AppointmentId) AND ([PatientId] = @Original_PatientId) AND ([DoctorId] = @Original_DoctorId) AND ([Status] = @Original_Status) AND ((@IsNull_AppointmentDate = 1 AND [AppointmentDate] IS NULL) OR ([AppointmentDate] = @Original_AppointmentDate)));
-SELECT AppointmentId, PatientId, DoctorId, Status, AppointmentDate FROM Appointments WHERE (AppointmentId = @AppointmentId)";
+            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[Appointments] SET [DoctorId] = @DoctorId, [PatientId] = @PatientId, [AppointmentDate] = @AppointmentDate, [Status] = @Status WHERE (([AppointmentId] = @Original_AppointmentId) AND ([DoctorId] = @Original_DoctorId) AND ([PatientId] = @Original_PatientId) AND ((@IsNull_AppointmentDate = 1 AND [AppointmentDate] IS NULL) OR ([AppointmentDate] = @Original_AppointmentDate)) AND ([Status] = @Original_Status));
+SELECT AppointmentId, DoctorId, PatientId, AppointmentDate, Status FROM Appointments WHERE (AppointmentId = @AppointmentId)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PatientId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PatientId", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@DoctorId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DoctorId", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Status", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Status", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PatientId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PatientId", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@AppointmentDate", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "AppointmentDate", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Status", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Status", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_AppointmentId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "AppointmentId", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_PatientId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PatientId", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_DoctorId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DoctorId", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Status", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Status", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_PatientId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PatientId", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_AppointmentDate", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "AppointmentDate", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_AppointmentDate", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "AppointmentDate", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Status", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Status", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@AppointmentId", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "AppointmentId", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
@@ -7416,7 +6491,7 @@ SELECT AppointmentId, PatientId, DoctorId, Status, AppointmentDate FROM Appointm
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT AppointmentId, PatientId, DoctorId, Status, AppointmentDate FROM dbo.Appoi" +
+            this._commandCollection[0].CommandText = "SELECT AppointmentId, DoctorId, PatientId, AppointmentDate, Status FROM dbo.Appoi" +
                 "ntments";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
@@ -7478,19 +6553,19 @@ SELECT AppointmentId, PatientId, DoctorId, Status, AppointmentDate FROM Appointm
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(int Original_AppointmentId, int Original_PatientId, int Original_DoctorId, int Original_Status, global::System.Nullable<global::System.DateTime> Original_AppointmentDate) {
+        public virtual int Delete(int Original_AppointmentId, int Original_DoctorId, int Original_PatientId, global::System.Nullable<global::System.DateTime> Original_AppointmentDate, int Original_Status) {
             this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_AppointmentId));
-            this.Adapter.DeleteCommand.Parameters[1].Value = ((int)(Original_PatientId));
-            this.Adapter.DeleteCommand.Parameters[2].Value = ((int)(Original_DoctorId));
-            this.Adapter.DeleteCommand.Parameters[3].Value = ((int)(Original_Status));
+            this.Adapter.DeleteCommand.Parameters[1].Value = ((int)(Original_DoctorId));
+            this.Adapter.DeleteCommand.Parameters[2].Value = ((int)(Original_PatientId));
             if ((Original_AppointmentDate.HasValue == true)) {
-                this.Adapter.DeleteCommand.Parameters[4].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[5].Value = ((System.DateTime)(Original_AppointmentDate.Value));
+                this.Adapter.DeleteCommand.Parameters[3].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[4].Value = ((System.DateTime)(Original_AppointmentDate.Value));
             }
             else {
-                this.Adapter.DeleteCommand.Parameters[4].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[5].Value = global::System.DBNull.Value;
+                this.Adapter.DeleteCommand.Parameters[3].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[4].Value = global::System.DBNull.Value;
             }
+            this.Adapter.DeleteCommand.Parameters[5].Value = ((int)(Original_Status));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
             if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -7511,16 +6586,16 @@ SELECT AppointmentId, PatientId, DoctorId, Status, AppointmentDate FROM Appointm
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(int PatientId, int DoctorId, int Status, global::System.Nullable<global::System.DateTime> AppointmentDate) {
-            this.Adapter.InsertCommand.Parameters[0].Value = ((int)(PatientId));
-            this.Adapter.InsertCommand.Parameters[1].Value = ((int)(DoctorId));
-            this.Adapter.InsertCommand.Parameters[2].Value = ((int)(Status));
+        public virtual int Insert(int DoctorId, int PatientId, global::System.Nullable<global::System.DateTime> AppointmentDate, int Status) {
+            this.Adapter.InsertCommand.Parameters[0].Value = ((int)(DoctorId));
+            this.Adapter.InsertCommand.Parameters[1].Value = ((int)(PatientId));
             if ((AppointmentDate.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[3].Value = ((System.DateTime)(AppointmentDate.Value));
+                this.Adapter.InsertCommand.Parameters[2].Value = ((System.DateTime)(AppointmentDate.Value));
             }
             else {
-                this.Adapter.InsertCommand.Parameters[3].Value = global::System.DBNull.Value;
+                this.Adapter.InsertCommand.Parameters[2].Value = global::System.DBNull.Value;
             }
+            this.Adapter.InsertCommand.Parameters[3].Value = ((int)(Status));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -7541,28 +6616,28 @@ SELECT AppointmentId, PatientId, DoctorId, Status, AppointmentDate FROM Appointm
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(int PatientId, int DoctorId, int Status, global::System.Nullable<global::System.DateTime> AppointmentDate, int Original_AppointmentId, int Original_PatientId, int Original_DoctorId, int Original_Status, global::System.Nullable<global::System.DateTime> Original_AppointmentDate, int AppointmentId) {
-            this.Adapter.UpdateCommand.Parameters[0].Value = ((int)(PatientId));
-            this.Adapter.UpdateCommand.Parameters[1].Value = ((int)(DoctorId));
-            this.Adapter.UpdateCommand.Parameters[2].Value = ((int)(Status));
+        public virtual int Update(int DoctorId, int PatientId, global::System.Nullable<global::System.DateTime> AppointmentDate, int Status, int Original_AppointmentId, int Original_DoctorId, int Original_PatientId, global::System.Nullable<global::System.DateTime> Original_AppointmentDate, int Original_Status, int AppointmentId) {
+            this.Adapter.UpdateCommand.Parameters[0].Value = ((int)(DoctorId));
+            this.Adapter.UpdateCommand.Parameters[1].Value = ((int)(PatientId));
             if ((AppointmentDate.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[3].Value = ((System.DateTime)(AppointmentDate.Value));
+                this.Adapter.UpdateCommand.Parameters[2].Value = ((System.DateTime)(AppointmentDate.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[3].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[2].Value = global::System.DBNull.Value;
             }
+            this.Adapter.UpdateCommand.Parameters[3].Value = ((int)(Status));
             this.Adapter.UpdateCommand.Parameters[4].Value = ((int)(Original_AppointmentId));
-            this.Adapter.UpdateCommand.Parameters[5].Value = ((int)(Original_PatientId));
-            this.Adapter.UpdateCommand.Parameters[6].Value = ((int)(Original_DoctorId));
-            this.Adapter.UpdateCommand.Parameters[7].Value = ((int)(Original_Status));
+            this.Adapter.UpdateCommand.Parameters[5].Value = ((int)(Original_DoctorId));
+            this.Adapter.UpdateCommand.Parameters[6].Value = ((int)(Original_PatientId));
             if ((Original_AppointmentDate.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[8].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[9].Value = ((System.DateTime)(Original_AppointmentDate.Value));
+                this.Adapter.UpdateCommand.Parameters[7].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[8].Value = ((System.DateTime)(Original_AppointmentDate.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[8].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[9].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[7].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[8].Value = global::System.DBNull.Value;
             }
+            this.Adapter.UpdateCommand.Parameters[9].Value = ((int)(Original_Status));
             this.Adapter.UpdateCommand.Parameters[10].Value = ((int)(AppointmentId));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -7584,8 +6659,8 @@ SELECT AppointmentId, PatientId, DoctorId, Status, AppointmentDate FROM Appointm
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(int PatientId, int DoctorId, int Status, global::System.Nullable<global::System.DateTime> AppointmentDate, int Original_AppointmentId, int Original_PatientId, int Original_DoctorId, int Original_Status, global::System.Nullable<global::System.DateTime> Original_AppointmentDate) {
-            return this.Update(PatientId, DoctorId, Status, AppointmentDate, Original_AppointmentId, Original_PatientId, Original_DoctorId, Original_Status, Original_AppointmentDate, Original_AppointmentId);
+        public virtual int Update(int DoctorId, int PatientId, global::System.Nullable<global::System.DateTime> AppointmentDate, int Status, int Original_AppointmentId, int Original_DoctorId, int Original_PatientId, global::System.Nullable<global::System.DateTime> Original_AppointmentDate, int Original_Status) {
+            return this.Update(DoctorId, PatientId, AppointmentDate, Status, Original_AppointmentId, Original_DoctorId, Original_PatientId, Original_AppointmentDate, Original_Status, Original_AppointmentId);
         }
     }
     
@@ -7711,41 +6786,41 @@ SELECT AppointmentId, PatientId, DoctorId, Status, AppointmentDate FROM Appointm
             tableMapping.SourceTable = "Table";
             tableMapping.DataSetTable = "Doctors";
             tableMapping.ColumnMappings.Add("DoctorId", "DoctorId");
-            tableMapping.ColumnMappings.Add("DoctorInfo_PersonId", "DoctorInfo_PersonId");
             tableMapping.ColumnMappings.Add("StartTime", "StartTime");
             tableMapping.ColumnMappings.Add("EndTime", "EndTime");
+            tableMapping.ColumnMappings.Add("DoctorInfo_PersonId", "DoctorInfo_PersonId");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [dbo].[Doctors] WHERE (([DoctorId] = @Original_DoctorId) AND ((@IsNull_DoctorInfo_PersonId = 1 AND [DoctorInfo_PersonId] IS NULL) OR ([DoctorInfo_PersonId] = @Original_DoctorInfo_PersonId)) AND ([StartTime] = @Original_StartTime) AND ([EndTime] = @Original_EndTime))";
+            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [dbo].[Doctors] WHERE (([DoctorId] = @Original_DoctorId) AND ([StartTime] = @Original_StartTime) AND ([EndTime] = @Original_EndTime) AND ((@IsNull_DoctorInfo_PersonId = 1 AND [DoctorInfo_PersonId] IS NULL) OR ([DoctorInfo_PersonId] = @Original_DoctorInfo_PersonId)))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_DoctorId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DoctorId", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_DoctorInfo_PersonId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DoctorInfo_PersonId", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_DoctorInfo_PersonId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DoctorInfo_PersonId", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_StartTime", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "StartTime", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_EndTime", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "EndTime", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_DoctorInfo_PersonId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DoctorInfo_PersonId", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_DoctorInfo_PersonId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DoctorInfo_PersonId", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[Doctors] ([DoctorInfo_PersonId], [StartTime], [EndTime]) VALUE" +
-                "S (@DoctorInfo_PersonId, @StartTime, @EndTime);\r\nSELECT DoctorId, DoctorInfo_Per" +
-                "sonId, StartTime, EndTime FROM Doctors WHERE (DoctorId = SCOPE_IDENTITY())";
+            this._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[Doctors] ([StartTime], [EndTime], [DoctorInfo_PersonId]) VALUE" +
+                "S (@StartTime, @EndTime, @DoctorInfo_PersonId);\r\nSELECT DoctorId, StartTime, End" +
+                "Time, DoctorInfo_PersonId FROM Doctors WHERE (DoctorId = SCOPE_IDENTITY())";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@DoctorInfo_PersonId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DoctorInfo_PersonId", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@StartTime", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "StartTime", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@EndTime", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "EndTime", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@DoctorInfo_PersonId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DoctorInfo_PersonId", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[Doctors] SET [DoctorInfo_PersonId] = @DoctorInfo_PersonId, [StartTime] = @StartTime, [EndTime] = @EndTime WHERE (([DoctorId] = @Original_DoctorId) AND ((@IsNull_DoctorInfo_PersonId = 1 AND [DoctorInfo_PersonId] IS NULL) OR ([DoctorInfo_PersonId] = @Original_DoctorInfo_PersonId)) AND ([StartTime] = @Original_StartTime) AND ([EndTime] = @Original_EndTime));
-SELECT DoctorId, DoctorInfo_PersonId, StartTime, EndTime FROM Doctors WHERE (DoctorId = @DoctorId)";
+            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[Doctors] SET [StartTime] = @StartTime, [EndTime] = @EndTime, [DoctorInfo_PersonId] = @DoctorInfo_PersonId WHERE (([DoctorId] = @Original_DoctorId) AND ([StartTime] = @Original_StartTime) AND ([EndTime] = @Original_EndTime) AND ((@IsNull_DoctorInfo_PersonId = 1 AND [DoctorInfo_PersonId] IS NULL) OR ([DoctorInfo_PersonId] = @Original_DoctorInfo_PersonId)));
+SELECT DoctorId, StartTime, EndTime, DoctorInfo_PersonId FROM Doctors WHERE (DoctorId = @DoctorId)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@DoctorInfo_PersonId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DoctorInfo_PersonId", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@StartTime", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "StartTime", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@EndTime", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "EndTime", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@DoctorInfo_PersonId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DoctorInfo_PersonId", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_DoctorId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DoctorId", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_DoctorInfo_PersonId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DoctorInfo_PersonId", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_DoctorInfo_PersonId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DoctorInfo_PersonId", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_StartTime", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "StartTime", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_EndTime", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "EndTime", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_DoctorInfo_PersonId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DoctorInfo_PersonId", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_DoctorInfo_PersonId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DoctorInfo_PersonId", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@DoctorId", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "DoctorId", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
@@ -7762,7 +6837,7 @@ SELECT DoctorId, DoctorInfo_PersonId, StartTime, EndTime FROM Doctors WHERE (Doc
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT DoctorId, DoctorInfo_PersonId, StartTime, EndTime FROM dbo.Doctors";
+            this._commandCollection[0].CommandText = "SELECT DoctorId, StartTime, EndTime, DoctorInfo_PersonId FROM dbo.Doctors";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -7823,18 +6898,18 @@ SELECT DoctorId, DoctorInfo_PersonId, StartTime, EndTime FROM Doctors WHERE (Doc
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(int Original_DoctorId, global::System.Nullable<int> Original_DoctorInfo_PersonId, System.DateTime Original_StartTime, System.DateTime Original_EndTime) {
+        public virtual int Delete(int Original_DoctorId, System.DateTime Original_StartTime, System.DateTime Original_EndTime, global::System.Nullable<int> Original_DoctorInfo_PersonId) {
             this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_DoctorId));
+            this.Adapter.DeleteCommand.Parameters[1].Value = ((System.DateTime)(Original_StartTime));
+            this.Adapter.DeleteCommand.Parameters[2].Value = ((System.DateTime)(Original_EndTime));
             if ((Original_DoctorInfo_PersonId.HasValue == true)) {
-                this.Adapter.DeleteCommand.Parameters[1].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[2].Value = ((int)(Original_DoctorInfo_PersonId.Value));
+                this.Adapter.DeleteCommand.Parameters[3].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[4].Value = ((int)(Original_DoctorInfo_PersonId.Value));
             }
             else {
-                this.Adapter.DeleteCommand.Parameters[1].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[2].Value = global::System.DBNull.Value;
+                this.Adapter.DeleteCommand.Parameters[3].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[4].Value = global::System.DBNull.Value;
             }
-            this.Adapter.DeleteCommand.Parameters[3].Value = ((System.DateTime)(Original_StartTime));
-            this.Adapter.DeleteCommand.Parameters[4].Value = ((System.DateTime)(Original_EndTime));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
             if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -7855,15 +6930,15 @@ SELECT DoctorId, DoctorInfo_PersonId, StartTime, EndTime FROM Doctors WHERE (Doc
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(global::System.Nullable<int> DoctorInfo_PersonId, System.DateTime StartTime, System.DateTime EndTime) {
+        public virtual int Insert(System.DateTime StartTime, System.DateTime EndTime, global::System.Nullable<int> DoctorInfo_PersonId) {
+            this.Adapter.InsertCommand.Parameters[0].Value = ((System.DateTime)(StartTime));
+            this.Adapter.InsertCommand.Parameters[1].Value = ((System.DateTime)(EndTime));
             if ((DoctorInfo_PersonId.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[0].Value = ((int)(DoctorInfo_PersonId.Value));
+                this.Adapter.InsertCommand.Parameters[2].Value = ((int)(DoctorInfo_PersonId.Value));
             }
             else {
-                this.Adapter.InsertCommand.Parameters[0].Value = global::System.DBNull.Value;
+                this.Adapter.InsertCommand.Parameters[2].Value = global::System.DBNull.Value;
             }
-            this.Adapter.InsertCommand.Parameters[1].Value = ((System.DateTime)(StartTime));
-            this.Adapter.InsertCommand.Parameters[2].Value = ((System.DateTime)(EndTime));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -7884,26 +6959,26 @@ SELECT DoctorId, DoctorInfo_PersonId, StartTime, EndTime FROM Doctors WHERE (Doc
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(global::System.Nullable<int> DoctorInfo_PersonId, System.DateTime StartTime, System.DateTime EndTime, int Original_DoctorId, global::System.Nullable<int> Original_DoctorInfo_PersonId, System.DateTime Original_StartTime, System.DateTime Original_EndTime, int DoctorId) {
+        public virtual int Update(System.DateTime StartTime, System.DateTime EndTime, global::System.Nullable<int> DoctorInfo_PersonId, int Original_DoctorId, System.DateTime Original_StartTime, System.DateTime Original_EndTime, global::System.Nullable<int> Original_DoctorInfo_PersonId, int DoctorId) {
+            this.Adapter.UpdateCommand.Parameters[0].Value = ((System.DateTime)(StartTime));
+            this.Adapter.UpdateCommand.Parameters[1].Value = ((System.DateTime)(EndTime));
             if ((DoctorInfo_PersonId.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[0].Value = ((int)(DoctorInfo_PersonId.Value));
+                this.Adapter.UpdateCommand.Parameters[2].Value = ((int)(DoctorInfo_PersonId.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[0].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[2].Value = global::System.DBNull.Value;
             }
-            this.Adapter.UpdateCommand.Parameters[1].Value = ((System.DateTime)(StartTime));
-            this.Adapter.UpdateCommand.Parameters[2].Value = ((System.DateTime)(EndTime));
             this.Adapter.UpdateCommand.Parameters[3].Value = ((int)(Original_DoctorId));
+            this.Adapter.UpdateCommand.Parameters[4].Value = ((System.DateTime)(Original_StartTime));
+            this.Adapter.UpdateCommand.Parameters[5].Value = ((System.DateTime)(Original_EndTime));
             if ((Original_DoctorInfo_PersonId.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[4].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[5].Value = ((int)(Original_DoctorInfo_PersonId.Value));
+                this.Adapter.UpdateCommand.Parameters[6].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[7].Value = ((int)(Original_DoctorInfo_PersonId.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[4].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[5].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[6].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[7].Value = global::System.DBNull.Value;
             }
-            this.Adapter.UpdateCommand.Parameters[6].Value = ((System.DateTime)(Original_StartTime));
-            this.Adapter.UpdateCommand.Parameters[7].Value = ((System.DateTime)(Original_EndTime));
             this.Adapter.UpdateCommand.Parameters[8].Value = ((int)(DoctorId));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -7925,8 +7000,8 @@ SELECT DoctorId, DoctorInfo_PersonId, StartTime, EndTime FROM Doctors WHERE (Doc
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(global::System.Nullable<int> DoctorInfo_PersonId, System.DateTime StartTime, System.DateTime EndTime, int Original_DoctorId, global::System.Nullable<int> Original_DoctorInfo_PersonId, System.DateTime Original_StartTime, System.DateTime Original_EndTime) {
-            return this.Update(DoctorInfo_PersonId, StartTime, EndTime, Original_DoctorId, Original_DoctorInfo_PersonId, Original_StartTime, Original_EndTime, Original_DoctorId);
+        public virtual int Update(System.DateTime StartTime, System.DateTime EndTime, global::System.Nullable<int> DoctorInfo_PersonId, int Original_DoctorId, System.DateTime Original_StartTime, System.DateTime Original_EndTime, global::System.Nullable<int> Original_DoctorInfo_PersonId) {
+            return this.Update(StartTime, EndTime, DoctorInfo_PersonId, Original_DoctorId, Original_StartTime, Original_EndTime, Original_DoctorInfo_PersonId, Original_DoctorId);
         }
     }
     
@@ -8361,44 +7436,42 @@ SELECT Id, SpecializationId, DoctorId FROM DoctorSpecializations WHERE (Id = @Id
             tableMapping.DataSetTable = "Patients";
             tableMapping.ColumnMappings.Add("PatientId", "PatientId");
             tableMapping.ColumnMappings.Add("BirthDate", "BirthDate");
-            tableMapping.ColumnMappings.Add("AddressId", "AddressId");
-            tableMapping.ColumnMappings.Add("PatientInfo_PersonId", "PatientInfo_PersonId");
+            tableMapping.ColumnMappings.Add("Address", "Address");
             tableMapping.ColumnMappings.Add("AppointmentId", "AppointmentId");
+            tableMapping.ColumnMappings.Add("PatientInfo_PersonId", "PatientInfo_PersonId");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [dbo].[Patients] WHERE (([PatientId] = @Original_PatientId) AND ([BirthDate] = @Original_BirthDate) AND ([AddressId] = @Original_AddressId) AND ((@IsNull_PatientInfo_PersonId = 1 AND [PatientInfo_PersonId] IS NULL) OR ([PatientInfo_PersonId] = @Original_PatientInfo_PersonId)) AND ([AppointmentId] = @Original_AppointmentId))";
+            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [dbo].[Patients] WHERE (([PatientId] = @Original_PatientId) AND ([BirthDate] = @Original_BirthDate) AND ([AppointmentId] = @Original_AppointmentId) AND ((@IsNull_PatientInfo_PersonId = 1 AND [PatientInfo_PersonId] IS NULL) OR ([PatientInfo_PersonId] = @Original_PatientInfo_PersonId)))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_PatientId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PatientId", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_BirthDate", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "BirthDate", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_AddressId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "AddressId", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_AppointmentId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "AppointmentId", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_PatientInfo_PersonId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PatientInfo_PersonId", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_PatientInfo_PersonId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PatientInfo_PersonId", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_AppointmentId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "AppointmentId", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = @"INSERT INTO [dbo].[Patients] ([BirthDate], [AddressId], [PatientInfo_PersonId], [AppointmentId]) VALUES (@BirthDate, @AddressId, @PatientInfo_PersonId, @AppointmentId);
-SELECT PatientId, BirthDate, AddressId, PatientInfo_PersonId, AppointmentId FROM Patients WHERE (PatientId = SCOPE_IDENTITY())";
+            this._adapter.InsertCommand.CommandText = @"INSERT INTO [dbo].[Patients] ([BirthDate], [Address], [AppointmentId], [PatientInfo_PersonId]) VALUES (@BirthDate, @Address, @AppointmentId, @PatientInfo_PersonId);
+SELECT PatientId, BirthDate, Address, AppointmentId, PatientInfo_PersonId FROM Patients WHERE (PatientId = SCOPE_IDENTITY())";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@BirthDate", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "BirthDate", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@AddressId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "AddressId", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PatientInfo_PersonId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PatientInfo_PersonId", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Address", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Address", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@AppointmentId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "AppointmentId", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PatientInfo_PersonId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PatientInfo_PersonId", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[Patients] SET [BirthDate] = @BirthDate, [AddressId] = @AddressId, [PatientInfo_PersonId] = @PatientInfo_PersonId, [AppointmentId] = @AppointmentId WHERE (([PatientId] = @Original_PatientId) AND ([BirthDate] = @Original_BirthDate) AND ([AddressId] = @Original_AddressId) AND ((@IsNull_PatientInfo_PersonId = 1 AND [PatientInfo_PersonId] IS NULL) OR ([PatientInfo_PersonId] = @Original_PatientInfo_PersonId)) AND ([AppointmentId] = @Original_AppointmentId));
-SELECT PatientId, BirthDate, AddressId, PatientInfo_PersonId, AppointmentId FROM Patients WHERE (PatientId = @PatientId)";
+            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[Patients] SET [BirthDate] = @BirthDate, [Address] = @Address, [AppointmentId] = @AppointmentId, [PatientInfo_PersonId] = @PatientInfo_PersonId WHERE (([PatientId] = @Original_PatientId) AND ([BirthDate] = @Original_BirthDate) AND ([AppointmentId] = @Original_AppointmentId) AND ((@IsNull_PatientInfo_PersonId = 1 AND [PatientInfo_PersonId] IS NULL) OR ([PatientInfo_PersonId] = @Original_PatientInfo_PersonId)));
+SELECT PatientId, BirthDate, Address, AppointmentId, PatientInfo_PersonId FROM Patients WHERE (PatientId = @PatientId)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@BirthDate", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "BirthDate", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@AddressId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "AddressId", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PatientInfo_PersonId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PatientInfo_PersonId", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Address", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Address", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@AppointmentId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "AppointmentId", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PatientInfo_PersonId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PatientInfo_PersonId", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_PatientId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PatientId", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_BirthDate", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "BirthDate", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_AddressId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "AddressId", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_AppointmentId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "AppointmentId", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_PatientInfo_PersonId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PatientInfo_PersonId", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_PatientInfo_PersonId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PatientInfo_PersonId", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_AppointmentId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "AppointmentId", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PatientId", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "PatientId", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
@@ -8415,8 +7488,8 @@ SELECT PatientId, BirthDate, AddressId, PatientInfo_PersonId, AppointmentId FROM
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT PatientId, BirthDate, AddressId, PatientInfo_PersonId, AppointmentId FROM " +
-                "dbo.Patients";
+            this._commandCollection[0].CommandText = "SELECT PatientId, BirthDate, Address, AppointmentId, PatientInfo_PersonId FROM db" +
+                "o.Patients";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -8477,10 +7550,10 @@ SELECT PatientId, BirthDate, AddressId, PatientInfo_PersonId, AppointmentId FROM
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(int Original_PatientId, System.DateTime Original_BirthDate, int Original_AddressId, global::System.Nullable<int> Original_PatientInfo_PersonId, int Original_AppointmentId) {
+        public virtual int Delete(int Original_PatientId, System.DateTime Original_BirthDate, int Original_AppointmentId, global::System.Nullable<int> Original_PatientInfo_PersonId) {
             this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_PatientId));
             this.Adapter.DeleteCommand.Parameters[1].Value = ((System.DateTime)(Original_BirthDate));
-            this.Adapter.DeleteCommand.Parameters[2].Value = ((int)(Original_AddressId));
+            this.Adapter.DeleteCommand.Parameters[2].Value = ((int)(Original_AppointmentId));
             if ((Original_PatientInfo_PersonId.HasValue == true)) {
                 this.Adapter.DeleteCommand.Parameters[3].Value = ((object)(0));
                 this.Adapter.DeleteCommand.Parameters[4].Value = ((int)(Original_PatientInfo_PersonId.Value));
@@ -8489,7 +7562,6 @@ SELECT PatientId, BirthDate, AddressId, PatientInfo_PersonId, AppointmentId FROM
                 this.Adapter.DeleteCommand.Parameters[3].Value = ((object)(1));
                 this.Adapter.DeleteCommand.Parameters[4].Value = global::System.DBNull.Value;
             }
-            this.Adapter.DeleteCommand.Parameters[5].Value = ((int)(Original_AppointmentId));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
             if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -8510,16 +7582,21 @@ SELECT PatientId, BirthDate, AddressId, PatientInfo_PersonId, AppointmentId FROM
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(System.DateTime BirthDate, int AddressId, global::System.Nullable<int> PatientInfo_PersonId, int AppointmentId) {
+        public virtual int Insert(System.DateTime BirthDate, string Address, int AppointmentId, global::System.Nullable<int> PatientInfo_PersonId) {
             this.Adapter.InsertCommand.Parameters[0].Value = ((System.DateTime)(BirthDate));
-            this.Adapter.InsertCommand.Parameters[1].Value = ((int)(AddressId));
-            if ((PatientInfo_PersonId.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[2].Value = ((int)(PatientInfo_PersonId.Value));
+            if ((Address == null)) {
+                this.Adapter.InsertCommand.Parameters[1].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.InsertCommand.Parameters[2].Value = global::System.DBNull.Value;
+                this.Adapter.InsertCommand.Parameters[1].Value = ((string)(Address));
             }
-            this.Adapter.InsertCommand.Parameters[3].Value = ((int)(AppointmentId));
+            this.Adapter.InsertCommand.Parameters[2].Value = ((int)(AppointmentId));
+            if ((PatientInfo_PersonId.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[3].Value = ((int)(PatientInfo_PersonId.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[3].Value = global::System.DBNull.Value;
+            }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -8540,19 +7617,24 @@ SELECT PatientId, BirthDate, AddressId, PatientInfo_PersonId, AppointmentId FROM
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(System.DateTime BirthDate, int AddressId, global::System.Nullable<int> PatientInfo_PersonId, int AppointmentId, int Original_PatientId, System.DateTime Original_BirthDate, int Original_AddressId, global::System.Nullable<int> Original_PatientInfo_PersonId, int Original_AppointmentId, int PatientId) {
+        public virtual int Update(System.DateTime BirthDate, string Address, int AppointmentId, global::System.Nullable<int> PatientInfo_PersonId, int Original_PatientId, System.DateTime Original_BirthDate, int Original_AppointmentId, global::System.Nullable<int> Original_PatientInfo_PersonId, int PatientId) {
             this.Adapter.UpdateCommand.Parameters[0].Value = ((System.DateTime)(BirthDate));
-            this.Adapter.UpdateCommand.Parameters[1].Value = ((int)(AddressId));
-            if ((PatientInfo_PersonId.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[2].Value = ((int)(PatientInfo_PersonId.Value));
+            if ((Address == null)) {
+                this.Adapter.UpdateCommand.Parameters[1].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[2].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[1].Value = ((string)(Address));
             }
-            this.Adapter.UpdateCommand.Parameters[3].Value = ((int)(AppointmentId));
+            this.Adapter.UpdateCommand.Parameters[2].Value = ((int)(AppointmentId));
+            if ((PatientInfo_PersonId.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[3].Value = ((int)(PatientInfo_PersonId.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[3].Value = global::System.DBNull.Value;
+            }
             this.Adapter.UpdateCommand.Parameters[4].Value = ((int)(Original_PatientId));
             this.Adapter.UpdateCommand.Parameters[5].Value = ((System.DateTime)(Original_BirthDate));
-            this.Adapter.UpdateCommand.Parameters[6].Value = ((int)(Original_AddressId));
+            this.Adapter.UpdateCommand.Parameters[6].Value = ((int)(Original_AppointmentId));
             if ((Original_PatientInfo_PersonId.HasValue == true)) {
                 this.Adapter.UpdateCommand.Parameters[7].Value = ((object)(0));
                 this.Adapter.UpdateCommand.Parameters[8].Value = ((int)(Original_PatientInfo_PersonId.Value));
@@ -8561,8 +7643,7 @@ SELECT PatientId, BirthDate, AddressId, PatientInfo_PersonId, AppointmentId FROM
                 this.Adapter.UpdateCommand.Parameters[7].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[8].Value = global::System.DBNull.Value;
             }
-            this.Adapter.UpdateCommand.Parameters[9].Value = ((int)(Original_AppointmentId));
-            this.Adapter.UpdateCommand.Parameters[10].Value = ((int)(PatientId));
+            this.Adapter.UpdateCommand.Parameters[9].Value = ((int)(PatientId));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -8583,8 +7664,8 @@ SELECT PatientId, BirthDate, AddressId, PatientInfo_PersonId, AppointmentId FROM
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(System.DateTime BirthDate, int AddressId, global::System.Nullable<int> PatientInfo_PersonId, int AppointmentId, int Original_PatientId, System.DateTime Original_BirthDate, int Original_AddressId, global::System.Nullable<int> Original_PatientInfo_PersonId, int Original_AppointmentId) {
-            return this.Update(BirthDate, AddressId, PatientInfo_PersonId, AppointmentId, Original_PatientId, Original_BirthDate, Original_AddressId, Original_PatientInfo_PersonId, Original_AppointmentId, Original_PatientId);
+        public virtual int Update(System.DateTime BirthDate, string Address, int AppointmentId, global::System.Nullable<int> PatientInfo_PersonId, int Original_PatientId, System.DateTime Original_BirthDate, int Original_AppointmentId, global::System.Nullable<int> Original_PatientInfo_PersonId) {
+            return this.Update(BirthDate, Address, AppointmentId, PatientInfo_PersonId, Original_PatientId, Original_BirthDate, Original_AppointmentId, Original_PatientInfo_PersonId, Original_PatientId);
         }
     }
     
@@ -10829,8 +9910,6 @@ SELECT StaffId, StaffInfo_PersonId FROM Staffs WHERE (StaffId = @StaffId)";
         
         private @__MigrationHistoryTableAdapter ___MigrationHistoryTableAdapter;
         
-        private AddressesTableAdapter _addressesTableAdapter;
-        
         private AppointmentsTableAdapter _appointmentsTableAdapter;
         
         private DoctorsTableAdapter _doctorsTableAdapter;
@@ -10879,20 +9958,6 @@ SELECT StaffId, StaffInfo_PersonId FROM Staffs WHERE (StaffId = @StaffId)";
             }
             set {
                 this.___MigrationHistoryTableAdapter = value;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        [global::System.ComponentModel.EditorAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterManagerPropertyEditor, Microso" +
-            "ft.VSDesigner, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3" +
-            "a", "System.Drawing.Design.UITypeEditor")]
-        public AddressesTableAdapter AddressesTableAdapter {
-            get {
-                return this._addressesTableAdapter;
-            }
-            set {
-                this._addressesTableAdapter = value;
             }
         }
         
@@ -11073,10 +10138,6 @@ SELECT StaffId, StaffInfo_PersonId FROM Staffs WHERE (StaffId = @StaffId)";
                             && (this.___MigrationHistoryTableAdapter.Connection != null))) {
                     return this.___MigrationHistoryTableAdapter.Connection;
                 }
-                if (((this._addressesTableAdapter != null) 
-                            && (this._addressesTableAdapter.Connection != null))) {
-                    return this._addressesTableAdapter.Connection;
-                }
                 if (((this._appointmentsTableAdapter != null) 
                             && (this._appointmentsTableAdapter.Connection != null))) {
                     return this._appointmentsTableAdapter.Connection;
@@ -11135,9 +10196,6 @@ SELECT StaffId, StaffInfo_PersonId FROM Staffs WHERE (StaffId = @StaffId)";
             get {
                 int count = 0;
                 if ((this.___MigrationHistoryTableAdapter != null)) {
-                    count = (count + 1);
-                }
-                if ((this._addressesTableAdapter != null)) {
                     count = (count + 1);
                 }
                 if ((this._appointmentsTableAdapter != null)) {
@@ -11202,15 +10260,6 @@ SELECT StaffId, StaffInfo_PersonId FROM Staffs WHERE (StaffId = @StaffId)";
                     allChangedRows.AddRange(updatedRows);
                 }
             }
-            if ((this._appointmentsTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.Appointments.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
-                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
-                if (((updatedRows != null) 
-                            && (0 < updatedRows.Length))) {
-                    result = (result + this._appointmentsTableAdapter.Update(updatedRows));
-                    allChangedRows.AddRange(updatedRows);
-                }
-            }
             if ((this._patientsTableAdapter != null)) {
                 global::System.Data.DataRow[] updatedRows = dataSet.Patients.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
@@ -11247,12 +10296,12 @@ SELECT StaffId, StaffInfo_PersonId FROM Staffs WHERE (StaffId = @StaffId)";
                     allChangedRows.AddRange(updatedRows);
                 }
             }
-            if ((this._addressesTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.Addresses.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+            if ((this._appointmentsTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.Appointments.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
                 if (((updatedRows != null) 
                             && (0 < updatedRows.Length))) {
-                    result = (result + this._addressesTableAdapter.Update(updatedRows));
+                    result = (result + this._appointmentsTableAdapter.Update(updatedRows));
                     allChangedRows.AddRange(updatedRows);
                 }
             }
@@ -11327,14 +10376,6 @@ SELECT StaffId, StaffInfo_PersonId FROM Staffs WHERE (StaffId = @StaffId)";
                     allAddedRows.AddRange(addedRows);
                 }
             }
-            if ((this._appointmentsTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.Appointments.Select(null, null, global::System.Data.DataViewRowState.Added);
-                if (((addedRows != null) 
-                            && (0 < addedRows.Length))) {
-                    result = (result + this._appointmentsTableAdapter.Update(addedRows));
-                    allAddedRows.AddRange(addedRows);
-                }
-            }
             if ((this._patientsTableAdapter != null)) {
                 global::System.Data.DataRow[] addedRows = dataSet.Patients.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
@@ -11367,11 +10408,11 @@ SELECT StaffId, StaffInfo_PersonId FROM Staffs WHERE (StaffId = @StaffId)";
                     allAddedRows.AddRange(addedRows);
                 }
             }
-            if ((this._addressesTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.Addresses.Select(null, null, global::System.Data.DataViewRowState.Added);
+            if ((this._appointmentsTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.Appointments.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
                             && (0 < addedRows.Length))) {
-                    result = (result + this._addressesTableAdapter.Update(addedRows));
+                    result = (result + this._appointmentsTableAdapter.Update(addedRows));
                     allAddedRows.AddRange(addedRows);
                 }
             }
@@ -11465,11 +10506,11 @@ SELECT StaffId, StaffInfo_PersonId FROM Staffs WHERE (StaffId = @StaffId)";
                     allChangedRows.AddRange(deletedRows);
                 }
             }
-            if ((this._addressesTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.Addresses.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+            if ((this._appointmentsTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.Appointments.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
                             && (0 < deletedRows.Length))) {
-                    result = (result + this._addressesTableAdapter.Update(deletedRows));
+                    result = (result + this._appointmentsTableAdapter.Update(deletedRows));
                     allChangedRows.AddRange(deletedRows);
                 }
             }
@@ -11502,14 +10543,6 @@ SELECT StaffId, StaffInfo_PersonId FROM Staffs WHERE (StaffId = @StaffId)";
                 if (((deletedRows != null) 
                             && (0 < deletedRows.Length))) {
                     result = (result + this._patientsTableAdapter.Update(deletedRows));
-                    allChangedRows.AddRange(deletedRows);
-                }
-            }
-            if ((this._appointmentsTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.Appointments.Select(null, null, global::System.Data.DataViewRowState.Deleted);
-                if (((deletedRows != null) 
-                            && (0 < deletedRows.Length))) {
-                    result = (result + this._appointmentsTableAdapter.Update(deletedRows));
                     allChangedRows.AddRange(deletedRows);
                 }
             }
@@ -11570,11 +10603,6 @@ SELECT StaffId, StaffInfo_PersonId FROM Staffs WHERE (StaffId = @StaffId)";
             }
             if (((this.___MigrationHistoryTableAdapter != null) 
                         && (this.MatchTableAdapterConnection(this.___MigrationHistoryTableAdapter.Connection) == false))) {
-                throw new global::System.ArgumentException("All TableAdapters managed by a TableAdapterManager must use the same connection s" +
-                        "tring.");
-            }
-            if (((this._addressesTableAdapter != null) 
-                        && (this.MatchTableAdapterConnection(this._addressesTableAdapter.Connection) == false))) {
                 throw new global::System.ArgumentException("All TableAdapters managed by a TableAdapterManager must use the same connection s" +
                         "tring.");
             }
@@ -11672,15 +10700,6 @@ SELECT StaffId, StaffInfo_PersonId FROM Staffs WHERE (StaffId = @StaffId)";
                     if (this.___MigrationHistoryTableAdapter.Adapter.AcceptChangesDuringUpdate) {
                         this.___MigrationHistoryTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
                         adaptersWithAcceptChangesDuringUpdate.Add(this.___MigrationHistoryTableAdapter.Adapter);
-                    }
-                }
-                if ((this._addressesTableAdapter != null)) {
-                    revertConnections.Add(this._addressesTableAdapter, this._addressesTableAdapter.Connection);
-                    this._addressesTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(workConnection));
-                    this._addressesTableAdapter.Transaction = ((global::System.Data.SqlClient.SqlTransaction)(workTransaction));
-                    if (this._addressesTableAdapter.Adapter.AcceptChangesDuringUpdate) {
-                        this._addressesTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
-                        adaptersWithAcceptChangesDuringUpdate.Add(this._addressesTableAdapter.Adapter);
                     }
                 }
                 if ((this._appointmentsTableAdapter != null)) {
@@ -11843,10 +10862,6 @@ SELECT StaffId, StaffInfo_PersonId FROM Staffs WHERE (StaffId = @StaffId)";
                 if ((this.___MigrationHistoryTableAdapter != null)) {
                     this.___MigrationHistoryTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this.___MigrationHistoryTableAdapter]));
                     this.___MigrationHistoryTableAdapter.Transaction = null;
-                }
-                if ((this._addressesTableAdapter != null)) {
-                    this._addressesTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._addressesTableAdapter]));
-                    this._addressesTableAdapter.Transaction = null;
                 }
                 if ((this._appointmentsTableAdapter != null)) {
                     this._appointmentsTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._appointmentsTableAdapter]));

@@ -3,7 +3,7 @@
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class Init4 : DbMigration
+    public partial class Init5 : DbMigration
     {
         public override void Up()
         {
@@ -11,7 +11,7 @@
                 "dbo.Appointments",
                 c => new
                     {
-                        AppointmentId = c.Int(nullable: false),
+                        AppointmentId = c.Int(nullable: false, identity: true),
                         DoctorId = c.Int(nullable: false),
                         PatientId = c.Int(nullable: false),
                         AppointmentDate = c.DateTime(),
