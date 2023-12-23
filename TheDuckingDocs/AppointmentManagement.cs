@@ -138,6 +138,11 @@ namespace TheDuckingDocs
         {
             var docId = cmboxDoctors.SelectedValue;
             var doc = model1.Doctors.Where(p => p.DoctorId == (int)docId).FirstOrDefault();
+
+            //reseting the DateTimePicker values
+            datetimeAppointment.MinDate = new DateTime(1753, 01, 01);
+            datetimeAppointment.MaxDate = new  DateTime(9998,12,31);
+
             datetimeAppointment.MinDate = doc.StartTime;
             datetimeAppointment.MaxDate = doc.EndTime;
         }
@@ -167,9 +172,9 @@ namespace TheDuckingDocs
 
         private void btnSearchDoctor_Click(object sender, EventArgs e)
         {
-            var doctorName = txtboxPatient.Text;
+            var doctorName = txtboxDoctor.Text;
             int doctorId;
-            int.TryParse(txtboxPatient.Text, out doctorId);
+            int.TryParse(txtboxDoctor.Text, out doctorId);
             var doctor = model1.Doctors.Where(p => p.DoctorInfo.Name == doctorName || p.DoctorId == doctorId).Select(p => new
             {
                 DoctorId = p.DoctorInfo.PersonId,
@@ -178,9 +183,9 @@ namespace TheDuckingDocs
             if (doctor != null)
             {
                 //cmboxPatients.Items.Clear();
-                cmboxPatients.DataSource = doctor;
-                cmboxPatients.ValueMember = "DoctorId";
-                cmboxPatients.DisplayMember = "Name";
+                cmboxDoctors.DataSource = doctor;
+                cmboxDoctors.ValueMember = "DoctorId";
+                cmboxDoctors.DisplayMember = "Name";
             }
             else
             {

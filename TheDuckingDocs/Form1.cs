@@ -69,7 +69,7 @@ namespace TheDuckingDocs
             AppointmentManagement appointments = new AppointmentManagement();
             appointments.ShowDialog();
         }
-
+         
         private void toolStripItemReservation_Click(object sender, EventArgs e)
         {
             var username = Settings.Default.Username;
@@ -84,9 +84,15 @@ namespace TheDuckingDocs
                 }
                 else
                 {
-                    
+                    AppointmentReservationForm form = new AppointmentReservationForm();
+                    form.ShowDialog();
                 }
             }
+        }
+
+        private void toolStripItemDoctors_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

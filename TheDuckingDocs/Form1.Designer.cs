@@ -30,11 +30,9 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.toolStripItemRgister = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripItemReservation = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripItemDoctors = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripItemNews = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripItemAboutUs = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripItemManagement = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripItemDocsManagement = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripItemAppointmentsManagement = new System.Windows.Forms.ToolStripMenuItem();
@@ -42,6 +40,7 @@
             this.button3 = new System.Windows.Forms.Button();
             this.btnLogout = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.btnAboutUs = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -50,11 +49,9 @@
             // 
             this.menuStrip1.BackColor = System.Drawing.Color.SteelBlue;
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripItemRgister,
             this.toolStripItemReservation,
             this.toolStripItemDoctors,
             this.toolStripItemNews,
-            this.toolStripItemAboutUs,
             this.toolStripItemManagement,
             this.toolStripItemDocsManagement,
             this.toolStripItemAppointmentsManagement});
@@ -63,13 +60,6 @@
             this.menuStrip1.Size = new System.Drawing.Size(1264, 24);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
-            // 
-            // toolStripItemRgister
-            // 
-            this.toolStripItemRgister.Name = "toolStripItemRgister";
-            this.toolStripItemRgister.Size = new System.Drawing.Size(55, 20);
-            this.toolStripItemRgister.Text = "ثبت نام";
-            this.toolStripItemRgister.Click += new System.EventHandler(this.toolStripItemRgister_Click);
             // 
             // toolStripItemReservation
             // 
@@ -83,18 +73,13 @@
             this.toolStripItemDoctors.Name = "toolStripItemDoctors";
             this.toolStripItemDoctors.Size = new System.Drawing.Size(86, 20);
             this.toolStripItemDoctors.Text = "لیست پزشکان";
+            this.toolStripItemDoctors.Click += new System.EventHandler(this.toolStripItemDoctors_Click);
             // 
             // toolStripItemNews
             // 
             this.toolStripItemNews.Name = "toolStripItemNews";
             this.toolStripItemNews.Size = new System.Drawing.Size(104, 20);
             this.toolStripItemNews.Text = "اخبار و اطلاعیه ها";
-            // 
-            // toolStripItemAboutUs
-            // 
-            this.toolStripItemAboutUs.Name = "toolStripItemAboutUs";
-            this.toolStripItemAboutUs.Size = new System.Drawing.Size(60, 20);
-            this.toolStripItemAboutUs.Text = "درباره ما";
             // 
             // toolStripItemManagement
             // 
@@ -170,6 +155,19 @@
             this.pictureBox1.TabIndex = 1;
             this.pictureBox1.TabStop = false;
             // 
+            // btnAboutUs
+            // 
+            this.btnAboutUs.BackColor = System.Drawing.Color.LightSkyBlue;
+            this.btnAboutUs.FlatAppearance.BorderColor = System.Drawing.Color.MediumSpringGreen;
+            this.btnAboutUs.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAboutUs.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAboutUs.Location = new System.Drawing.Point(12, 580);
+            this.btnAboutUs.Name = "btnAboutUs";
+            this.btnAboutUs.Size = new System.Drawing.Size(71, 27);
+            this.btnAboutUs.TabIndex = 2;
+            this.btnAboutUs.Text = "درباره ما";
+            this.btnAboutUs.UseVisualStyleBackColor = false;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -177,6 +175,7 @@
             this.AutoScroll = true;
             this.ClientSize = new System.Drawing.Size(1264, 681);
             this.Controls.Add(this.btnLogout);
+            this.Controls.Add(this.btnAboutUs);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.menuStrip1);
@@ -203,9 +202,7 @@
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem toolStripItemReservation;
         private System.Windows.Forms.ToolStripMenuItem toolStripItemDoctors;
-        private System.Windows.Forms.ToolStripMenuItem toolStripItemRgister;
         private System.Windows.Forms.ToolStripMenuItem toolStripItemNews;
-        private System.Windows.Forms.ToolStripMenuItem toolStripItemAboutUs;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button3;
@@ -213,6 +210,7 @@
         private System.Windows.Forms.ToolStripMenuItem toolStripItemManagement;
         private System.Windows.Forms.ToolStripMenuItem toolStripItemDocsManagement;
         private System.Windows.Forms.ToolStripMenuItem toolStripItemAppointmentsManagement;
+        private System.Windows.Forms.Button btnAboutUs;
     }
 }
 
