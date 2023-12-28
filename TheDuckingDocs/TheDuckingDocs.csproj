@@ -130,9 +130,9 @@
     <Compile Include="ManagementForm.Designer.cs">
       <DependentUpon>ManagementForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202312231230584_Init5.cs" />
-    <Compile Include="Migrations\202312231230584_Init5.designer.cs">
-      <DependentUpon>202312231230584_Init5.cs</DependentUpon>
+    <Compile Include="Migrations\202312271400400_Init6.cs" />
+    <Compile Include="Migrations\202312271400400_Init6.designer.cs">
+      <DependentUpon>202312271400400_Init6.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Model1.cs" />
@@ -182,8 +182,8 @@
     <EmbeddedResource Include="ManagementForm.resx">
       <DependentUpon>ManagementForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202312231230584_Init5.resx">
-      <DependentUpon>202312231230584_Init5.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202312271400400_Init6.resx">
+      <DependentUpon>202312271400400_Init6.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PatientInfoForm.resx">
       <DependentUpon>PatientInfoForm.cs</DependentUpon>

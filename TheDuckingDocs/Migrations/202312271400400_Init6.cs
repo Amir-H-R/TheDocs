@@ -3,7 +3,7 @@
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class Init5 : DbMigration
+    public partial class Init6 : DbMigration
     {
         public override void Up()
         {
@@ -19,9 +19,9 @@
                     })
                 .PrimaryKey(t => t.AppointmentId)
                 .ForeignKey("dbo.Doctors", t => t.DoctorId, cascadeDelete: true)
-                .ForeignKey("dbo.Patients", t => t.AppointmentId)
-                .Index(t => t.AppointmentId)
-                .Index(t => t.DoctorId);
+                .ForeignKey("dbo.Patients", t => t.PatientId, cascadeDelete: true)
+                .Index(t => t.DoctorId)
+                .Index(t => t.PatientId);
             
             CreateTable(
                 "dbo.Doctors",
@@ -104,7 +104,6 @@
                         PatientId = c.Int(nullable: false, identity: true),
                         BirthDate = c.DateTime(nullable: false),
                         Address = c.String(),
-                        AppointmentId = c.Int(nullable: false),
                         PatientInfo_PersonId = c.Int(),
                     })
                 .PrimaryKey(t => t.PatientId)
@@ -153,7 +152,7 @@
         public override void Down()
         {
             DropForeignKey("dbo.Staffs", "StaffInfo_PersonId", "dbo.People");
-            DropForeignKey("dbo.Appointments", "AppointmentId", "dbo.Patients");
+            DropForeignKey("dbo.Appointments", "PatientId", "dbo.Patients");
             DropForeignKey("dbo.Patients", "PatientInfo_PersonId", "dbo.People");
             DropForeignKey("dbo.Appointments", "DoctorId", "dbo.Doctors");
             DropForeignKey("dbo.DoctorSpecializations", "SpecializationId", "dbo.Specializations");
@@ -176,8 +175,8 @@
             DropIndex("dbo.PeopleRoles", new[] { "RoleId" });
             DropIndex("dbo.PeopleRoles", new[] { "PersonId" });
             DropIndex("dbo.Doctors", new[] { "DoctorInfo_PersonId" });
+            DropIndex("dbo.Appointments", new[] { "PatientId" });
             DropIndex("dbo.Appointments", new[] { "DoctorId" });
-            DropIndex("dbo.Appointments", new[] { "AppointmentId" });
             DropTable("dbo.SpecializationDoctors");
             DropTable("dbo.RolePersons");
             DropTable("dbo.Staffs");

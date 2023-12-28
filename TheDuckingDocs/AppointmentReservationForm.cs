@@ -17,9 +17,16 @@ namespace TheDuckingDocs
     public partial class AppointmentReservationForm : Form
     {
         IModel1 model1 = new Model1();
+        int Id;
         public AppointmentReservationForm()
         {
             this.Icon = Properties.Resources.hospital_icon_7294_Windows;
+            InitializeComponent();
+        }
+        public AppointmentReservationForm(int id)
+        {
+            this.Icon = Properties.Resources.hospital_icon_7294_Windows;
+            Id = id;
             InitializeComponent();
         }
 
@@ -28,16 +35,27 @@ namespace TheDuckingDocs
             datetimeAppointment.Format = DateTimePickerFormat.Custom;
             datetimeAppointment.CustomFormat = "dd/MM/yyyy hh:mm";
 
+            var doctor = model1.Doctors.Where(p => p.DoctorId == Id).Select(p => new
+            {
+                DoctorId = p.DoctorId,
+                Name = p.DoctorInfo.Name
+            }).ToList();
             var doctors = model1.Doctors.Select(p => new
             {
                 DoctorId = p.DoctorId,
                 Name = p.DoctorInfo.Name
             }).ToList();
-            cmboxDoctors.DataSource = doctors;
-
+            if (doctor.Count != 0)
+            {
+                cmboxDoctors.DataSource = doctor;
+            }
+            else
+            {
+                cmboxDoctors.DataSource = doctors;
+            }
             var username = Settings.Default.Username;
             var patient = model1.Patients.Where(p => p.PatientInfo.UserName == username).FirstOrDefault();
-            var userAppointments = model1.Appointments.Where(p => p.PatientId == patient.PatientInfo.PersonId).Select(p => new
+            var userAppointments = model1.Appointments.Where(p => p.PatientId == patient.PatientId).Select(p => new
             {
                 DoctorName = p.Doctor.DoctorInfo.Name,
                 AppointmentDate = p.AppointmentDate,
