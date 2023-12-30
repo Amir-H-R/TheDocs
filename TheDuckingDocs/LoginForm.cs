@@ -34,7 +34,6 @@ namespace TheDuckingDocs
         {
             MainForm mainForm1 = new MainForm();
             IModel1 model = new Model1();
-            var sds = model.People.Include(p => p.PeopleRoles).Where(p => p.UserName == txtboxUsername.Text && p.Password == txtboxPassword.Text).AsQueryable();
             Person user = model.People.Include(p => p.PeopleRoles).Where(p => p.UserName == txtboxUsername.Text && p.Password == txtboxPassword.Text).FirstOrDefault();
             if (user != null)
             {
@@ -46,12 +45,16 @@ namespace TheDuckingDocs
                 {
                     mainForm1.ManagementVisibility = true;
                     mainForm1.DocsManagementVisibility = true;
+                    mainForm1.AppointmentsManagementVisibility = true;
                 }
                 this.Hide();
                 mainForm1.ShowDialog();
                 this.Close();
             }
-
+            else
+            {
+                MessageBox.Show("کاربر یافت نشد");
+            }
         }
 
         private void LoginForm_Load(object sender, EventArgs e)

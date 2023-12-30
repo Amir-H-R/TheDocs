@@ -49,7 +49,7 @@ namespace TheDuckingDocs
             {
                 AppointmentId = p.AppointmentId,
                 DoctorId = p.DoctorId,
-                DoctorName = p.Doctor.DoctorInfo.Name,
+                DoctorName = p.Doctor.DoctorInfo.Name + " " + p.Doctor.DoctorInfo.LastName,
                 PatientId = p.PatientId,
                 PatientName = p.Patient.PatientInfo.Name,
                 Status = p.Status,
@@ -59,7 +59,7 @@ namespace TheDuckingDocs
             {
                 AppointmentId = p.AppointmentId,
                 DoctorId = p.DoctorId,
-                DoctorName = p.Doctor.DoctorInfo.Name,
+                DoctorName = p.Doctor.DoctorInfo.Name + " " + p.Doctor.DoctorInfo.LastName,
                 PatientId = p.PatientId,
                 PatientName = p.Patient.PatientInfo.Name,
                 Status = p.Status,
@@ -103,7 +103,7 @@ namespace TheDuckingDocs
             Enum.TryParse(comboBox1.SelectedValue.ToString(), out status);
             AddAppointmentService appointmentService = new AddAppointmentService(model1);
             var userId = (int)cmboxPatients.SelectedValue;
-            var patient = model1.Patients.FirstOrDefault(p => p.PatientInfo.PersonId== userId);
+            var patient = model1.Patients.FirstOrDefault(p => p.PatientInfo.PersonId == userId);
 
             Appointment appointment = new Appointment()
             {
@@ -147,7 +147,7 @@ namespace TheDuckingDocs
 
             //reseting the DateTimePicker values
             datetimeAppointment.MinDate = new DateTime(1753, 01, 01);
-            datetimeAppointment.MaxDate = new  DateTime(9998,12,31);
+            datetimeAppointment.MaxDate = new DateTime(9998, 12, 31);
 
             datetimeAppointment.MinDate = doc.StartTime;
             datetimeAppointment.MaxDate = doc.EndTime;

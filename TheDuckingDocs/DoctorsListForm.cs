@@ -43,7 +43,7 @@ namespace TheDuckingDocs
             var doctors = model1.Doctors.Select(p => new
             {
                 Id = p.DoctorId,
-                DoctorName = p.DoctorInfo.Name,
+                DoctorName = p.DoctorInfo.Name + " " + p.DoctorInfo.LastName,
                 StartDate = p.StartTime,
                 Enddate = p.EndTime,
 
@@ -78,7 +78,7 @@ namespace TheDuckingDocs
             dataGridView1.DataSource = doctorsWithSpecialization.Select(p => new
             {
                 Id = p.DoctorId,
-                DoctorName = p.DoctorInfo.Name,
+                DoctorName = p.DoctorInfo.Name + " " + p.DoctorInfo.LastName,
                 StartDate = p.StartTime,
                 Enddate = p.EndTime,
 

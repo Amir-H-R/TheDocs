@@ -31,6 +31,11 @@ namespace TheDuckingDocs
             get { return toolStripItemDocsManagement.Visible; }
             set { toolStripItemDocsManagement.Visible = value; }
         }
+        public bool AppointmentsManagementVisibility
+        {
+            get { return toolStripItemAppointmentsManagement.Visible; }
+            set { toolStripItemAppointmentsManagement.Visible = value; }
+        }
 
         private void Form1_Load(object sender, EventArgs e)
         {

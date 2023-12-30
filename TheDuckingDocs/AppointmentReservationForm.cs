@@ -36,7 +36,7 @@ namespace TheDuckingDocs
             var patient = model1.Patients.Where(p => p.PatientInfo.UserName == username).FirstOrDefault();
             var userAppointments = model1.Appointments.Where(p => p.PatientId == patient.PatientId).Select(p => new
             {
-                DoctorName = p.Doctor.DoctorInfo.Name,
+                DoctorName = p.Doctor.DoctorInfo.Name + " " + p.Doctor.DoctorInfo.LastName,
                 AppointmentDate = p.AppointmentDate,
                 Status = p.Status
             }).ToList();
@@ -51,12 +51,12 @@ namespace TheDuckingDocs
             var doctor = model1.Doctors.Where(p => p.DoctorId == Id).Select(p => new
             {
                 DoctorId = p.DoctorId,
-                Name = p.DoctorInfo.Name
+                Name = p.DoctorInfo.Name + " " + p.DoctorInfo.LastName
             }).ToList();
             var doctors = model1.Doctors.Select(p => new
             {
                 DoctorId = p.DoctorId,
-                Name = p.DoctorInfo.Name
+                Name = p.DoctorInfo.Name + " " + p.DoctorInfo.LastName
             }).ToList();
             if (doctor.Count != 0)
             {

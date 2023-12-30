@@ -103,6 +103,7 @@
             this.toolStripItemAppointmentsManagement.Name = "toolStripItemAppointmentsManagement";
             this.toolStripItemAppointmentsManagement.Size = new System.Drawing.Size(99, 20);
             this.toolStripItemAppointmentsManagement.Text = "مدیریت نوبت ها";
+            this.toolStripItemAppointmentsManagement.Visible = false;
             this.toolStripItemAppointmentsManagement.Click += new System.EventHandler(this.toolStripItemAppointmentsManagement_Click);
             // 
             // button1
