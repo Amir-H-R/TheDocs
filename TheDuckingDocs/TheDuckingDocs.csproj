@@ -88,6 +88,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AboutUsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AboutUsForm.Designer.cs">
+      <DependentUpon>AboutUsForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="AppointmentManagement.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -156,11 +162,20 @@
     <Compile Include="SpecializationManagementForm.Designer.cs">
       <DependentUpon>SpecializationManagementForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="ToBeAddedForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ToBeAddedForm.Designer.cs">
+      <DependentUpon>ToBeAddedForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="_TheDuckingDocs_Model1DataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>_TheDuckingDocs_Model1DataSet.xsd</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="AboutUsForm.resx">
+      <DependentUpon>AboutUsForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="AppointmentManagement.resx">
       <DependentUpon>AppointmentManagement.cs</DependentUpon>
     </EmbeddedResource>
@@ -203,6 +218,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="SpecializationManagementForm.resx">
       <DependentUpon>SpecializationManagementForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ToBeAddedForm.resx">
+      <DependentUpon>ToBeAddedForm.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\DataSources\DoctorManagementForm.datasource" />

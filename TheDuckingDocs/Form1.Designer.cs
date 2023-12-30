@@ -80,6 +80,7 @@
             this.toolStripItemNews.Name = "toolStripItemNews";
             this.toolStripItemNews.Size = new System.Drawing.Size(104, 20);
             this.toolStripItemNews.Text = "اخبار و اطلاعیه ها";
+            this.toolStripItemNews.Click += new System.EventHandler(this.toolStripItemNews_Click);
             // 
             // toolStripItemManagement
             // 
@@ -116,6 +117,7 @@
             this.button1.TabIndex = 2;
             this.button1.Text = "توصیه های بهداشتی";
             this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // button3
             // 
@@ -129,6 +131,7 @@
             this.button3.TabIndex = 2;
             this.button3.Text = "تماس با ما";
             this.button3.UseVisualStyleBackColor = false;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // btnLogout
             // 
@@ -167,6 +170,7 @@
             this.btnAboutUs.TabIndex = 2;
             this.btnAboutUs.Text = "درباره ما";
             this.btnAboutUs.UseVisualStyleBackColor = false;
+            this.btnAboutUs.Click += new System.EventHandler(this.btnAboutUs_Click);
             // 
             // MainForm
             // 

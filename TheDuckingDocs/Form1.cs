@@ -70,7 +70,7 @@ namespace TheDuckingDocs
             AppointmentManagement appointments = new AppointmentManagement();
             appointments.ShowDialog();
         }
-         
+
         private void toolStripItemReservation_Click(object sender, EventArgs e)
         {
             var username = Settings.Default.Username;
@@ -95,6 +95,30 @@ namespace TheDuckingDocs
         {
             DoctorsListForm doctorsList = new DoctorsListForm();
             doctorsList.ShowDialog();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            ToBeAddedForm form = new ToBeAddedForm();
+            form.ShowDialog();
+        }
+
+        private void btnAboutUs_Click(object sender, EventArgs e)
+        {
+            ToBeAddedForm form = new ToBeAddedForm();
+            form.ShowDialog();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            AboutUsForm form = new AboutUsForm();
+            form.ShowDialog();
+        }
+
+        private void toolStripItemNews_Click(object sender, EventArgs e)
+        {
+            ToBeAddedForm form = new ToBeAddedForm();
+            form.ShowDialog();
         }
     }
 }

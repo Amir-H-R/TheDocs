@@ -30,6 +30,19 @@ namespace TheDuckingDocs
             InitializeComponent();
         }
 
+        private void GetUserAppointments()
+        {
+            var username = Settings.Default.Username;
+            var patient = model1.Patients.Where(p => p.PatientInfo.UserName == username).FirstOrDefault();
+            var userAppointments = model1.Appointments.Where(p => p.PatientId == patient.PatientId).Select(p => new
+            {
+                DoctorName = p.Doctor.DoctorInfo.Name,
+                AppointmentDate = p.AppointmentDate,
+                Status = p.Status
+            }).ToList();
+            dataGridView1.DataSource = userAppointments;
+        }
+
         private void AppointmentReservationForm_Load(object sender, EventArgs e)
         {
             datetimeAppointment.Format = DateTimePickerFormat.Custom;
@@ -53,15 +66,7 @@ namespace TheDuckingDocs
             {
                 cmboxDoctors.DataSource = doctors;
             }
-            var username = Settings.Default.Username;
-            var patient = model1.Patients.Where(p => p.PatientInfo.UserName == username).FirstOrDefault();
-            var userAppointments = model1.Appointments.Where(p => p.PatientId == patient.PatientId).Select(p => new
-            {
-                DoctorName = p.Doctor.DoctorInfo.Name,
-                AppointmentDate = p.AppointmentDate,
-                Status = p.Status
-            }).ToList();
-            dataGridView1.DataSource = userAppointments;
+            GetUserAppointments();
         }
 
         private void btnAddAppointment_Click(object sender, EventArgs e)
@@ -77,6 +82,7 @@ namespace TheDuckingDocs
                 Status = Status.Active,
             });
             MessageBox.Show(results.Message);
+            GetUserAppointments();
         }
 
         private void btnSearchDoctor_Click(object sender, EventArgs e)
