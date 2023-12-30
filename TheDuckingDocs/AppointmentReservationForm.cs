@@ -32,6 +32,7 @@ namespace TheDuckingDocs
 
         private void GetUserAppointments()
         {
+            model1 = new Model1();
             var username = Settings.Default.Username;
             var patient = model1.Patients.Where(p => p.PatientInfo.UserName == username).FirstOrDefault();
             var userAppointments = model1.Appointments.Where(p => p.PatientId == patient.PatientId).Select(p => new
