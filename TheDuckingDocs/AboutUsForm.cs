@@ -27,5 +27,11 @@ namespace TheDuckingDocs
         {
             System.Diagnostics.Process.Start("https://t.me/foad_atefi");
         }
+
+        private void linkLabel3_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            System.Diagnostics.Process.Start("https://github.com/SaraKhedmati");
+
+        }
     }
 }

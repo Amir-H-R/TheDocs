@@ -151,7 +151,7 @@
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Image = global::TheDuckingDocs.Properties.Resources.illustration_graphic_of_hospital_building_medical_and_healthcare_concept_perfect_for_web_landing_page_banner_poster_etc_vector__2_1;
             this.pictureBox1.Location = new System.Drawing.Point(0, 0);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(1264, 681);

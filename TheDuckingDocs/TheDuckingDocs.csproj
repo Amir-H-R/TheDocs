@@ -274,6 +274,12 @@
   <ItemGroup>
     <None Include="Resources\hospital-icon-7294-Windows.ico" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\illustration-graphic-of-hospital-building-medical-and-healthcare-concept-perfect-for-web-landing-page-banner-poster-etc-vector %282%29.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\illustration-graphic-of-hospital-building-medical-and-healthcare-concept-perfect-for-web-landing-page-banner-poster-etc-vector %282%29.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>

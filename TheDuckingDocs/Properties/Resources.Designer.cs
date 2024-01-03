@@ -73,6 +73,17 @@ namespace TheDuckingDocs.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        public static System.Drawing.Bitmap illustration_graphic_of_hospital_building_medical_and_healthcare_concept_perfect_for_web_landing_page_banner_poster_etc_vector__2_1 {
+            get {
+                object obj = ResourceManager.GetObject("illustration-graphic-of-hospital-building-medical-and-healthcare-concept-perfect-" +
+                        "for-web-landing-page-banner-poster-etc-vector (2)1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         public static System.Drawing.Bitmap pint {
             get {
                 object obj = ResourceManager.GetObject("pint", resourceCulture);
