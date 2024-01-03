@@ -16,10 +16,19 @@ namespace Persistance.Services.UserServices
         }
         public ResultDto Execute(int id)
         {
-            var user = _model1.People.FirstOrDefault(p=>p.PersonId == id);
-            _model1.People.Remove(user);
-            _model1.SaveChanges();
-            return new ResultDto { Message = "کاربر با موفقیت حذف شد",Success = true};
+            try
+            {
+
+
+                var user = _model1.People.FirstOrDefault(p => p.PersonId == id);
+                _model1.People.Remove(user);
+                _model1.SaveChanges();
+                return new ResultDto { Message = "کاربر با موفقیت حذف شد", Success = true };
+            }
+            catch
+            {
+                return new ResultDto { Message = "عملیات با خطا مواجه شد", Success = true };
+            }
         }
     }
 }

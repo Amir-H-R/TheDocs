@@ -93,7 +93,7 @@ namespace TheDuckingDocs
             int.TryParse(txtboxDoctor.Text, out doctorId);
             var doctor = model1.Doctors.Where(p => p.DoctorInfo.Name == doctorName || p.DoctorId == doctorId).Select(p => new
             {
-                DoctorId = p.DoctorInfo.PersonId,
+                DoctorId = p.DoctorId,
                 Name = p.DoctorInfo.Name
             }).ToList();
             if (doctor != null)

@@ -86,9 +86,6 @@ namespace TheDuckingDocs
             }).ToList();
 
             cmboxDoctors.DataSource = doctors;
-            //  cmboxDoctors.ValueMember = "DoctorId";
-            // cmboxDoctors.DisplayMember = "Name";
-
             comboBox1.DataSource = Enum.GetValues(typeof(Status));
 
         }
@@ -165,7 +162,6 @@ namespace TheDuckingDocs
             }).ToList();
             if (patient != null)
             {
-                //cmboxPatients.Items.Clear();
                 cmboxPatients.DataSource = patient;
                 cmboxPatients.ValueMember = "PersonId";
                 cmboxPatients.DisplayMember = "Name";
@@ -204,10 +200,5 @@ namespace TheDuckingDocs
             txtboxDoctor.Text = string.Empty;
             txtboxPatient.Text = string.Empty;
         }
-    }
-    public class ComboBoxItem
-    {
-        public int Id { get; set; }
-        public string Name { get; set; }
     }
 }
